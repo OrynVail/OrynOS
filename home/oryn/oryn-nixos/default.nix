@@ -36,6 +36,7 @@ in {
     ../../../programs/mpv.nix
     ../../../programs/fastfetch.nix
     ../../../programs/zathura.nix
+    ../../../programs/obs-studio.nix
   ];
 
   # Home Manager basic settings
@@ -112,7 +113,7 @@ in {
       active = "Catppuccin Mocha";
       themes = [
         "Catppuccin Mocha"
-        "Vanta Black"
+        "Scarlet-Night"
       ]; #full list https://github.com/richen604/hydenix/tree/main/hydenix/sources/themes
     };
     waybar.enable = false;

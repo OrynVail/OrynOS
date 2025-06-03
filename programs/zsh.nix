@@ -19,6 +19,7 @@
       god = "sudo su";
       fuck = "sudo $(fc -ln -1)";
       pls = "sudo"; # Polite sudo
+      hyprland = "exec dbus-run-session -- Hyprland";
 
       # System
       cls = "clear";
