@@ -14,10 +14,10 @@
   <a href="https://hyprland.org/">
     <img src="https://img.shields.io/badge/Compositor-Hyprland-1e8bac.svg?style=for-the-badge&logo=hyprland&logoColor=ffffff" alt="Hyprland"/>
   </a>
-  <a href="https://github.com/OrynTools/OrynOS/blob/main/LICENSE">
+  <a href="https://github.com/OrynVail/OrynOS/blob/main/LICENSE">
     <img src="https://img.shields.io/badge/License-MIT-88b92d.svg?style=for-the-badge&logo=opensourceinitiative&logoColor=ffffff" alt="License: MIT"/>
   </a>
-  <a href="https://github.com/OrynTools/OrynOS/stargazers">
+  <a href="https://github.com/OrynVail/OrynOS/stargazers">
     <img src="https://img.shields.io/github/stars/OrynVail/OrynOS?style=for-the-badge&logo=github&color=f19d1a&logoColor=1d2021" alt="GitHub Stars"/>
   </a>
   <a href="https://github.com/OrynVail/OrynOS/commits/main">
@@ -29,6 +29,11 @@
 ---
 
 ## 🌟 Overview
+
+<div align="center" style="margin-bottom: 20px;">
+  <img src="./preview/1.png" alt="OrynOS Desktop Preview" style="max-width: 80%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);">
+</div>
+
 
 Welcome, traveler, to the heart of **OrynOS** – a meticulously sculpted NixOS configuration that transcends mere dotfiles. This repository is the digital loom upon which a personalized, performant, sovereign, and perfectly reproducible computing experience is woven.
 
@@ -50,7 +55,20 @@ What began as a journey through various digital landscapes has culminated in thi
 
 ## 📸 Gallery
 
-<table align="center" style="border: none; margin-left: auto; margin-right: auto;"> <tr> <td align="center" width="33%" style="border: none; padding: 10px;"> <img src="./preview/1.png" alt="Showcase Preview 1" style="max-width:100%; height:auto; display: block; margin-left: auto; margin-right: auto;"> <br> </td> <td align="center" width="33%" style="border: none; padding: 10px;"> <img src="./preview/2.png" alt="Showcase Preview 2" style="max-width:100%; height:auto; display: block; margin-left: auto; margin-right: auto;"> <br> </td> <td align="center" width="33%" style="border: none; padding: 10px;"> <img src="./preview/3.png" alt="Showcase Preview 3" style="max-width:100%; height:auto; display: block; margin-left: auto; margin-right: auto;"> <br> </td> </tr> </table>
+<table align="center" style="border: none; margin-left: auto; margin-right: auto;">
+  <tr>
+    <td align="center" width="50%" style="border: none; padding: 10px;">
+      <img src="./preview/2.png" alt="Showcase Preview 2" style="max-width:100%; height:auto; display: block; margin-left: auto; margin-right: auto; border-radius: 4px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);">
+      <br>
+      <em>Caption for Preview 2 (Optional)</em>
+    </td>
+    <td align="center" width="50%" style="border: none; padding: 10px;">
+      <img src="./preview/3.png" alt="Showcase Preview 3" style="max-width:100%; height:auto; display: block; margin-left: auto; margin-right: auto; border-radius: 4px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);">
+      <br>
+      <em>Caption for Preview 3 (Optional)</em>
+    </td>
+  </tr>
+</table>
 
 
 ---
@@ -168,17 +186,16 @@ sudo nixos-rebuild switch --flake .#oryn-nixos
 ---
 ## 🤝 Contributing
 
-Contributions are welcome! Please see our Contributing Guidelines for details.
+Contributions are welcome! 
 Ways to Contribute
  * 🐛 Report bugs or issues
  * 💡 Suggest new features or improvements
  * 📝 Improve documentation
- * 🔧 Submit pull requests
 
 ---
 ## 📜 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the [`LICENSE`](LICENSE) file for details.
 
 
 ---
