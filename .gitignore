@@ -1,0 +1,37 @@
+# NixOS/Nix build artifacts
+result*
+
+# Secrets (should ideally live outside the repo entirely)
+secrets/
+*.secret
+*.key
+
+# Editor Files
+*.swp
+*.swo
+*~
+*.bak
+.vscode/
+.idea/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Logs and temporary files
+*.log
+*.tmp
+
+# Python virtual environments
+venv/
+.venv/
+*.pyc
+__pycache__/
+
+# Node.js dependencies
+node_modules/
+
+# Direnv cache
+.direnv/
+
+hardware-configuration.nix
