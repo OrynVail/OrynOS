@@ -60,12 +60,10 @@ What began as a journey through various digital landscapes has culminated in thi
     <td align="center" width="50%" style="border: none; padding: 10px;">
       <img src="./preview/2.png" alt="Showcase Preview 2" style="max-width:100%; height:auto; display: block; margin-left: auto; margin-right: auto; border-radius: 4px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);">
       <br>
-      <em>Caption for Preview 2 (Optional)</em>
     </td>
     <td align="center" width="50%" style="border: none; padding: 10px;">
       <img src="./preview/3.png" alt="Showcase Preview 3" style="max-width:100%; height:auto; display: block; margin-left: auto; margin-right: auto; border-radius: 4px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);">
       <br>
-      <em>Caption for Preview 3 (Optional)</em>
     </td>
   </tr>
 </table>
