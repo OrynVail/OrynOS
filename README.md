@@ -21,7 +21,7 @@
     <img src="https://img.shields.io/github/stars/OrynVail/OrynOS?style=for-the-badge&logo=github&color=f19d1a&logoColor=1d2021" alt="GitHub Stars"/>
   </a>
   <a href="https://github.com/OrynVail/OrynOS/commits/main">
-    <img src="https://img.shields.io/github/last-commit/OrynTools/OrynOS?style=for-the-badge&logo=git&color=1ba595&logoColor=ffffff" alt="Last Commit"/>
+    <img src="https://img.shields.io/github/last-commit/OrynVail/OrynOS?style=for-the-badge&logo=git&color=1ba595&logoColor=ffffff" alt="Last Commit"/>
   </a>
 </div>
 
