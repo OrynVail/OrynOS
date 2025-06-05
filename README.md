@@ -31,7 +31,7 @@
 ## 🌟 Overview
 
 <div align="center" style="margin-bottom: 20px;">
-  <img src="./preview/1.png" alt="OrynOS Desktop Preview" style="max-width: 80%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);">
+  <img src="./preview/4.png" alt="OrynOS Desktop Preview" style="max-width: 80%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);">
 </div>
 
 
@@ -49,24 +49,15 @@ What began as a journey through various digital landscapes has culminated in thi
 | **🎨 Aesthetic** | True dark theme with the custom Helios color palette |
 | **🧩 Modular** | Clean separation of concerns for maintainability |
 | **🛡️ Secure** | Lanzaboote integration for UEFI Secure Boot |
+| **🖌️ Themes** | swww Wallpaper daemon + Theme select + Rofi launcher select |
+| **⚙️ System UI** | Wlogout + hyprlock + hypridle + Game Launcher |
 
 
 ---
 
 ## 📸 Gallery
 
-<table align="center" style="border: none; margin-left: auto; margin-right: auto;">
-  <tr>
-    <td align="center" width="50%" style="border: none; padding: 10px;">
-      <img src="./preview/2.png" alt="Showcase Preview 2" style="max-width:100%; height:auto; display: block; margin-left: auto; margin-right: auto; border-radius: 4px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);">
-      <br>
-    </td>
-    <td align="center" width="50%" style="border: none; padding: 10px;">
-      <img src="./preview/3.png" alt="Showcase Preview 3" style="max-width:100%; height:auto; display: block; margin-left: auto; margin-right: auto; border-radius: 4px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);">
-      <br>
-    </td>
-  </tr>
-</table>
+<table align="center" style="border: none; margin-left: auto; margin-right: auto;"> <tr> <td align="center" width="33%" style="border: none; padding: 10px;"> <img src="./preview/1.png" alt="Showcase Preview 1" style="max-width:100%; height:auto; display: block; margin-left: auto; margin-right: auto;"> <br> </td> <td align="center" width="33%" style="border: none; padding: 10px;"> <img src="./preview/2.png" alt="Showcase Preview 2" style="max-width:100%; height:auto; display: block; margin-left: auto; margin-right: auto;"> <br> </td> <td align="center" width="33%" style="border: none; padding: 10px;"> <img src="./preview/3.png" alt="Showcase Preview 3" style="max-width:100%; height:auto; display: block; margin-left: auto; margin-right: auto;"> <br> </td> </tr> </table>
 
 
 ---
@@ -131,7 +122,7 @@ What began as a journey through various digital landscapes has culminated in thi
 
 ```bash
 # Clone the repository
-git clone [https://github.com/OrynVail/OrynOS.git](https://github.com/OrynVail/OrynOS.git)
+git clone https://github.com/OrynVail/OrynOS.git
 cd OrynOS
 
 # Build and switch the NixOS system configuration
