@@ -68,12 +68,12 @@ in {
     boot = {
       enable = false;
     };
+    gaming.enable = true;
     hardware.enable = true;
     network.enable = true;
     nix.enable = true;
     sddm = {
       enable = false;
-      theme = pkgs.hydenix.sddm-candy;
     };
     system.enable = true;
   };

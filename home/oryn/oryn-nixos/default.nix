@@ -106,14 +106,18 @@ in {
     spotify.enable = true;
     swww.enable = true;
     terminals = {
-      enable = false;
+        enable = true; # enable terminals module
+        kitty = {
+          enable = true; # enable kitty terminal
+          configText = ""; # kitty config text
+      };
     };
     theme = {
       enable = true;
       active = "Catppuccin Mocha";
       themes = [
         "Catppuccin Mocha"
-        "Scarlet-Night"
+        "Scarlet Night"
       ]; #full list https://github.com/richen604/hydenix/tree/main/hydenix/sources/themes
     };
     waybar.enable = false;

@@ -14,19 +14,19 @@
     settings = {
       # Logo Configuration
       logo = {
-        source = ../themes/OrynOS.txt;
-        color = {
-          "1" = "red";  
-        };
+        source = ../themes/OrynOS.png;
+        height = 25;
+        #color = {
+        #  "1" = "red";  
+        # };
         padding = {
-          top = 2;
-          right = 4; 
+          top = 2; 
         };
       };
 
       # Global Display Settings - Oryn's aesthetic palette
       display = {
-        separator = " ▸ "; 
+        separator = " ➜ "; 
         color = {
           keys = "red";     
           separator = "red"; 
@@ -38,7 +38,7 @@
         # Title with custom format
         {
           type = "title";
-          format = "┌─────────────────────────────── {8} ───────────────────────────────┐"; 
+          format = " {8} "; 
           color = {
             host = "red";
           };
@@ -47,7 +47,7 @@
         # Philosophical opener
         {
           type = "custom";
-          format = "│               \"The machine remembers what you've forgotten\"              │";
+          format = " \"The machine remembers what you've forgotten\" ";
           color = "white";
         }
         
@@ -56,32 +56,32 @@
         # System Core - The Foundation
         {
           type = "custom";
-          format = "╭─────────────────────────── System Foundation ────────────────────────────╮";
+          format = "╭─ System Foundation ";
           color = "white";
         }
         
         {
-          key = "       ";
+          key = " ├   ";
           keyColor = "red";
           type = "os";
           format = "{name} {version} {arch}";
         }
         
         {
-          key = "  󰌢     ";
+          key = " ├ 󰌢  ";
           keyColor = "red"; 
           type = "host";
           format = "{name} {version}";
         }
         
         {
-          key = "  󰘳     ";
+          key = " ├ 󰘳  ";
           keyColor = "red";
           type = "kernel";
         }
         
         {
-          key = "  󰔚     ";
+          key = " ├ 󰔚  ";
           keyColor = "red";
           type = "uptime";
           format = "{days}d {hours}h {minutes}m";
@@ -92,25 +92,25 @@
         # Hardware Inventory - The Arsenal  
         {
           type = "custom";
-          format = "├──────────────────────────── Hardware Arsenal ────────────────────────────┤";
+          format = "├─ Hardware Arsenal ";
           color = "white";
         }
         
         {
-          key = "  󰻠     ";
+          key = " ├ 󰻠  ";
           keyColor = "red";
           type = "cpu";
           format = "{name} │ {cores-physical}C/{cores-logical}T @ {freq-max}";
         }
         
         {
-          key = "  󰍛     ";
+          key = " ├ 󰍛  ";
           keyColor = "red";
           type = "gpu";
         }
         
         {
-          key = "  󰑭     ";
+          key = " ├ 󰑭  ";
           keyColor = "red";
           type = "memory";
            percent = {
@@ -122,7 +122,7 @@
         }
         
         {
-          key = "  󰋊     ";
+          key = " ├ 󰋊  ";
           keyColor = "red";
           type = "disk";
         }
@@ -132,18 +132,18 @@
         # Software Stack - The Tools
         {
           type = "custom";
-          format = "├───────────────────────────── Software Stack ─────────────────────────────┤";
+          format = "├─ Software Stack ";
           color = "white";
         }
         
         {
-          key = "  󰏖     ";
+          key = " ├ 󰏖  ";
           keyColor = "red";
           type = "packages";
         }
         
         {
-          key = "  󰖟     ";
+          key = " ├ 󰖟  ";
           keyColor = "red";
           type = "display";
           compactType = "original-with-refresh-rate";
@@ -151,25 +151,25 @@
         }
         
         {
-          key = "  󰨇     ";
+          key = " ├ 󰨇  ";
           keyColor = "red";
           type = "de";
         }
         
         {
-          key = "  󰖲     ";
+          key = " ├ 󰖲  ";
           keyColor = "red";
           type = "wm";
         }
         
         {
-          key = "  󰆍     ";
+          key = " ├ 󰆍  ";
           keyColor = "red";
           type = "shell";
         }
         
         {
-          key = "  󰆍     ";
+          key = " ├ 󰆍  ";
           keyColor = "red";
           type = "terminal";
         }
@@ -179,12 +179,12 @@
         # Network Intelligence - The Connections
         {
           type = "custom";
-          format = "├──────────────────────────── Network Presence ────────────────────────────┤";
+          format = "├─ Network Presence ";
           color = "white";
         }
         
         {
-          key = "  󰩟     ";
+          key = " ├ 󰩟  ";
           keyColor = "red";
           type = "localip";
           format = "{ifname}: {ipv4}";
@@ -192,23 +192,23 @@
         
         "break"
         
-        # Color palette showcase 
-        {
-          type = "colors";
-          paddingLeft = 30;
-          symbol = "circle"; # More elegant than blocks
-          width = 4;
-          height = 1;
-        }
-        
-        "break"
-        
         # signature
         {
           type = "custom";
-          format = "└────────────────── OrynOS ─ \"Truth through transparency\" ─────────────────┘";
-          color = "238";
+          format = " OrynOS ─ \"Truth through transparency\" ";
+          color = "red";
         }
+
+        "break"
+
+        # Color palette showcase 
+        {
+          type = "colors";
+          paddingLeft = 25;
+          symbol = "circle"; 
+          width = 4;
+          height = 1;
+        }             
       ];
     };
   };
