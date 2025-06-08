@@ -106,10 +106,10 @@ in {
     spotify.enable = true;
     swww.enable = true;
     terminals = {
-        enable = true; # enable terminals module
-        kitty = {
-          enable = true; # enable kitty terminal
-          configText = ""; # kitty config text
+      enable = true; # enable terminals module
+      kitty = {
+        enable = true; # enable kitty terminal
+        configText = ""; # kitty config text
       };
     };
     theme = {
