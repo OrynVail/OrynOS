@@ -30,4 +30,9 @@
   home.file.".config/hypr/hyprland.conf" = {
     source = lib.mkForce ./hyprland.conf;
   };
+
+  home.file.".zprofile" = {
+    source = ../../../utilities/.zprofile;
+    force = true;
+  };
 }

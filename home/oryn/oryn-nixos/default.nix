@@ -19,7 +19,7 @@ in {
     ../../../utilities/waybar/waybar.nix
     ../../../utilities/xdg.nix
     ../../../utilities/kanshi.nix
-    ../../../programs/starship.nix
+    ../../../programs/starship1.nix
     ../../../programs/firefox.nix
     ../../../programs/thunderbird.nix
     ../../../programs/zsh.nix
@@ -35,8 +35,8 @@ in {
     ../../../programs/lazygit.nix
     ../../../programs/mpv.nix
     ../../../programs/fastfetch.nix
-    ../../../programs/zathura.nix
     ../../../programs/obs-studio.nix
+    ../../../programs/zathura.nix
   ];
 
   # Home Manager basic settings
@@ -46,7 +46,6 @@ in {
   home.packages = with pkgs; [
     persepolis
     qalculate-gtk
-    onlyoffice-bin
     sassc
     gimp
     kubectl
@@ -95,7 +94,7 @@ in {
       swappy.enable = false; # screenshot editor
     };
     shell = {
-      enable = false;
+      enable = false; # enable shell module
     };
     social = {
       enable = true;

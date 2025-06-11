@@ -12,6 +12,7 @@
 }: {
   imports = [
     ../../utilities/gnome.nix
+    ../../programs/documents.nix
   ];
 
   # Fonts

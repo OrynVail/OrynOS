@@ -16,7 +16,25 @@
     settings = let
       palette = theme.colorScheme.palette;
     in {
-      font.normal.family = theme.fonts.monospace.name;
+      font = {
+        size = 11.0; # Set the font size
+
+        normal = {
+          # The font family name must be a string (in quotes)
+          family = "CaskaydiaCove Nerd Font Mono";
+          style = "Regular";
+        };
+
+        bold = {
+          family = "CaskaydiaCove Nerd Font Mono";
+          style = "Bold";
+        };
+
+        italic = {
+          family = "CaskaydiaCove Nerd Font Mono";
+          style = "Italic";
+        };
+      };
 
       colors = {
         primary = {
