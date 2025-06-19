@@ -37,7 +37,7 @@
 
 Welcome, traveler, to the heart of **OrynOS** – a meticulously sculpted NixOS configuration that transcends mere dotfiles. This repository is the digital loom upon which a personalized, performant, sovereign, and perfectly reproducible computing experience is woven.
 
-What began as a journey through various digital landscapes has culminated in this current form: a swift Hyprland session, launched directly from the bare TTY for uncompromised speed and display fidelity, built upon the robust foundation of the [Hydenix](https://github.com/richen604/hydenix) framework.
+What began as a journey through various digital landscapes has culminated in this current form: a swift Hyprland session, launched directly from the bare TTY for uncompromised speed and display fidelity, built upon the robust foundation of the [HyDE](https://github.com/HyDE-Project/HyDE) framework.
 
 ### 🎯 Key Features
 
@@ -71,7 +71,7 @@ What began as a journey through various digital landscapes has culminated in thi
 | **⚡ Performance & Control** | Direct TTY → Hyprland for raw speed and complete display dominion                        |
 | **🧩 Modularity & Clarity** | Logical separation in `programs/`, `hosts/`, and `home/` for maintainable complexity     |
 | **🔒 Digital Sovereignty**  | Freedom from telemetry, tracking, and opaque processes                                   |
-| **🌑 Dark Aesthetic**       | Dark and deep aesthetic theme via custom Helios palette + Hydenix modules                |
+| **🌑 Dark Aesthetic**       | Dark and deep aesthetic theme via custom Helios palette + Hyde modules                |
 
 ---
 
@@ -191,7 +191,7 @@ This project is licensed under the MIT License - see the [`LICENSE`](LICENSE) fi
 ## 🙏 Acknowledgments
 
  * NixOS Community - For the incredible ecosystem
- * Hydenix Framework - Foundation and inspiration
+ * HyDE - Foundation and inspiration
  * Hyprland - The amazing Wayland compositor
 
  ---
