@@ -66,8 +66,13 @@ in {
 
     audio.enable = true;
     boot = {
-      enable = false;
+      enable = true; # enable boot module
+      useSystemdBoot = true; # disable for GRUB
+      grubTheme = "Retroboot"; # or "Pochita"
+      grubExtraConfig = ""; # additional GRUB configuration
+      kernelPackages = pkgs.linuxPackages_zen; # default zen kernel
     };
+
     gaming.enable = true;
     hardware.enable = true;
     network.enable = true;

@@ -19,17 +19,19 @@
   fonts.packages = theme.fontPackages;
 
   # Bootloader.
-  boot.loader.grub.enable = lib.mkForce false;
-  boot.loader.systemd-boot.enable = lib.mkForce false;
-  boot.loader.systemd-boot.configurationLimit = 5;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.systemd-boot.configurationLimit = 8;
+
+  boot.loader.efi = {
+    canTouchEfiVariables = true;
+  };
+
   boot.supportedFilesystems = ["ntfs"];
 
   # lanzaboote
-  boot.lanzaboote = {
-    enable = true;
-    pkiBundle = "/var/lib/sbctl";
-  };
+  #boot.lanzaboote = {
+  #  enable = true;
+  #  pkiBundle = "/var/lib/sbctl";
+  #};
 
   # Networking
   networking = {
@@ -84,6 +86,7 @@
     wmctrl
     eza
     tree
+    mc
   ];
 
   # System-wide zsh enablement

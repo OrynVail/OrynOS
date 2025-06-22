@@ -19,7 +19,7 @@ in {
     ../../../utilities/waybar/waybar.nix
     ../../../utilities/xdg.nix
     ../../../utilities/kanshi.nix
-    ../../../programs/starship1.nix
+    ../../../programs/starship.nix
     ../../../programs/firefox.nix
     ../../../programs/thunderbird.nix
     ../../../programs/zsh.nix
@@ -37,6 +37,7 @@ in {
     ../../../programs/fastfetch.nix
     ../../../programs/obs-studio.nix
     ../../../programs/zathura.nix
+    ../../../utilities/spicetify.nix
   ];
 
   # Home Manager basic settings
@@ -51,6 +52,7 @@ in {
     kubectl
     zip
     unzip
+    code-cursor
   ];
 
   hydenix.hm = {
@@ -102,7 +104,7 @@ in {
       webcord.enable = true;
       vesktop.enable = true;
     };
-    spotify.enable = true;
+    spotify.enable = false;
     swww.enable = true;
     terminals = {
       enable = true; # enable terminals module
