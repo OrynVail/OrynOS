@@ -57,7 +57,8 @@ What began as a journey through various digital landscapes has culminated in thi
 
 ## 📸 Gallery
 
-<table align="center" style="border: none; margin-left: auto; margin-right: auto;"> <tr> <td align="center" width="33%" style="border: none; padding: 10px;"> <img src="./preview/1.png" alt="Showcase Preview 1" style="max-width:100%; height:auto; display: block; margin-left: auto; margin-right: auto;"> <br> </td> <td align="center" width="33%" style="border: none; padding: 10px;"> <img src="./preview/2.png" alt="Showcase Preview 2" style="max-width:100%; height:auto; display: block; margin-left: auto; margin-right: auto;"> <br> </td> <td align="center" width="33%" style="border: none; padding: 10px;"> <img src="./preview/3.png" alt="Showcase Preview 3" style="max-width:100%; height:auto; display: block; margin-left: auto; margin-right: auto;"> <br> </td> </tr> </table>
+![neovim, fastfetch, cava](./preview/1.png)
+![btop, firefox, cmatrix](./preview/3.png)
 
 
 ---
