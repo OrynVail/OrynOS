@@ -46,12 +46,12 @@ What began as a journey through various digital landscapes has culminated in thi
 | **🔄 Declarative** | Every configuration is code – reproducible and version-controlled |
 | **⚡ Performance** | TTY-direct Hyprland for maximum speed and minimal overhead |
 | **🔒 Sovereign** | Privacy-focused, telemetry-free, complete control |
-| **🎨 Aesthetic** | True dark theme with the custom Helios color palette |
+| **🎨 Aesthetic** | Global Catppuccin Mocha + Custom Helios color palette |
 | **🧩 Modular** | Clean separation of concerns for maintainability |
 | **🛡️ Secure** | Lanzaboote integration for UEFI Secure Boot |
 | **🖌️ Themes** | swww Wallpaper daemon + Theme select + Rofi launcher select |
-| **⚙️ System UI** | Wlogout + hyprlock + hypridle + Game Launcher |
-
+| **⚙️ System UI** | Wlogout + hyprlock + hypridle + Game Launcher + Waybar |
+| **⚙️ Terminal & Shell** | Alacritty + Kitty + Zsh + Starship |
 
 ---
 
@@ -72,7 +72,7 @@ What began as a journey through various digital landscapes has culminated in thi
 | **⚡ Performance & Control** | Direct TTY → Hyprland for raw speed and complete display dominion                        |
 | **🧩 Modularity & Clarity** | Logical separation in `programs/`, `hosts/`, and `home/` for maintainable complexity     |
 | **🔒 Digital Sovereignty**  | Freedom from telemetry, tracking, and opaque processes                                   |
-| **🌑 Dark Aesthetic**       | Dark and deep aesthetic theme via custom Helios palette + Hyde modules                |
+| **🌑 Dark Aesthetic**       | Dark and deep aesthetic theme via Catppuccin & custom Helios palette + Hyde modules      |
 
 ---
 
@@ -177,7 +177,7 @@ sudo nixos-rebuild switch --flake .#oryn-nixos
 ## 🤝 Contributing
 
 Contributions are welcome! 
-Ways to Contribute
+Ways to Contribute : 
  * 🐛 Report bugs or issues
  * 💡 Suggest new features or improvements
  * 📝 Improve documentation
