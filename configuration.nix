@@ -44,7 +44,7 @@ in {
     extraSpecialArgs = {
       inherit inputs username hostname system theme userPkgs userConfig;
     };
-    backupFileExtension = "backup";
+    # backupFileExtension = "backup";
 
     users."${username}" = {
       imports = [

@@ -74,6 +74,9 @@
   # Passwordless sudo
   security.sudo.wheelNeedsPassword = false;
 
+  # Enable flatpak service
+  services.flatpak.enable = true;
+
   environment.systemPackages = with pkgs; [
     gcc
     sbctl

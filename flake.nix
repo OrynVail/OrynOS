@@ -38,6 +38,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
+
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
@@ -49,6 +51,7 @@
     lanzaboote,
     nur,
     nix-index-database,
+    nix-flatpak,
     spicetify-nix,
     nixos-hardware,
     ...
@@ -85,6 +88,7 @@
       modules = [
         ./configuration.nix
         lanzaboote.nixosModules.lanzaboote
+        nix-flatpak.nixosModules.nix-flatpak
 
         ({lib, ...}: {
           i18n.inputMethod.enabled = lib.mkForce null;

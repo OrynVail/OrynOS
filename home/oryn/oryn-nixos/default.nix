@@ -38,6 +38,7 @@ in {
     ../../../programs/obs-studio.nix
     ../../../programs/zathura.nix
     ../../../utilities/spicetify.nix
+    ../../../utilities/flatpak.nix
   ];
 
   # Home Manager basic settings
@@ -52,7 +53,6 @@ in {
     kubectl
     zip
     unzip
-    code-cursor
   ];
 
   hydenix.hm = {
