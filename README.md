@@ -44,6 +44,7 @@ What began as a journey through various digital landscapes has culminated in thi
 | Feature | Description |
 |---------|-------------|
 | **🔄 Declarative** | Every configuration is code – reproducible and version-controlled |
+| **📦 Flatpak Manager** | Declarative flatpak manager for NixOS |
 | **⚡ Performance** | TTY-direct Hyprland for maximum speed and minimal overhead |
 | **🔒 Sovereign** | Privacy-focused, telemetry-free, complete control |
 | **🎨 Aesthetic** | Global Catppuccin Mocha + Custom Helios color palette |
@@ -51,7 +52,7 @@ What began as a journey through various digital landscapes has culminated in thi
 | **🛡️ Secure** | Lanzaboote integration for UEFI Secure Boot |
 | **🖌️ Themes** | swww Wallpaper daemon + Theme select + Rofi launcher select |
 | **⚙️ System UI** | Wlogout + hyprlock + hypridle + Game Launcher + Waybar |
-| **⚙️ Terminal & Shell** | Alacritty + Kitty + Zsh + Starship |
+| **💻 Terminal & Shell** | Alacritty + Kitty + Zsh + Starship |
 
 ---
 
