@@ -13,9 +13,7 @@
   # Install alacritty via home-manager module
   programs.alacritty = {
     enable = true;
-    settings = let
-      palette = theme.colorScheme.palette;
-    in {
+    settings = {
       font = {
         size = 11.0; # Set the font size
 
@@ -38,30 +36,30 @@
 
       colors = {
         primary = {
-          # background = "#${palette.base00}";
-          foreground = "#${palette.base05}";
+          background = "#1e1e2e";
+          foreground = "#cdd6f4";
         };
 
         normal = {
-          black = "#${palette.base00}";
-          red = "#${palette.base08}";
-          green = "#${palette.base0B}";
-          yellow = "#${palette.base0A}";
-          blue = "#${palette.base0D}";
-          magenta = "#${palette.base0E}";
-          cyan = "#${palette.base0C}";
-          white = "#${palette.base05}";
+          black = "#1e1e2e";
+          red = "#f38ba8";
+          green = "#a6e3a1";
+          yellow = "#f9e2af";
+          blue = "#89b4fa";
+          magenta = "#eba0ac";
+          cyan = "#89dceb";
+          white = "#f5e0dc";
         };
 
         bright = {
-          black = "#${palette.base03}";
-          red = "#${palette.base08}";
-          green = "#${palette.base0B}";
-          yellow = "#${palette.base0A}";
-          blue = "#${palette.base0D}";
-          magenta = "#${palette.base0E}";
-          cyan = "#${palette.base0C}";
-          white = "#${palette.base07}";
+          black = "#313244";
+          red = "#f38ba8";
+          green = "#a6e3a1";
+          yellow = "#f9e2af";
+          blue = "#89b4fa";
+          magenta = "#eba0ac";
+          cyan = "#89dceb";
+          white = "#f5e0dc";
         };
       };
 
