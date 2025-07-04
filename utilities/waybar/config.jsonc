@@ -23,15 +23,14 @@
     "custom/r_end",
     "custom/l_end",
     "idle_inhibitor",
-    "clock",
+    "hyprland/workspaces",
     "custom/r_end",
     "custom/padd"
   ],
   "modules-center": [
     "custom/padd",
     "custom/l_end",
-    "hyprland/workspaces",
-    "hyprland/window",
+    "wlr/taskbar",
     "custom/r_end",
     "custom/padd"
   ],
@@ -48,9 +47,10 @@
     "custom/l_end",
     "privacy",
     "tray",
-    "battery",
     "custom/r_end",
     "custom/l_end",
+    "clock",
+    "battery",
     "custom/power",
     "custom/r_end",
     "custom/padd"
@@ -180,31 +180,20 @@
     "on-scroll-down": "hyprctl dispatch workspace +1",
     "persistent-workspaces": {}
   },
-  "hyprland/window": {
-    "format": " 󱄅 {}",
+  "wlr/taskbar": {
+    "format": "{icon}",
     "rotate": 0,
-    "separate-outputs": true,
-    "rewrite": {
-      "oryn@oryn-nixos:(.*)": " ",
-      "(.*) — Mozilla Firefox": " 󰈹",
-      "(.*)Mozilla Firefox": "Firefox 󰈹",
-      "(.*) - Visual Studio Code": " 󰨞",
-      "(.*)Visual Studio Code": "Code 󰨞",
-      "(.*) - Code - OSS": " 󰨞",
-      "(.*)Code - OSS": "Code 󰨞",
-      "(.*) — Dolphin": " 󰉋",
-      "(.*)Spotify": "Spotify 󰓇",
-      "(.*)Steam": "Steam 󰓓",
-      "(.*) - Discord": "  ",
-      "(.*)Netflix": "Netflix 󰝆 ",
-      "(.*) — Google chrome": "  ",
-      "(.*)Google chrome": "Google chrome  ",
-      "(.*) — Github": "  ",
-      "(.*)Github": "Github ",
-      "(.*)Spotify Free": "Spotify 󰓇",
-      "(.*)Spotify Premiun": "Spotify 󰓇",
-    },
-    "max-length": 50
+    "icon-size": 17,
+    "icon-theme": "Tela-circle-dracula",
+    "spacing": 0,
+    "tooltip-format": "{title}",
+    "on-click": "activate",
+    "on-click-middle": "close",
+    "ignore-list": [],
+    "app_ids-mapping": {
+      "firefoxdeveloperedition": "firefox-developer-edition",
+      "jetbrains-datagrip": "DataGrip"
+    }
   },
   "backlight": {
     "device": "intel_backlight",
@@ -286,7 +275,7 @@
     "signal": 20,
   },
   "privacy": {
-    "icon-size": 12,
+    "icon-size": 14,
     "icon-spacing": 5,
     "transition-duration": 250,
     "modules": [
@@ -303,7 +292,7 @@
     ]
   },
   "tray": {
-    "icon-size": 16,
+    "icon-size": 18,
     "rotate": 0,
     "spacing": 5
   },
@@ -313,10 +302,10 @@
       "warning": 30,
       "critical": 20
     },
-    "format": "{icon} {capacity}%",
+    "format": "{icon}",
     "rotate": 0,
-    "format-charging": " {capacity}%",
-    "format-plugged": " {capacity}%",
+    "format-charging": "",
+    "format-plugged": "",
     "format-alt": "{time} {icon}",
     "format-icons": [
       "󰂎",
@@ -342,12 +331,31 @@
     "interval": 86400, // once every day
     "tooltip": true
   },
+  "custom/wbar": {
+    "format": "{}", //    //
+    "rotate": 0,
+    "exec": "echo ; echo  switch bar //  dock",
+    "on-click": "wbarconfgen.sh n",
+    "on-click-right": "wbarconfgen.sh p",
+    "on-click-middle": "sleep 0.1 && quickapps.sh kitty firefox spotify code dolphin",
+    "interval": 86400,
+    "tooltip": true
+  },
+  "custom/cliphist": {
+    "format": "{}",
+    "rotate": 0,
+    "exec": "echo ; echo 󰅇 clipboard history",
+    "on-click": "sleep 0.1 && cliphist.sh -c",
+    "on-click-right": "sleep 0.1 && cliphist.sh -d",
+    "on-click-middle": "sleep 0.1 && cliphist.sh -w",
+    "interval": 86400, // once every day
+    "tooltip": true
+  },
   "custom/power": {
     "format": "{}",
     "rotate": 0,
     "exec": "echo ; echo  logout",
     "on-click": "logoutlaunch.sh 2",
-    "on-click-right": "logoutlaunch.sh 1",
     "interval": 86400, // once every day
     "tooltip": true
   },

@@ -16,9 +16,15 @@ in {
   imports = [
     ./mime.nix
     ./custom.nix
+
+    # utilities
     ../../../utilities/waybar/waybar.nix
     ../../../utilities/xdg.nix
     ../../../utilities/kanshi.nix
+    ../../../utilities/spicetify.nix
+    ../../../utilities/flatpak.nix
+
+    # programs
     ../../../programs/starship.nix
     ../../../programs/firefox.nix
     ../../../programs/thunderbird.nix
@@ -37,8 +43,9 @@ in {
     ../../../programs/fastfetch.nix
     ../../../programs/obs-studio.nix
     ../../../programs/zathura.nix
-    ../../../utilities/spicetify.nix
-    ../../../utilities/flatpak.nix
+
+    # scripts
+    ../../../scripts/hyprsunset.nix
   ];
 
   # Home Manager basic settings
@@ -118,7 +125,6 @@ in {
       active = "Catppuccin Mocha";
       themes = [
         "Catppuccin Mocha"
-        "Scarlet Night"
       ]; #full list https://github.com/richen604/hydenix/tree/main/hydenix/sources/themes
     };
     waybar.enable = false;
