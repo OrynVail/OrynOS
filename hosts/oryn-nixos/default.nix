@@ -63,7 +63,7 @@
   services.xserver.displayManager.lightdm.enable = lib.mkForce false;
   services.getty.autologinUser = username;
   console.enable = true;
-  services.xserver.displayManager.gdm.enable = false;
+  services.displayManager.gdm.enable = false;
   services.xserver.xkb = {
     layout = "us";
     variant = "";

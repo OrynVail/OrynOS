@@ -6,7 +6,7 @@
 }: let
   # Ensure firefox package installed
   home.packages = with pkgs; [
-    firefox
+    firefox-beta
   ];
 
   extensions = with pkgs.nur.repos.rycee.firefox-addons; [
@@ -175,7 +175,7 @@ in {
   programs.firefox = {
     enable = true;
 
-    package = pkgs.firefox-beta-bin;
+    package = pkgs.firefox-beta;
 
     profiles = {
       default = {

@@ -50,7 +50,7 @@ in {
       imports = [
         inputs.hydenix.lib.homeModules
         # Nix-index-database - for comma and command-not-found
-        inputs.nix-index-database.hmModules.nix-index
+        inputs.nix-index-database.homeModules.nix-index
         ./home/${username}/${hostname}/default.nix
       ];
     };

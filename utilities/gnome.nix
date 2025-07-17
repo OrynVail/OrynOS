@@ -6,7 +6,6 @@
   # List of Hyprland specific packages
   environment.systemPackages = with pkgs; [
     file-roller
-    gnome-text-editor
     loupe
     nautilus
     gvfs
