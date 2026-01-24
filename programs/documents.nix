@@ -6,7 +6,7 @@
 }: {
   environment.systemPackages = with pkgs; [
     # OFFICE tools
-    onlyoffice-bin
+    onlyoffice-desktopeditors
 
     # PDF
     zathura

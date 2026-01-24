@@ -1,32 +1,25 @@
 {
-  config,
-  userConfig,
   pkgs,
+  username,
+  config,
   lib,
   inputs,
-  hydenix,
-  theme,
-  userPkgs,
-  username,
-  hostname,
   ...
-}: let
-  palette = theme.colorScheme.palette;
-in {
+}: {
   imports = [
     ./mime.nix
+    ./hyprland.nix
     ./custom.nix
 
-    # utilities
-    ../../../utilities/waybar/waybar.nix
+    # --- Absolute Imports (Robust) ---
     ../../../utilities/xdg.nix
     ../../../utilities/kanshi.nix
     ../../../utilities/spicetify.nix
     ../../../utilities/flatpak.nix
 
-    # programs
+    # --- Programs ---
     ../../../programs/starship.nix
-    ../../../programs/firefox.nix
+    ../../../programs/brave.nix
     ../../../programs/thunderbird.nix
     ../../../programs/zsh.nix
     ../../../programs/fzf.nix
@@ -43,94 +36,83 @@ in {
     ../../../programs/fastfetch.nix
     ../../../programs/obs-studio.nix
     ../../../programs/zathura.nix
-
-    # scripts
-    ../../../scripts/hyprsunset.nix
   ];
 
-  # Home Manager basic settings
+  # --- Home Manager Core ---
   home.username = username;
   home.homeDirectory = "/home/${username}";
+  programs.home-manager.enable = true;
 
+  home.stateVersion = "25.05";
+
+  # --- Packages ---
   home.packages = with pkgs; [
-    persepolis
-    qalculate-gtk
-    sassc
-    gimp
-    kubectl
+    # Utilities
     zip
     unzip
+    wlogout # Was enabled in hydenix
+
+    # Graphics/Media
+    gimp
+    sassc
+    mangohud
+
+    # Dev/Cloud
+    kubectl
+
+    # Tools
+    persepolis
+    qalculate-gtk
+
+    # Social (Replaces Hydenix module)
+    vesktop # Better Discord client for Linux
+
+    papirus-icon-theme
+    papirus-folders
+
+    firefox
+
+    nwg-look
   ];
 
-  hydenix.hm = {
-    enable = true;
+  # --- Ported Configurations ---
 
-    comma.enable = true; # useful nix tool to run software without installing it first
-    dolphin.enable = false;
-    editors = {
-      enable = true;
-      neovim = false;
-      vscode = {
-        enable = true;
-        wallbash = true;
-      };
-      vim = false;
-    };
-    fastfetch.enable = false;
-    firefox = {
-      enable = false;
-    };
-    git = {
-      enable = true;
-      name = "Oryn Vail";
-      email = "ashish_pall@outlook.com";
-    };
-    hyde.enable = true;
-    hyprland.enable = true;
-    lockscreen = {
-      enable = true;
-      hyprlock = true;
-      swaylock = false;
-    };
-    notifications.enable = true;
-    qt.enable = true;
-    rofi.enable = true;
-    screenshots = {
-      enable = true;
-      grim.enable = true; # screenshot tool
-      slurp.enable = true; # region selection tool
-      satty.enable = true; # screenshot annotation tool
-      swappy.enable = false; # screenshot editor
-    };
-    shell = {
-      enable = false; # enable shell module
-    };
-    social = {
-      enable = true;
-      discord.enable = true;
-      webcord.enable = true;
-      vesktop.enable = true;
-    };
-    spotify.enable = false;
-    swww.enable = true;
-    terminals = {
-      enable = true; # enable terminals module
-      kitty = {
-        enable = true; # enable kitty terminal
-        configText = ""; # kitty config text
+  # Git Identity
+  programs.git = {
+    enable = true;
+    settings = {
+      user = {
+        name = "Oryn Vail";
+        email = "orynvail@gmail.com";
       };
     };
-    theme = {
-      enable = true;
-      active = "Catppuccin Mocha";
-      themes = [
-        "Catppuccin Mocha"
-      ]; #full list https://github.com/richen604/hydenix/tree/main/hydenix/sources/themes
-    };
-    waybar.enable = false;
-    wlogout.enable = true;
-    xdg.enable = true;
   };
 
-  programs.home-manager.enable = true;
+  # VSCode
+  programs.vscode = {
+    enable = true;
+  };
+
+  # Terminal
+  programs.kitty = {
+    enable = true;
+  };
+
+  programs.zsh = {
+    enable = true;
+    dotDir = "${config.xdg.configHome}/zsh";
+  };
+
+  stylix.targets.firefox = {
+    enable = true;
+    profileNames = [
+      "default"
+      "chatroulette"
+      "demo"
+      "sxm"
+    ];
+  };
+
+  home.sessionVariables = {
+  };
 }

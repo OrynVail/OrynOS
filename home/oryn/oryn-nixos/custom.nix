@@ -3,36 +3,13 @@
   lib,
   ...
 }: {
-  home.file.".config/hypr/monitors.conf" = {
-    source = lib.mkForce ./monitors.conf;
+  # We only place the bare essentials.
+  # Ambxst will handle the theme, keys, and animations.
+
+  xdg.configFile = {
+    # Keep monitors because you need to force 144Hz
+    "hypr/monitors.conf".source = ./monitors.conf;
   };
 
-  home.file.".config/hypr/animations.conf" = {
-    source = lib.mkForce ./animations.conf;
-  };
-
-  home.file.".config/hypr/userprefs.conf" = {
-    source = lib.mkForce ./userprefs.conf;
-  };
-
-  home.file.".config/hypr/keybindings.conf" = {
-    source = lib.mkForce ./keybindings.conf;
-  };
-
-  home.file.".config/hypr/hypridle.conf" = {
-    source = lib.mkForce ./hypridle.conf;
-  };
-
-  home.file.".config/hypr/hyde.conf" = {
-    source = lib.mkForce ./hyde.conf;
-  };
-
-  home.file.".config/hypr/hyprland.conf" = {
-    source = lib.mkForce ./hyprland.conf;
-  };
-
-  home.file.".zprofile" = {
-    source = ../../../utilities/.zprofile;
-    force = true;
-  };
+  # Cleaned up: No zprofile, no keybindings, no animations.
 }

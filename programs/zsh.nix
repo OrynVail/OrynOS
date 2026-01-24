@@ -22,6 +22,7 @@
       hyprland = "exec dbus-run-session -- Hyprland";
 
       # System
+      verify = "sudo nix-store --verify --check-contents --repair";
       cls = "clear";
       test = "sudo nixos-rebuild build --flake .#oryn-nixos"; #catch errors
       rebuild = "sudo nixos-rebuild switch --flake .#oryn-nixos";

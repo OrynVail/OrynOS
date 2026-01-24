@@ -1,99 +1,143 @@
 {
   inputs,
-  config,
-  lib,
+  pkgs,
   username,
   hostname,
-  theme,
-  userPkgs,
   system,
-  userConfig,
   ...
-}: let
-  # Package declaration
-  pkgs = import inputs.hydenix.inputs.hydenix-nixpkgs {
-    inherit (inputs.hydenix.lib) system;
-    config.allowUnfree = true;
-    overlays = [
-      inputs.hydenix.lib.overlays
-      inputs.nur.overlays.default
-    ];
-  };
-in {
-  # Any file that imports pkgs will use this
-  nixpkgs.pkgs = pkgs;
-
+}: {
   imports = [
-    inputs.hydenix.inputs.home-manager.nixosModules.home-manager
+    inputs.home-manager.nixosModules.home-manager
     ./hosts/${hostname}/hardware-configuration.nix
-    inputs.hydenix.lib.nixOsModules
     ./hosts/${hostname}/default.nix
     ./hosts/${hostname}/nvidia.nix
 
-    # For Intel CPUs
-    inputs.hydenix.inputs.nixos-hardware.nixosModules.common-cpu-intel
-
-    # Other common modules
-    inputs.hydenix.inputs.nixos-hardware.nixosModules.common-pc
-    inputs.hydenix.inputs.nixos-hardware.nixosModules.common-pc-ssd
+    # Hardware Support
+    inputs.nixos-hardware.nixosModules.common-cpu-intel
+    inputs.nixos-hardware.nixosModules.common-pc-laptop
+    inputs.nixos-hardware.nixosModules.common-pc-ssd
   ];
 
+  # --- 1. Home Manager Safety ---
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
+    backupFileExtension = "backup"; # <--- Prevents install errors
     extraSpecialArgs = {
-      inherit inputs username hostname system theme userPkgs userConfig;
+      inherit inputs username hostname system;
     };
-    # backupFileExtension = "backup";
-
     users."${username}" = {
       imports = [
-        inputs.hydenix.lib.homeModules
-        # Nix-index-database - for comma and command-not-found
-        inputs.nix-index-database.homeModules.nix-index
         ./home/${username}/${hostname}/default.nix
       ];
     };
   };
 
-  # global configurations
-  hydenix = {
+  # --- 2. Stylix Theming Engine ---
+
+  stylix = {
     enable = true;
+    # Default to a nice dark theme (Catppuccin Mocha)
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/ashes.yaml";
 
-    hostname = hostname;
-    timezone = "Asia/Kolkata";
-    locale = "en_US.UTF-8";
+    polarity = "dark";
 
-    audio.enable = true;
-    boot = {
-      enable = true; # enable boot module
-      useSystemdBoot = true; # disable for GRUB
-      grubTheme = "Retroboot"; # or "Pochita"
-      grubExtraConfig = ""; # additional GRUB configuration
-      kernelPackages = pkgs.linuxPackages_zen; # default zen kernel
+    icons = {
+      enable = true;
+      package = pkgs.papirus-icon-theme;
+      dark = "Papirus";
+      light = "Papirus";
     };
 
-    gaming.enable = true;
-    hardware.enable = true;
-    network.enable = true;
-    nix.enable = true;
-    sddm = {
-      enable = false;
+    # Cursor
+    cursor = {
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Classic";
+      size = 20;
     };
-    system.enable = true;
+
+    fonts = {
+      monospace = {
+        package = pkgs.ibm-plex;
+        name = "IBM Plex Mono";
+      };
+
+      sansSerif = {
+        package = pkgs.inter;
+        name = "Inter";
+      };
+
+      serif = {
+        # Note: 'pkgs.literate' -> 'pkgs.literata' in official nixpkgs
+        package = pkgs.literata;
+        name = "Literata";
+      };
+
+      emoji = {
+        package = pkgs.noto-fonts-color-emoji;
+        name = "Noto Color Emoji";
+      };
+
+      # Set default sizes if you want
+      sizes = {
+        terminal = 10;
+        applications = 10;
+        desktop = 10;
+      };
+    };
+
+    # We can control what stylix targets here
+    targets.grub.enable = true;
+    targets.console.enable = true;
   };
 
-  #! EDIT THESE VALUES (must match users defined above)
+  # --- 3. CLI Superpowers (Comma) ---
+  programs.nix-index-database.comma.enable = true;
+  # Keeps the index updated automatically
+  programs.command-not-found.enable = false; # Disable default to use nix-index
+
+  # --- 4. Visual Stack ---
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
+  services.displayManager = {
+    sddm.enable = false;
+    gdm = {
+      enable = true;
+      wayland = true;
+    };
+  };
+
+  # Audio
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
+
+  # System Basics
+  time.timeZone = "Asia/Kolkata";
+  i18n.defaultLocale = "en_US.UTF-8";
+
   users.users."${username}" = {
     isNormalUser = true;
-    extraGroups = [
-      "wheel"
-      "networkmanager"
-      "video"
-      "adbusers"
-    ];
+    extraGroups = ["wheel" "networkmanager" "video" "adbusers"];
     shell = pkgs.zsh;
   };
+
+  # Extra fonts you wanted (Stylix adds the ones above automatically)
+  fonts.packages = with pkgs; [
+    nerd-fonts.blex-mono
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.fira-code
+    nerd-fonts.meslo-lg
+    nerd-fonts.symbols-only
+    google-fonts
+    noto-fonts
+  ];
 
   system.stateVersion = "25.05";
 }

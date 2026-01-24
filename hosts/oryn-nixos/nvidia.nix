@@ -107,10 +107,10 @@ in {
 
   # Make lid actions inconsequential when using external monitor
   services.logind = {
-    lidSwitch = "ignore";
-    lidSwitchExternalPower = "ignore";
     settings = {
       Login = {
+        HandleLidSwitch = "ignore";
+        HandleLidSwitchExternalPower = "ignore";
         HandlePowerKey = "suspend";
         IdleAction = "suspend";
         IdleActionSec = "60min";
@@ -124,7 +124,7 @@ in {
 
     extraPackages = with pkgs; [
       nvidia-vaapi-driver # VAAPI support for NVIDIA
-      vaapiVdpau # VDPAU backend for VAAPI
+      libva-vdpau-driver # VDPAU backend for VAAPI
       libvdpau-va-gl # VDPAU implementation using VAAPI
     ];
   };
@@ -133,7 +133,7 @@ in {
   environment.systemPackages = with pkgs; [
     # GPU utilities
     vulkan-tools # Vulkan information and testing
-    glxinfo # OpenGL information
+    mesa-demos # OpenGL information
     libva-utils # VA-API debugging tools
     nvtopPackages.full # NVIDIA GPU monitoring tool
 

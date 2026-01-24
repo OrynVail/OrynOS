@@ -1,4 +1,4 @@
-{ pkgs, theme, ... }: 
+{ pkgs, ... }: 
 
 let
   # Define Catppuccin Mocha colors
@@ -34,9 +34,7 @@ let
 
   # Helper function to create powerline transitions
   transition = from: to: ''[](bg:${to} fg:${from})'';
-  
-  # Use Helios palette for specific elements if needed
-  palette = theme.colorScheme.palette;
+
 
   # Define powerline symbols with proper Unicode escaping for Nix
   symbols = {
@@ -225,19 +223,6 @@ in {
         vimcmd_replace_one_symbol = "[❮](bold fg:${catppuccin.lavender})";
         vimcmd_replace_symbol = "[❮](bold fg:${catppuccin.lavender})";
         vimcmd_visual_symbol = "[❮](bold fg:${catppuccin.yellow})";
-      };
-
-      # Keep kubernetes from original config
-      kubernetes = {
-        symbol = "󱃾 ";
-        style = "fg:${palette.base0C} bold";
-        format = ''[$symbol$context( \($namespace\) )]($style)'';
-        contexts = [
-          {
-            context_pattern = "arn:aws:eks:(?P<var_region>.*):(?P<var_account>[0-9]{12}):cluster/(?P<var_cluster>.*)";
-            context_alias = "$var_cluster";
-          }
-        ];
       };
 
       # Disabled Modules

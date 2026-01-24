@@ -2,19 +2,22 @@
   description = "Oryn's NixOS Configuration";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    # 1. Official Unstable Channel (Best for Hyprland/Gaming)
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+
+    hyprsettings.url = "github:acropolis914/hyprsettings";
 
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hydenix = {
-      url = "github:richen604/hydenix";
-    };
+    # 2. Stylix (Theming Engine)
+    stylix.url = "github:danth/stylix";
 
-    lanzaboote = {
-      url = "github:nix-community/lanzaboote/v0.4.2";
+    # 3. Nix-Index (Command-not-found powers)
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -23,13 +26,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Community Modules
     nur = {
       url = "github:nix-community/NUR";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    nix-index-database = {
-      url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -39,18 +38,17 @@
     };
 
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
-
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
   outputs = {
     self,
     nixpkgs,
+    hyprsettings,
     home-manager,
-    hydenix,
-    lanzaboote,
-    nur,
+    stylix,
     nix-index-database,
+    nur,
     nix-flatpak,
     spicetify-nix,
     nixos-hardware,
@@ -60,50 +58,57 @@
     username = "oryn";
     hostname = "oryn-nixos";
 
-    userLevelPkgs = import nixpkgs {
-      inherit system;
-      config = {allowUnfree = true;};
-      overlays = [nur.overlays.default];
+    # Unified Package Config
+    pkgsConfig = {
+      allowUnfree = true;
     };
+    
+    pkgsOverlays = [
+      nur.overlays.default
+    ];
 
-    orynTheme = import ./hosts/oryn-nixos/helios.nix {
-      pkgs = userLevelPkgs;
-      inherit inputs;
-      lib = userLevelPkgs.lib;
-    };
-
-    userConfig = {name = username;};
-
+    # Arguments passed to every module
     sharedSpecialArgs = {
-      inherit inputs;
-      inherit username hostname system;
-      theme = orynTheme;
-      userPkgs = userLevelPkgs;
-      inherit userConfig;
+      inherit inputs username hostname system;
     };
 
-    orynNixOS = hydenix.inputs.hydenix-nixpkgs.lib.nixosSystem {
-      inherit (hydenix.lib) system;
+  in {
+    # 1. System Configuration
+    nixosConfigurations."${hostname}" = nixpkgs.lib.nixosSystem {
       specialArgs = sharedSpecialArgs;
       modules = [
         ./configuration.nix
-        lanzaboote.nixosModules.lanzaboote
-        nix-flatpak.nixosModules.nix-flatpak
 
-        ({lib, ...}: {
-          i18n.inputMethod.enabled = lib.mkForce null;
-        })
+        hyprsettings.nixosModules.default
+        {
+          programs.hyprsettings.enable = true;
+        }
+        
+        # Modules injected directly here
+        nix-flatpak.nixosModules.nix-flatpak
+        stylix.nixosModules.stylix
+        nix-index-database.nixosModules.nix-index
+
+        # Global Nixpkgs Config
+        {
+          nixpkgs.config = pkgsConfig;
+          nixpkgs.overlays = pkgsOverlays;
+          i18n.inputMethod.enabled = nixpkgs.lib.mkForce null;
+        }
       ];
     };
-  in {
-    nixosConfigurations."${hostname}" = orynNixOS;
 
-    # Standalone home-manager configuration
-    # Allows: home-manager switch --flake .#oryn@oryn-nixos
+    # 2. Standalone Home Manager Configuration
     homeConfigurations."${username}@${hostname}" = home-manager.lib.homeManagerConfiguration {
-      pkgs = userLevelPkgs;
+      pkgs = import nixpkgs {
+        inherit system;
+        config = pkgsConfig;
+        overlays = pkgsOverlays;
+      };
+      
       extraSpecialArgs = sharedSpecialArgs;
       modules = [
+        stylix.homeManagerModules.stylix
         ./home/${username}/${hostname}/default.nix
       ];
     };

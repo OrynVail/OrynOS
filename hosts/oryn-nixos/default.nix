@@ -1,13 +1,7 @@
 {
-  config,
-  userConfig,
   pkgs,
   lib,
-  inputs,
-  theme,
-  userPkgs,
   username,
-  hostname,
   ...
 }: {
   imports = [
@@ -15,86 +9,102 @@
     ../../programs/documents.nix
   ];
 
-  # Fonts
-  fonts.packages = theme.fontPackages;
-
-  # Bootloader.
-  boot.loader.systemd-boot.configurationLimit = 8;
-
-  boot.loader.efi = {
-    canTouchEfiVariables = true;
+  # --- 1. Bootloader ---
+  boot.loader.systemd-boot = {
+    enable = true;
+    configurationLimit = 8;
   };
-
+  boot.loader.efi.canTouchEfiVariables = true;
   boot.supportedFilesystems = ["ntfs"];
 
-  # lanzaboote
-  #boot.lanzaboote = {
-  #  enable = true;
-  #  pkiBundle = "/var/lib/sbctl";
-  #};
+  # --- 2. Performance Core ---
+  # ZRAM: Double your RAM for free
+  zramSwap.enable = true;
 
-  # Networking
+  # SSD Health
+  services.fstrim.enable = true;
+
+  # Network Optimization (BBR + FQ)
+  boot.kernel.sysctl = {
+    "net.ipv4.tcp_congestion_control" = "bbr";
+    "net.core.default_qdisc" = "fq";
+  };
+
+  # --- 3. Networking ---
   networking = {
     networkmanager.enable = true;
     enableIPv6 = false;
     nameservers = ["8.8.8.8" "1.1.1.1"];
   };
 
-  # Disable systemd services that are affecting the boot time
   systemd.services = {
     NetworkManager-wait-online.enable = false;
     plymouth-quit-wait.enable = false;
   };
-
   services.resolved.enable = true;
 
-  # Kernel tweaks
-  boot.kernel.sysctl = {
-    "net.ipv4.tcp_congestion_control" = "bbr";
-    "net.core.default_qdisc" = "fq";
-  };
-
-  boot.kernelParams = [
-    "video=DP-3:e" # Enable DisplayPort-3
-    "video=eDP-1:d"
-  ];
-
-  services.xserver.enable = true;
-  services.xserver.displayManager.lightdm.enable = lib.mkForce false;
-  services.getty.autologinUser = username;
-  console.enable = true;
-  services.displayManager.gdm.enable = false;
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
+  # --- 4. Services ---
+  services.xserver = {
+    enable = true;
+    xkb.layout = "us";
+    xkb.variant = "";
   };
 
   services.printing.enable = false;
-
-  # Passwordless sudo
+  services.flatpak.enable = true;
   security.sudo.wheelNeedsPassword = false;
 
-  # Enable flatpak service
-  services.flatpak.enable = true;
-
+  # --- 5. Packages & Tools ---
   environment.systemPackages = with pkgs; [
-    gcc
+    # Core Tools
+    nh # Nix Helper (The new rebuild tool)
     sbctl
     wget
-    efibootmgr
-    nodejs
     curl
+    git
+
+    # Dev
+    gcc
+    nodejs
     python3
     cudaPackages.cudatoolkit
+
+    # Utils
     wmctrl
     eza
     tree
     mc
   ];
 
-  # System-wide zsh enablement
+  # --- 6. Bluetooth ---
+
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true; # crucial: ensures it doesn't default to 'off' on login
+    settings = {
+      General = {
+        Experimental = true; # Enables battery % reporting for headsets/controllers
+      };
+    };
+  };
+
+  services.blueman.enable = true;
+
   programs.zsh.enable = true;
 
-  nix.gc.automatic = true;
-  nix.gc.options = "--delete-older-than 30d";
+  # Configure 'nh' to know where your flake is
+  # CHANGE THIS PATH if your flake is not in /home/oryn/oryn-nixos
+  environment.sessionVariables = {
+    FLAKE = "/home/${username}/oryn-nixos";
+  };
+
+  # Garbage Collection (Handled by nh mostly)
+  nix.gc = {
+    automatic = true;
+    options = "--delete-older-than 30d";
+  };
+
+  nix.settings = {
+    experimental-features = ["nix-command" "flakes"];
+  };
 }
