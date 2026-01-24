@@ -1,7 +1,7 @@
 {
   pkgs,
   lib,
-  username,
+  config,
   ...
 }: {
   imports = [
@@ -93,9 +93,8 @@
   programs.zsh.enable = true;
 
   # Configure 'nh' to know where your flake is
-  # CHANGE THIS PATH if your flake is not in /home/oryn/oryn-nixos
   environment.sessionVariables = {
-    FLAKE = "/home/${username}/oryn-nixos";
+    NH_FLAKE = "/etc/nixos#${config.networking.hostName}";
   };
 
   # Garbage Collection (Handled by nh mostly)

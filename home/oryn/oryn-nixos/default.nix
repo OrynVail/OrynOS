@@ -13,7 +13,6 @@
 
     # --- Absolute Imports (Robust) ---
     ../../../utilities/xdg.nix
-    ../../../utilities/kanshi.nix
     ../../../utilities/spicetify.nix
     ../../../utilities/flatpak.nix
 
@@ -69,6 +68,9 @@
 
     papirus-icon-theme
     papirus-folders
+
+    libsForQt5.qt5.qtwayland
+    qt6.qtwayland
 
     firefox
 

@@ -20,10 +20,9 @@
       # --- STARTUP ---
       exec-once = [
         "ambxst"
+        "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
         "blueman-applet"
         "nm-applet"
-        "wl-paste --type text --watch cliphist store"
-        "gsettings set org.gnome.desktop.interface icon-theme 'Tela-circle-dracula'"
       ];
 
       # --- IMPORTS ---
@@ -82,8 +81,8 @@
         ];
 
         animation = [
-          "windows, 1, 6, quart, slide"
-        # "windowsOut, 1, 7, default, popin 80%"
+          "windows, 1, 6, quart"
+          "windowsOut, 1, 6, quart, slide"
           "border, 1, 6, quart"
           "borderangle, 1, 6, quart"
           "fade, 1, 6, quart"

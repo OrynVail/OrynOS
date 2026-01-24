@@ -5,7 +5,7 @@
   ...
 }: let
   # Use stable driver for RTX 3060 - beta only needed for very recent GPUs
-  nvidiaPackage = config.boot.kernelPackages.nvidiaPackages.stable;
+  nvidiaPackage = config.boot.kernelPackages.nvidiaPackages.beta;
 in {
   # Enable NVIDIA driver
   services.xserver.videoDrivers = ["nvidia"];
@@ -82,9 +82,6 @@ in {
 
     # Use the appropriate driver package
     package = nvidiaPackage;
-
-    # Prevent screen tearing
-    forceFullCompositionPipeline = true;
 
     # Prime configuration for hybrid graphics (Intel iGPU + NVIDIA dGPU)
     prime = {

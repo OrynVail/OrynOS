@@ -14,12 +14,12 @@
     # --- EXTENSIONS (Chrome Web Store IDs) ---
     extensions = [
       # Security & Privacy
-      {id = "cjpalhdlnbpafiamejdnhcphjbkeiagm";} # uBlock Origin
+      {id = "epcnnfbjfcgphgdmggkamkmgojdagdnn";} # uBlock Origin
       {id = "nngceckbapebfimnlniiiahkandclblb";} # Bitwarden
       {id = "pkehgijcmpdhfbdbbnkijodmdjhbjlgp";} # Privacy Badger
 
       # Productivity
-      {id = "mjoedlfflcchnleknnceiplgaeoegien";} # Simple Tab Groups
+      {id = "cgfpgnepljlgenjclbekbjdlgcodfmjp";} # Simple Tab Groups
       {id = "dbepggeogbaibhgnhhndojpepiihcmeb";} # Vimium
 
       # Content Enhancement
@@ -107,7 +107,6 @@
   # - Block cookies: Only 3rd party
   #
   # Appearance (brave://settings/appearance):
-  # - Theme: Let Stylix handle it (should auto-detect dark)
   # - Show home button: Off
   # - Show bookmarks bar: Only on new tab
   # - Use wide address bar: On

@@ -101,8 +101,8 @@
     enable = true;
     xwayland.enable = true;
   };
+
   services.displayManager = {
-    sddm.enable = false;
     gdm = {
       enable = true;
       wayland = true;
