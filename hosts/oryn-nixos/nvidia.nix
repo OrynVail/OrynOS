@@ -5,7 +5,7 @@
   ...
 }: let
   # Use stable driver for RTX 3060 - beta only needed for very recent GPUs
-  nvidiaPackage = config.boot.kernelPackages.nvidiaPackages.beta;
+  nvidiaDriverChannel = config.boot.kernelPackages.nvidiaPackages.latest;
 in {
   # Enable NVIDIA driver
   services.xserver.videoDrivers = ["nvidia"];
@@ -15,12 +15,11 @@ in {
     # Enable DRM kernel mode setting - required for Wayland
     "nvidia-drm.modeset=1"
 
-    # Preserve video memory allocations - improves suspend/resume reliability
-    "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
+    "nvidia_drm.fbdev=1"
 
     # Power management and performance settings
     # 0x3 = Prefer maximum performance when on AC power
-    "nvidia.NVreg_RegistryDwords=PowerMizerEnable=0x1;PerfLevelSrc=0x2222;PowerMizerLevel=0x3;PowerMizerDefaultAC=0x3"
+    "nvidia.NVred_RegistryDwords=RmEnableAggressiveVblank=1"
   ];
 
   # Blacklist nouveau to avoid conflicts
@@ -42,21 +41,16 @@ in {
     __GLX_VENDOR_LIBRARY_NAME = "nvidia";
 
     # Fix for hardware cursors on Wayland
+    # WLR_RENDERER = "vulkan";
     WLR_NO_HARDWARE_CURSORS = "1";
-    WLR_RENDERER = "vulkan";
-
-    # Wayland support for Electron apps
-    NIXOS_OZONE_WL = "1";
 
     # Enable G-Sync and Variable Refresh Rate if available
     __GL_GSYNC_ALLOWED = "1";
     __GL_VRR_ALLOWED = "1";
+    __GL_MaxFramesAllowed = "1";
 
     # Direct backend for NVIDIA
     NVD_BACKEND = "direct";
-
-    # Wayland support for Firefox
-    MOZ_ENABLE_WAYLAND = "1";
   };
 
   # NVIDIA configuration
@@ -70,7 +64,7 @@ in {
     # Power management
     powerManagement = {
       # Enable power management features
-      enable = false;
+      enable = true;
 
       # Enable fine-grained power management (turns off GPU when not in use)
       # Works well on Turing and newer GPUs like RTX 3060
@@ -81,7 +75,7 @@ in {
     modesetting.enable = true;
 
     # Use the appropriate driver package
-    package = nvidiaPackage;
+    package = nvidiaDriverChannel;
 
     # Prime configuration for hybrid graphics (Intel iGPU + NVIDIA dGPU)
     prime = {
@@ -146,10 +140,10 @@ in {
   ];
 
   # Nix cache for CUDA packages
-  nix.settings = {
-    substituters = ["https://cuda-maintainers.cachix.org"];
-    trusted-public-keys = [
-      "cuda-maintainers.cachix.org-1:0dq3bujKpuEPMCX6U4WylrUDZ9JyUG0VpVZa7CNfq5E="
-    ];
-  };
+  #nix.settings = {
+  #  substituters = ["https://cuda-maintainers.cachix.org"];
+  #  trusted-public-keys = [
+  #    "cuda-maintainers.cachix.org-1:0dq3bujKpuEPMCX6U4WylrUDZ9JyUG0VpVZa7CNfq5E="
+  #  ];
+  #};
 }

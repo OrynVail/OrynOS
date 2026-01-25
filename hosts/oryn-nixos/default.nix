@@ -88,14 +88,37 @@
     };
   };
 
+  systemd.user.services.hyprpolkitagent = {
+    description = "Hyprpolkitagent - Polkit authentication agent";
+    wantedBy = ["graphical-session.target"];
+    wants = ["graphical-session.target"];
+    after = ["graphical-session.target"];
+    serviceConfig = {
+      Type = "simple";
+      ExecStart = "${pkgs.hyprpolkitagent}/libexec/hyprpolkitagent";
+      Restart = "on-failure";
+      RestartSec = 1;
+      TimeoutStopSec = 10;
+    };
+  };
+
   services.blueman.enable = true;
 
   programs.zsh.enable = true;
 
-  # Configure 'nh' to know where your flake is
-  environment.sessionVariables = {
-    NH_FLAKE = "/etc/nixos#${config.networking.hostName}";
+  programs.nh = {
+    enable = true;
+    clean = {
+      enable = true;
+      extraArgs = "--keep-since 7d --keep 3";
+    };
+    flake = "/etc/nixos";
   };
+
+  # environment.systemPackages = with pkgs; [
+  #   nix-output-monitor
+  #   nvd
+  # ];
 
   # Garbage Collection (Handled by nh mostly)
   nix.gc = {

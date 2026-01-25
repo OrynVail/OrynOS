@@ -3,7 +3,6 @@
   lib,
   ...
 }: {
-  # List of Hyprland specific packages
   environment.systemPackages = with pkgs; [
     file-roller
     loupe
@@ -21,18 +20,18 @@
   # Enable security services
   programs.dconf.enable = true;
 
-  # Polkit core + “always-yes” rule
-  security.polkit = {
-    enable = true;
-    extraConfig = ''
-      polkit.addRule(function (action, subject) {
-        if (subject.isInGroup("wheel")) {
-          if (action.id.startsWith("org.freedesktop.udisks2.") ||
-              action.id == "org.gtk.vfs.file-operations-helper")
-            return polkit.Result.YES;
-        }
-      });
-    '';
+  security = {
+    rtkit.enable = true;
+    polkit.enable = true;
+    apparmor = {
+      enable = true;
+      killUnconfinedConfinables = true;
+      packages = [ pkgs.apparmor-profiles ];
+    };
+
+    # Prevent replacing the running kernel without a reboot
+    protectKernelImage = true;
+    acme.acceptTerms = true;
   };
 
   # PAM hook so the key-ring unlocks with TTY password
