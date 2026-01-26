@@ -16,8 +16,6 @@ OrynOS
 
 </div>
 
----
-
 ## Overview
 
 **OrynOS** is a personal NixOS configuration built around a native Wayland stack.
@@ -150,14 +148,7 @@ Running unstable means breakage is part of the contract.
 ---
 
 > [!NOTE]
-
 > This repository reflects one system and one way of working.
-
-* Use it as reference.
-* Fork it.
-* Strip it down.
-
-There are no guarantees beyond what NixOS already provides.
 
 ---
 
@@ -169,6 +160,6 @@ MIT. See [LICENSE](LICENSE).
 
 <div align="center">
 
-<sub>Declarative by design. Unimpressed by convention.</sub>
+<sub>❄️ Declarative by design. Unimpressed by convention.</sub>
 
 </div>
