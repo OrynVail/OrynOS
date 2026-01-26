@@ -1,38 +1,69 @@
-# NixOS/Nix build artifacts
-result*
+# --- NIX BUILD ARTIFACTS ---
+result
+result-*
+.direnv/
+.envrc
 
-# Secrets (should ideally live outside the repo entirely)
+# --- SECRETS (Critical!) ---
 secrets/
 *.secret
 *.key
+*.pem
+*.age
+*.gpg
+id_rsa*
+id_ed25519*
 
-# Editor Files
+# --- EDITOR TEMPORARY FILES ---
 *.swp
 *.swo
+*.swn
 *~
 *.bak
+.*.sw?
+\#*\#
+.\#*
+
+# --- IDE/EDITOR CONFIGS ---
 .vscode/
 .idea/
+*.code-workspace
+.vim/
+.netrwhist
 
-# OS-specific files
+# --- OS JUNK ---
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db
+desktop.ini
 
-# Logs and temporary files
+# --- LOGS & TEMP ---
 *.log
 *.tmp
+*.temp
+.cache/
+*.pid
 
-# Python virtual environments
+# --- LANGUAGE-SPECIFIC (if you have scripts) ---
+# Python
 venv/
 .venv/
 *.pyc
 __pycache__/
+*.pyo
+*.egg-info/
 
-# Node.js dependencies
+# Node.js
 node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-# Direnv cache
-.direnv/
+# Rust (if building tools)
+target/
+Cargo.lock
 
-# nix-build convenience link
-/result
