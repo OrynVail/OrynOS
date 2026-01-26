@@ -36,6 +36,3 @@ node_modules/
 
 # nix-build convenience link
 /result
-
-
-hardware-configuration.nix

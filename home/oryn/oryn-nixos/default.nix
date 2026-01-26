@@ -46,24 +46,18 @@
 
   # --- Packages ---
   home.packages = with pkgs; [
-    # Utilities
     zip
     unzip
-    wlogout # Was enabled in hydenix
 
-    # Graphics/Media
     gimp
     sassc
     mangohud
 
-    # Dev/Cloud
     kubectl
 
-    # Tools
     persepolis
     qalculate-gtk
 
-    # Social (Replaces Hydenix module)
     vesktop # Better Discord client for Linux
 
     papirus-icon-theme
@@ -76,8 +70,6 @@
 
     nwg-look
   ];
-
-  # --- Ported Configurations ---
 
   # Git Identity
   programs.git = {
@@ -109,9 +101,6 @@
     enable = true;
     profileNames = [
       "default"
-      "chatroulette"
-      "demo"
-      "sxm"
     ];
   };
 

@@ -1,5 +1,6 @@
 {
   pkgs,
+  username,
   lib,
   config,
   ...
@@ -112,7 +113,7 @@
       enable = true;
       extraArgs = "--keep-since 7d --keep 3";
     };
-    flake = "/etc/nixos";
+    flake = "/home/${username}/Projects/OrynOS";
   };
 
   # environment.systemPackages = with pkgs; [
@@ -121,10 +122,10 @@
   # ];
 
   # Garbage Collection (Handled by nh mostly)
-  nix.gc = {
-    automatic = true;
-    options = "--delete-older-than 30d";
-  };
+  #nix.gc = {
+  #  automatic = true;
+  #  options = "--delete-older-than 30d";
+  #};
 
   nix.settings = {
     experimental-features = ["nix-command" "flakes"];

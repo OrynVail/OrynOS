@@ -8,13 +8,13 @@
 
     settings = {
       env = [
-        "AQ_DRM_DEVICES,/dev/dri/card1:/dev/dri/card0"
+        "AQ_DRM_DEVICES,/dev/dri/card0:dev/dri/card1"
+        "WLR_DRM_NO_ATOMIC,1"
         "XDG_SESSION_TYPE,wayland"
         "NIXOS_OZONE_WL,1"
         "XDG_CURRENT_DESKTOP,Hyprland"
         "XDG_SESSION_DESKTOP,Hyprland"
         "GDK_BACKEND,wayland,x11,*"
-        "NIXOS_OZONE_WL,1"
         "ELECTRON_OZONE_PLATFORM_HINT,wayland"
         "MOZ_ENABLE_WAYLAND,1"
         "OZONE_PLATFORM,wayland"
@@ -26,22 +26,19 @@
         "QT_QPA_PLATFORMTHEME,qt6ct"
         "QT_AUTO_SCREEN_SCALE_FACTOR,1"
         "QT_ENABLE_HIGHDPI_SCALING,1"
-        "WLR_RENDERER_ALLOW_SOFTWARE,1"
         "NIXPKGS_ALLOW_UNFREE,1"
+        "WLR_RENDERER,vulkan"
       ];
 
       # --- STARTUP ---
       exec-once = [
         "ambxst"
-        "polkit-agent-helper-1"
-        "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
         "blueman-applet"
         "nm-applet"
       ];
 
       # --- IMPORTS ---
       source = [
-        "~/.config/hypr/monitors.conf"
       ];
 
       # --- DECORATION (CRITICAL FOR TRANSPARENCY) ---
@@ -57,6 +54,11 @@
           enabled = false;
         };
       };
+
+      monitor = [
+        "desc:GIGA-BYTE TECHNOLOGY CO. LTD. G24F 2 22410B002844, 1920x1080@144.00, 0x0, 1"
+        ", preferred, auto, 1" # Fallback for other displays
+      ];
 
       # --- INPUT CONFIG (CS:GO / Coding Optimized) ---
       input = {
@@ -81,7 +83,7 @@
       # --- MISC SETTINGS ---
       misc = {
         vfr = true;
-        vrr = 2;
+        vrr = 0;
         disable_hyprland_logo = true;
         disable_splash_rendering = true;
         force_default_wallpaper = 0;
