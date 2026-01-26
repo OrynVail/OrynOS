@@ -3,9 +3,9 @@
 OrynOS 
 <h1>
 
-<h3 align="center">
+<h2 align="center">
   <em>Pure NixOS. Native Hyprland. Declarative to the core.</em>
-</h3>
+</h2>
 
 
 
