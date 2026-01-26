@@ -149,15 +149,15 @@ Running unstable means breakage is part of the contract.
 
 ---
 
->[!Notes]
+> [!Notes ]
 >
->This repository reflects one system and one way of >working.
+> This repository reflects one system and one way of working.
 >
->* Use it as reference.
->* Fork it.
->* Strip it down.
+> * Use it as reference.
+> * Fork it.
+> * Strip it down.
 >
->There are no guarantees beyond what NixOS already >provides.
+> There are no guarantees beyond what NixOS already >provides.
 
 ---
 
