@@ -1,6 +1,6 @@
 <div align="center">
 <h1>
-⚡ OrynOS 2.0
+OrynOS 
 <h1>
 
 <p align="center">
@@ -149,9 +149,9 @@ Running unstable means breakage is part of the contract.
 
 ---
 
-## Notes 
+> [!NOTE]
 
-This repository reflects one system and one way of working.
+> This repository reflects one system and one way of working.
 
 * Use it as reference.
 * Fork it.
