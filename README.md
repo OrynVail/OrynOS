@@ -1,7 +1,11 @@
 <div align="center">
 <h1>
 OrynOS 
-<h1>
+</h1>
+
+<div align="center">
+  <img src="./preview/1.png" alt="OrynOS" width="90%"/>
+</div>
 
 <h2 align="center">
   <em>Pure NixOS. Native Hyprland. Declarative to the core.</em>
