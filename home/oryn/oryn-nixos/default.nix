@@ -9,7 +9,7 @@
   imports = [
     ./mime.nix
     ./hyprland.nix
-    ./custom.nix
+    #./custom.nix
 
     ../../../utilities/xdg.nix
     ../../../utilities/spicetify.nix
@@ -56,6 +56,7 @@
 
     persepolis
     qalculate-gtk
+    yt-dlp
 
     vesktop # Better Discord client for Linux
 
