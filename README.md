@@ -7,8 +7,6 @@ OrynOS
   <em>Pure NixOS. Native Hyprland. Declarative to the core.</em>
 </h2>
 
-
-
 ![NixOS](https://img.shields.io/badge/NixOS-unstable-C79595?style=flat-square&logo=nixos&logoColor=white)
 ![Hyprland](https://img.shields.io/badge/Hyprland-native-95AEC7?style=flat-square&logo=wayland&logoColor=white)
 ![Stylix](https://img.shields.io/badge/Stylix-base16-C795AE?style=flat-square)
@@ -28,7 +26,7 @@ Everything is declarative, modular, and meant to be understood.
 
 
 <div align="center">
-  <img src="./preview/1.png" alt="OrynOS" width="80%"/>
+  <img src="./preview/1.png" alt="OrynOS" width="90%"/>
 </div>
 
 ---
@@ -54,6 +52,23 @@ Everything is declarative, modular, and meant to be understood.
 | **Theming** | Stylix (Base16) |
 | **Terminal** | Alacritty + Kitty |
 | **Browser** | Brave + Firefox |
+
+---
+
+## Screenshots
+
+<details>
+<summary>📸 View</summary>
+<br>
+
+<div align="center">
+
+![Preview](./preview/2.png)
+![Preview](./preview/3.png)
+
+</div>
+
+</details>
 
 ---
 
@@ -148,7 +163,7 @@ Running unstable means breakage is part of the contract.
 ---
 
 > [!NOTE]
-> This repository reflects one system and one way of working.
+> This repository reflects one system and one way of working. There are no guarantees beyond what NixOS already provides.
 
 ---
 
