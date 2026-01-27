@@ -29,10 +29,6 @@ No imperative glue.
 Everything is declarative, modular, and meant to be understood.
 
 
-<div align="center">
-  <img src="./preview/1.png" alt="OrynOS" width="90%"/>
-</div>
-
 ---
 
 ## Characteristics
