@@ -34,6 +34,7 @@
     ../../../programs/obs-studio.nix
     ../../../programs/zathura.nix
     ../../../programs/vscode.nix
+    ../../../programs/ytmusic.nix
   ];
 
   # --- Home Manager Core ---
