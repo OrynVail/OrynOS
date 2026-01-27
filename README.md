@@ -28,7 +28,7 @@ Everything is declarative, modular, and meant to be understood.
 
 
 <div align="center">
-  <img src="./preview/4.png" alt="OrynOS Desktop" width="80%"/>
+  <img src="./preview/1.png" alt="OrynOS" width="80%"/>
 </div>
 
 ---
