@@ -22,13 +22,14 @@
       hyprland = "exec dbus-run-session -- Hyprland";
 
       # System
+      dots = "cd ~/Projects/OrynOS";
       verify = "sudo nix-store --verify --check-contents --repair";
       cls = "clear";
       test = "sudo nixos-rebuild build --flake .#oryn-nixos"; #catch errors
       rebuild = "sudo nixos-rebuild switch --flake .#oryn-nixos";
       rebuildboot = "sudo nixos-rebuild boot --flake .#oryn-nixos";
       gc = "sudo nix-collect-garbage -d";
-      clean = "sudo /etc/nixos/scripts/oryn_cleanup.sh";
+      clean = "sudo ~/Projects/OrynOS/scripts/oryn_cleanup.sh";
       update = "sudo nix flake update && sudo nixos-rebuild switch --flake .#oryn-nixos";
 
       # git

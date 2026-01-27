@@ -19,7 +19,6 @@
   boot.supportedFilesystems = ["ntfs"];
 
   # --- 2. Performance Core ---
-  # ZRAM: Double your RAM for free
   zramSwap.enable = true;
 
   # SSD Health
@@ -111,7 +110,7 @@
     enable = true;
     clean = {
       enable = true;
-      extraArgs = "--keep-since 7d --keep 3";
+      extraArgs = "--keep-since 14d --keep 5";
     };
     flake = "/home/${username}/Projects/OrynOS";
   };
@@ -120,12 +119,6 @@
   #   nix-output-monitor
   #   nvd
   # ];
-
-  # Garbage Collection (Handled by nh mostly)
-  #nix.gc = {
-  #  automatic = true;
-  #  options = "--delete-older-than 30d";
-  #};
 
   nix.settings = {
     experimental-features = ["nix-command" "flakes"];

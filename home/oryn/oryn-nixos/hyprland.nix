@@ -30,25 +30,26 @@
         "WLR_RENDERER,vulkan"
       ];
 
-      # --- STARTUP ---
       exec-once = [
         "ambxst"
         "blueman-applet"
         "nm-applet"
       ];
 
-      # --- IMPORTS ---
       source = [
       ];
-
-      # --- DECORATION (CRITICAL FOR TRANSPARENCY) ---
 
       decoration = {
         rounding = 4;
         active_opacity = 0.9;
         inactive_opacity = 0.8;
         blur = {
-          enabled = false;
+          enabled = true;
+          size = 6;
+          passes = 3;
+          new_optimizations = true;
+          ignore_opacity = true;
+          xray = false;
         };
         shadow = {
           enabled = false;
@@ -60,7 +61,7 @@
         ", preferred, auto, 1" # Fallback for other displays
       ];
 
-      # --- INPUT CONFIG (CS:GO / Coding Optimized) ---
+      # --- INPUT CONFIG ---
       input = {
         kb_layout = "us";
         kb_options = "grp:win_space_toggle";
@@ -83,14 +84,13 @@
       # --- MISC SETTINGS ---
       misc = {
         vfr = true;
-        vrr = 0;
+        vrr = 1;
         disable_hyprland_logo = true;
         disable_splash_rendering = true;
         force_default_wallpaper = 0;
         enable_swallow = true;
       };
 
-      # --- ANIMATIONS ---
       animations = {
         enabled = true;
 

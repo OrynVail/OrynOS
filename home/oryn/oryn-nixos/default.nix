@@ -11,12 +11,10 @@
     ./hyprland.nix
     ./custom.nix
 
-    # --- Absolute Imports (Robust) ---
     ../../../utilities/xdg.nix
     ../../../utilities/spicetify.nix
     ../../../utilities/flatpak.nix
 
-    # --- Programs ---
     ../../../programs/starship.nix
     ../../../programs/brave.nix
     ../../../programs/thunderbird.nix
@@ -35,6 +33,7 @@
     ../../../programs/fastfetch.nix
     ../../../programs/obs-studio.nix
     ../../../programs/zathura.nix
+    ../../../programs/vscode.nix
   ];
 
   # --- Home Manager Core ---
@@ -80,11 +79,6 @@
         email = "orynvail@gmail.com";
       };
     };
-  };
-
-  # VSCode
-  programs.vscode = {
-    enable = true;
   };
 
   # Terminal

@@ -12,8 +12,6 @@
   programs.alacritty = {
     enable = true;
     settings = {
-      # Font and Colors are handled by Stylix now!
-      # We only keep the layout/behavior settings.
 
       window = {
         decorations = "none";

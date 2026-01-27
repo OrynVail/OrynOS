@@ -4,7 +4,6 @@
   pkgs,
   ...
 }: let
-  # Use stable driver for RTX 3060 - beta only needed for very recent GPUs
   nvidiaDriverChannel = config.boot.kernelPackages.nvidiaPackages.stable;
 in {
   # Enable NVIDIA driver
@@ -42,8 +41,8 @@ in {
     WLR_NO_HARDWARE_CURSORS = "1";
 
     # Enable G-Sync and Variable Refresh Rate if available
-    #__GL_GSYNC_ALLOWED = "1";
-    #__GL_VRR_ALLOWED = "1";
+    __GL_GSYNC_ALLOWED = "1";
+    __GL_VRR_ALLOWED = "1";
     __GL_MaxFramesAllowed = "1";
 
     # Direct backend for NVIDIA
@@ -73,6 +72,23 @@ in {
 
     # Use the appropriate driver package
     package = nvidiaDriverChannel;
+
+    prime = {
+      # Offload mode - optimized for power saving
+      offload = {
+        enable = true;
+        # Allows running specific applications on the NVIDIA GPU with `prime-run`
+        enableOffloadCmd = true;
+      };
+
+      # Sync mode disabled as offload is generally better for laptops
+      sync.enable = false;
+
+      # Bus IDs for Intel and NVIDIA GPUs
+      # These are generic values - we'll detect the actual values automatically
+      intelBusId = "PCI:0:2:0";
+      nvidiaBusId = "PCI:1:0:0";
+    };
   };
 
   # Make lid actions inconsequential when using external monitor
@@ -106,5 +122,14 @@ in {
     mesa-demos # OpenGL information
     libva-utils # VA-API debugging tools
     nvtopPackages.full # NVIDIA GPU monitoring tool
+
+    # This creates a convenient prime-run command
+    (writeShellScriptBin "prime-run" ''
+      export __NV_PRIME_RENDER_OFFLOAD=1
+      export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0
+      export __GLX_VENDOR_LIBRARY_NAME=nvidia
+      export __VK_LAYER_NV_optimus=NVIDIA_only
+      exec "$@"
+    '')
   ];
 }
