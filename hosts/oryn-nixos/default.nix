@@ -1,6 +1,7 @@
 {
   pkgs,
   username,
+  inputs,
   lib,
   config,
   ...
@@ -74,6 +75,8 @@
     eza
     tree
     mc
+
+    inputs.nixvim.packages.x86_64-linux.default
   ];
 
   # --- 6. Bluetooth ---

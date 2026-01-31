@@ -5,8 +5,6 @@
     # 1. Official Unstable Channel (Best for Hyprland/Gaming)
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    hyprsettings.url = "github:acropolis914/hyprsettings";
-
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -37,6 +35,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixvim.url = "github:dc-tec/nixvim";
+
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
@@ -44,7 +44,6 @@
   outputs = {
     self,
     nixpkgs,
-    hyprsettings,
     home-manager,
     stylix,
     nix-index-database,
@@ -62,7 +61,7 @@
     pkgsConfig = {
       allowUnfree = true;
     };
-    
+
     pkgsOverlays = [
       nur.overlays.default
     ];
@@ -71,7 +70,6 @@
     sharedSpecialArgs = {
       inherit inputs username hostname system;
     };
-
   in {
     # 1. System Configuration
     nixosConfigurations."${hostname}" = nixpkgs.lib.nixosSystem {
@@ -79,11 +77,6 @@
       modules = [
         ./configuration.nix
 
-        hyprsettings.nixosModules.default
-        {
-          programs.hyprsettings.enable = true;
-        }
-        
         # Modules injected directly here
         nix-flatpak.nixosModules.nix-flatpak
         stylix.nixosModules.stylix
@@ -105,7 +98,7 @@
         config = pkgsConfig;
         overlays = pkgsOverlays;
       };
-      
+
       extraSpecialArgs = sharedSpecialArgs;
       modules = [
         stylix.homeManagerModules.stylix

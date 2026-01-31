@@ -59,6 +59,8 @@
     qalculate-gtk
     yt-dlp
 
+    mullvad-browser
+
     vesktop # Better Discord client for Linux
 
     papirus-icon-theme
@@ -66,8 +68,6 @@
 
     libsForQt5.qt5.qtwayland
     qt6.qtwayland
-
-    firefox
 
     nwg-look
   ];
