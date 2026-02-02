@@ -35,7 +35,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixvim.url = "github:dc-tec/nixvim";
+    nvix.url = "github:niksingh710/nvix";
 
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
@@ -73,6 +73,7 @@
   in {
     # 1. System Configuration
     nixosConfigurations."${hostname}" = nixpkgs.lib.nixosSystem {
+      inherit system;
       specialArgs = sharedSpecialArgs;
       modules = [
         ./configuration.nix

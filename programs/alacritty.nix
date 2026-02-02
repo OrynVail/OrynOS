@@ -15,31 +15,31 @@
 
       window = {
         decorations = "none";
-        dynamic_title = false;
+        dynamic_title = true;
         dynamic_padding = true;
         dimensions = {
           columns = 170;
           lines = 45;
         };
         padding = {
-          x = 5;
-          y = 1;
+          x = 11;
+          y = 11;
         };
       };
 
       general = {
         live_config_reload = true;
       };
-      
+
       env = {
         TERM = "xterm-256color";
       };
-      
+
       scrolling = {
         history = 10000;
         multiplier = 3;
       };
-      
+
       selection = {
         semantic_escape_chars = '',│`|:"' ()[]{}<>'';
         save_to_clipboard = true;

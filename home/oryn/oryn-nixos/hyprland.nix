@@ -40,7 +40,7 @@
       ];
 
       decoration = {
-        rounding = 4;
+        rounding = 16;
         active_opacity = 0.9;
         inactive_opacity = 0.8;
         blur = {
@@ -78,8 +78,6 @@
           natural_scroll = true;
         };
       };
-
-      # --- GENERAL SETTINGS ---
 
       # --- MISC SETTINGS ---
       misc = {

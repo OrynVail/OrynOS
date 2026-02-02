@@ -2,16 +2,14 @@
   pkgs,
   username,
   config,
-  lib,
   inputs,
   ...
 }: {
   imports = [
     ./mime.nix
     ./hyprland.nix
-    #./custom.nix
+    ./custom.nix
 
-    ../../../utilities/xdg.nix
     ../../../utilities/spicetify.nix
     ../../../utilities/flatpak.nix
 
@@ -21,7 +19,6 @@
     ../../../programs/zsh.nix
     ../../../programs/fzf.nix
     ../../../programs/alacritty.nix
-    ../../../programs/neovim
     ../../../programs/obsidian.nix
     ../../../programs/k9s.nix
     ../../../programs/krew.nix
@@ -35,6 +32,7 @@
     ../../../programs/zathura.nix
     ../../../programs/vscode.nix
     ../../../programs/ytmusic.nix
+    ../../../programs/kitty.nix
   ];
 
   # --- Home Manager Core ---
@@ -46,6 +44,7 @@
 
   # --- Packages ---
   home.packages = with pkgs; [
+    inputs.nvix.packages.${pkgs.system}.full
     zip
     unzip
 
@@ -68,8 +67,6 @@
 
     libsForQt5.qt5.qtwayland
     qt6.qtwayland
-
-    nwg-look
   ];
 
   # Git Identity
@@ -83,21 +80,9 @@
     };
   };
 
-  # Terminal
-  programs.kitty = {
-    enable = true;
-  };
-
   programs.zsh = {
     enable = true;
     dotDir = "${config.xdg.configHome}/zsh";
-  };
-
-  stylix.targets.firefox = {
-    enable = true;
-    profileNames = [
-      "default"
-    ];
   };
 
   home.sessionVariables = {

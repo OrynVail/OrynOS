@@ -58,7 +58,7 @@
   # --- 5. Packages & Tools ---
   environment.systemPackages = with pkgs; [
     # Core Tools
-    nh # Nix Helper (The new rebuild tool)
+    nh 
     sbctl
     wget
     curl
@@ -75,8 +75,6 @@
     eza
     tree
     mc
-
-    inputs.nixvim.packages.x86_64-linux.default
   ];
 
   # --- 6. Bluetooth ---
@@ -117,11 +115,6 @@
     };
     flake = "/home/${username}/Projects/OrynOS";
   };
-
-  # environment.systemPackages = with pkgs; [
-  #   nix-output-monitor
-  #   nvd
-  # ];
 
   nix.settings = {
     experimental-features = ["nix-command" "flakes"];
