@@ -51,7 +51,7 @@ Everything is declarative, modular, and meant to be understood.
 | **Shell / Bar** | Ambxst (AGS) |
 | **Theming** | Stylix (Base16) |
 | **Terminal** | Alacritty + Kitty |
-| **Browser** | Brave + Firefox |
+| **Browser** | Brave + Mullvad |
 
 ---
 
