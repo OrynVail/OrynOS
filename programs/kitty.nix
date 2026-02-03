@@ -4,7 +4,7 @@
         enable = true;
         settings = {
           # shell = "${getExe pkgs.tmux}";
-          cursor_trail = 3; # Fancy cursor movements (especially in nixvim)
+          cursor_trail = 2; # Fancy cursor movements (especially in nixvim)
           # cursor_trail_decay = "0.08 0.3"; # Animation speed
           # cursor_trail_start_threshold = "4";
           strip_trailing_spaces = "smart";

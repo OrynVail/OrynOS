@@ -9,7 +9,6 @@
     settings = {
       env = [
         "AQ_DRM_DEVICES,/dev/dri/card0:dev/dri/card1"
-        "WLR_DRM_NO_ATOMIC,1"
         "XDG_SESSION_TYPE,wayland"
         "NIXOS_OZONE_WL,1"
         "XDG_CURRENT_DESKTOP,Hyprland"
@@ -57,8 +56,8 @@
       };
 
       monitor = [
+        ",preferred,auto,1"
         "desc:GIGA-BYTE TECHNOLOGY CO. LTD. G24F 2 22410B002844, 1920x1080@144.00, 0x0, 1"
-        ", preferred, auto, 1" # Fallback for other displays
       ];
 
       # --- INPUT CONFIG ---
@@ -107,50 +106,50 @@
       };
 
       # --- WINDOW RULES ---
-      windowrulev2 = [
+      windowrule = [
         # Opacity: [Active] [Inactive] [Fullscreen]
-        "opacity 0.90 0.90 1.0, class:^(firefox)$"
-        "opacity 0.90 0.90 1.0, class:^(firefox-beta)$"
-        "opacity 0.90 0.90 1.0, class:^(Brave-browser)$"
-        "opacity 0.80 0.80 1.0, class:^(code-oss)$"
-        "opacity 0.80 0.80 1.0, class:^(Code)$"
-        "opacity 0.90 0.90 1.0, class:^(kitty)$"
-        "opacity 0.90 0.90 1.0, class:^(Alacritty)$"
-        "opacity 0.80 0.80 1.0, class:^(org.kde.dolphin)$"
-        "opacity 0.80 0.80 1.0, class:^(org.gnome.Nautilus)$"
-        "opacity 0.80 0.80 1.0, class:^(nwg-look)$"
-        "opacity 0.80 0.80 1.0, class:^(qt5ct)$"
-        "opacity 0.80 0.80 1.0, class:^(kvantummanager)$"
+        "match:class ^(firefox)$, opacity 0.90 0.90 1.0"
+        "match:class ^(firefox-beta)$, opacity 0.90 0.90 1.0"
+        "match:class ^(Brave-browser)$, opacity 0.90 0.90 1.0"
+        "match:class ^(code-oss)$, opacity 0.80 0.80 1.0"
+        "match:class ^(Code)$, opacity 0.80 0.80 1.0"
+        "match:class ^(kitty)$, opacity 0.90 0.90 1.0"
+        "match:class ^(Alacritty)$, opacity 0.90 0.90 1.0"
+        "match:class ^(org.kde.dolphin)$, opacity 0.80 0.80 1.0"
+        "match:class ^(org.gnome.Nautilus)$, opacity 0.80 0.80 1.0"
+        "match:class ^(nwg-look)$, opacity 0.80 0.80 1.0"
+        "match:class ^(qt5ct)$, opacity 0.80 0.80 1.0"
+        "match:class ^(kvantummanager)$, opacity 0.80 0.80 1.0"
 
         # System Tools
-        "opacity 0.80 0.70 1.0, class:^(org.pulseaudio.pavucontrol)$"
-        "opacity 0.80 0.70 1.0, class:^(blueman-manager)$"
-        "opacity 0.80 0.70 1.0, class:^(nm-applet)$"
+        "match:class ^(org.pulseaudio.pavucontrol)$, opacity 0.80 0.70 1.0"
+        "match:class ^(blueman-manager)$, opacity 0.80 0.70 1.0"
+        "match:class ^(nm-applet)$, opacity 0.80 0.70 1.0"
 
         # Media & Social
-        "opacity 0.70 0.70 1.0, class:^(Spotify)$"
-        "opacity 0.80 0.80 1.0, class:^(discord)$"
-        "opacity 0.80 0.80 1.0, class:^(vesktop)$"
+        "match:class ^(Spotify)$, opacity 0.70 0.70 1.0"
+        "match:class ^(discord)$, opacity 0.80 0.80 1.0"
+        "match:class ^(vesktop)$, opacity 0.80 0.80 1.0"
 
         # Floating Rules
-        "float, class:^(Signal)$"
-        "float, class:^(com.github.rafostar.Clapper)$"
-        "float, class:^(app.drey.Warp)$"
-        "float, class:^(net.davidotek.pupgui2)$"
-        "float, class:^(yad)$"
-        "float, class:^(eog)$"
-        "float, class:^(io.github.alainm23.planify)$"
-        "float, class:^(io.missioncenter.MissionCenter)$"
-        "float, class:^(blueman-manager)$"
-        "float, class:^(nm-applet)$"
-        "float, class:^(org.pulseaudio.pavucontrol)$"
+        "match:class ^(Signal)$, float on"
+        "match:class ^(com.github.rafostar.Clapper)$, float on"
+        "match:class ^(app.drey.Warp)$, float on"
+        "match:class ^(net.davidotek.pupgui2)$, float on"
+        "match:class ^(yad)$, float on"
+        "match:class ^(eog)$, float on"
+        "match:class ^(io.github.alainm23.planify)$, float on"
+        "match:class ^(io.missioncenter.MissionCenter)$, float on"
+        "match:class ^(blueman-manager)$, float on"
+        "match:class ^(nm-applet)$, float on"
+        "match:class ^(org.pulseaudio.pavucontrol)$, float on"
 
         # Picture-in-Picture
-        "float, title:^(Picture-in-Picture)$"
-        "pin, title:^(Picture-in-Picture)$"
-        "move 73% 72%, title:^(Picture-in-Picture)$"
-        "size 25% 25%, title:^(Picture-in-Picture)$"
-        "noinitialfocus, title:^(Picture-in-Picture)$"
+        "match:title ^(Picture-in-Picture)$, float on"
+        "match:title ^(Picture-in-Picture)$, pin on"
+        "match:title ^(Picture-in-Picture)$, move 73% 72%"
+        "match:title ^(Picture-in-Picture)$, size 25% 25%"
+        "match:title ^(Picture-in-Picture)$, no_initial_focus on"
       ];
     };
   };

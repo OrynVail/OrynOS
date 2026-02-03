@@ -18,6 +18,7 @@
   };
   boot.loader.efi.canTouchEfiVariables = true;
   boot.supportedFilesystems = ["ntfs"];
+  boot.enableContainers = true;
 
   # --- 2. Performance Core ---
   zramSwap.enable = true;
@@ -45,6 +46,7 @@
   services.resolved.enable = true;
 
   # --- 4. Services ---
+  services.displayManager.defaultSession = "hyprland";
   services.xserver = {
     enable = true;
     xkb.layout = "us";
@@ -58,7 +60,7 @@
   # --- 5. Packages & Tools ---
   environment.systemPackages = with pkgs; [
     # Core Tools
-    nh 
+    nh
     sbctl
     wget
     curl
@@ -75,6 +77,7 @@
     eza
     tree
     mc
+    killall
   ];
 
   # --- 6. Bluetooth ---

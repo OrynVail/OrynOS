@@ -57,7 +57,7 @@
     username = "oryn";
     hostname = "oryn-nixos";
 
-    # Unified Package Config
+    # Package Config
     pkgsConfig = {
       allowUnfree = true;
     };
@@ -87,6 +87,7 @@
         {
           nixpkgs.config = pkgsConfig;
           nixpkgs.overlays = pkgsOverlays;
+
           i18n.inputMethod.enabled = nixpkgs.lib.mkForce null;
         }
       ];

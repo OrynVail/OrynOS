@@ -78,7 +78,7 @@
         name = "Noto Color Emoji";
       };
 
-      # Set default sizes if you want
+      # Set default sizes
       sizes = {
         terminal = 10;
         applications = 10;
@@ -131,7 +131,7 @@
     shell = pkgs.zsh;
   };
 
-  # Extra fonts you wanted (Stylix adds the ones above automatically)
+  # Extra fonts
   fonts.packages = with pkgs; [
     nerd-fonts.blex-mono
     nerd-fonts.jetbrains-mono
