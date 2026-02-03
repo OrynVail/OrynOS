@@ -8,7 +8,7 @@
 
     settings = {
       env = [
-        "AQ_DRM_DEVICES,/dev/dri/card0:dev/dri/card1"
+        "AQ_DRM_DEVICES,/dev/dri/card1:/dev/dri/card0"
         "XDG_SESSION_TYPE,wayland"
         "NIXOS_OZONE_WL,1"
         "XDG_CURRENT_DESKTOP,Hyprland"
