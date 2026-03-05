@@ -142,5 +142,6 @@
     noto-fonts
   ];
 
+
   system.stateVersion = "25.05";
 }

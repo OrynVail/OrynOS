@@ -8,7 +8,7 @@
 
     settings = {
       env = [
-        "AQ_DRM_DEVICES,/dev/dri/card0"
+        "AQ_DRM_DEVICES,/dev/dri/card0:/dev/dri/card1"
         "XDG_SESSION_TYPE,wayland"
         "NIXOS_OZONE_WL,1"
         "XDG_CURRENT_DESKTOP,Hyprland"
@@ -30,13 +30,21 @@
       ];
 
       exec-once = [
-        "ambxst"
+        "noctalia-shell"
         "blueman-applet"
         "nm-applet"
       ];
 
       source = [
       ];
+
+      general = {
+        gaps_in = 4;
+        gaps_out = 8;
+        border_size = 2;
+        layout = "dwindle";
+        resize_on_border = true;
+      };
 
       decoration = {
         rounding = 16;
@@ -150,6 +158,121 @@
         "match:title ^(Picture-in-Picture)$, move 73% 72%"
         "match:title ^(Picture-in-Picture)$, size 25% 25%"
         "match:title ^(Picture-in-Picture)$, no_initial_focus on"
+      ];
+
+      bind = [
+        # --- Apps ---
+        "SUPER, T, exec, kitty"
+        "SUPER, E, exec, nautilus"
+        "SUPER, C, exec, code"
+        "SUPER, B, exec, brave"
+
+        # --- Window Management ---
+        "SUPER, Q, killactive"
+        "SUPER, Delete, exit"
+        "SUPER, W, togglefloating"
+        "SUPER, G, togglegroup"
+        "SHIFT, F11, fullscreen"
+        "SUPER_SHIFT, F, pin"
+        "SUPER, J, togglesplit"
+
+        # --- Group Navigation ---
+        "SUPER_CONTROL, H, changegroupactive, b"
+        "SUPER_CONTROL, L, changegroupactive, f"
+
+        # --- Change Focus ---
+        "SUPER, Left, movefocus, l"
+        "SUPER, Right, movefocus, r"
+        "SUPER, Up, movefocus, u"
+        "SUPER, Down, movefocus, d"
+
+        # --- Move Active Window ---
+        "SUPER_SHIFT_CONTROL, left, movewindow, l"
+        "SUPER_SHIFT_CONTROL, right, movewindow, r"
+        "SUPER_SHIFT_CONTROL, up, movewindow, u"
+        "SUPER_SHIFT_CONTROL, down, movewindow, d"
+
+        # --- Workspaces: Navigation ---
+        "SUPER, 1, workspace, 1"
+        "SUPER, 2, workspace, 2"
+        "SUPER, 3, workspace, 3"
+        "SUPER, 4, workspace, 4"
+        "SUPER, 5, workspace, 5"
+        "SUPER, 6, workspace, 6"
+        "SUPER, 7, workspace, 7"
+        "SUPER, 8, workspace, 8"
+        "SUPER, 9, workspace, 9"
+        "SUPER, 0, workspace, 10"
+
+        "SUPER_CONTROL, Right, workspace, r+1"
+        "SUPER_CONTROL, Left, workspace, r-1"
+        "SUPER_CONTROL, Down, workspace, empty"
+        "SUPER, mouse_down, workspace, e+1"
+        "SUPER, mouse_up, workspace, e-1"
+
+        # --- Workspaces: Move Window ---
+        "SUPER_SHIFT, 1, movetoworkspace, 1"
+        "SUPER_SHIFT, 2, movetoworkspace, 2"
+        "SUPER_SHIFT, 3, movetoworkspace, 3"
+        "SUPER_SHIFT, 4, movetoworkspace, 4"
+        "SUPER_SHIFT, 5, movetoworkspace, 5"
+        "SUPER_SHIFT, 6, movetoworkspace, 6"
+        "SUPER_SHIFT, 7, movetoworkspace, 7"
+        "SUPER_SHIFT, 8, movetoworkspace, 8"
+        "SUPER_SHIFT, 9, movetoworkspace, 9"
+        "SUPER_SHIFT, 0, movetoworkspace, 10"
+
+        "SUPER_CONTROL_ALT, Right, movetoworkspace, r+1"
+        "SUPER_CONTROL_ALT, Left, movetoworkspace, r-1"
+
+        # --- Workspaces: Move Window Silently ---
+        "SUPER_ALT, 1, movetoworkspacesilent, 1"
+        "SUPER_ALT, 2, movetoworkspacesilent, 2"
+        "SUPER_ALT, 3, movetoworkspacesilent, 3"
+        "SUPER_ALT, 4, movetoworkspacesilent, 4"
+        "SUPER_ALT, 5, movetoworkspacesilent, 5"
+        "SUPER_ALT, 6, movetoworkspacesilent, 6"
+        "SUPER_ALT, 7, movetoworkspacesilent, 7"
+        "SUPER_ALT, 8, movetoworkspacesilent, 8"
+        "SUPER_ALT, 9, movetoworkspacesilent, 9"
+        "SUPER_ALT, 0, movetoworkspacesilent, 10"
+
+        # --- Special Workspace (Scratchpad) ---
+        "SUPER_SHIFT, S, movetoworkspace, special"
+        "SUPER_ALT, S, movetoworkspacesilent, special"
+        "SUPER, S, togglespecialworkspace"
+      ];
+
+      # --- Holding Keys (Repeating) ---
+      binde = [
+        "SUPER_SHIFT, Right, resizeactive, 30 0"
+        "SUPER_SHIFT, Left, resizeactive, -30 0"
+        "SUPER_SHIFT, Up, resizeactive, 0 -30"
+        "SUPER_SHIFT, Down, resizeactive, 0 30"
+      ];
+
+      # --- Mouse Binds ---
+      bindm = [
+        "SUPER, mouse:272, movewindow"
+        "SUPER, mouse:273, resizewindow"
+      ];
+
+      bindr = [
+        "SUPER, SUPER_L, exec, vicinae open"
+      ];
+
+      workspace = [
+              # Binds workspaces to monitors (find desc with: hyprctl monitors)
+              "1, monitor:desc:GIGA-BYTE TECHNOLOGY CO. LTD. G24F 2 22410B002844"
+              "2, monitor:desc:GIGA-BYTE TECHNOLOGY CO. LTD. G24F 2 22410B002844"
+              "3, monitor:desc:GIGA-BYTE TECHNOLOGY CO. LTD. G24F 2 22410B002844"
+              "4, monitor:desc:GIGA-BYTE TECHNOLOGY CO. LTD. G24F 2 22410B002844"
+              "5, monitor:desc:GIGA-BYTE TECHNOLOGY CO. LTD. G24F 2 22410B002844"
+              "6, monitor:desc:GIGA-BYTE TECHNOLOGY CO. LTD. G24F 2 22410B002844"
+              "7, monitor:desc:GIGA-BYTE TECHNOLOGY CO. LTD. G24F 2 22410B002844"
+              "8, monitor:desc:GIGA-BYTE TECHNOLOGY CO. LTD. G24F 2 22410B002844"
+              "9, monitor:desc:GIGA-BYTE TECHNOLOGY CO. LTD. G24F 2 22410B002844"
+              "10, monitor:desc:GIGA-BYTE TECHNOLOGY CO. LTD. G24F 2 22410B002844"
       ];
     };
   };

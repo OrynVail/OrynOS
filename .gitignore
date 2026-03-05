@@ -67,3 +67,6 @@ yarn-error.log*
 target/
 Cargo.lock
 
+.gemini/
+GEMINI.md
+AGENTS.md

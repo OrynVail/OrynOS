@@ -35,6 +35,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    vicinae.url = "github:vicinaehq/vicinae";
+
     nvix.url = "github:niksingh710/nvix";
 
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
@@ -51,6 +53,7 @@
     nix-flatpak,
     spicetify-nix,
     nixos-hardware,
+    vicinae,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -104,6 +107,7 @@
       extraSpecialArgs = sharedSpecialArgs;
       modules = [
         stylix.homeManagerModules.stylix
+        vicinae.homeManagerModules.default
         ./home/${username}/${hostname}/default.nix
       ];
     };

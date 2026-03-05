@@ -1,6 +1,6 @@
 <div align="center">
 <h1>
-OrynOS 
+OrynOS
 </h1>
 
 <div align="center">
@@ -21,10 +21,6 @@ OrynOS
 ## Overview
 
 **OrynOS** is a personal NixOS configuration built around a native Wayland stack.
-
-No frameworks.  
-No hidden abstractions.  
-No imperative glue.
 
 Everything is declarative, modular, and meant to be understood.
 
@@ -86,7 +82,7 @@ nix.settings.experimental-features = [ "nix-command" "flakes" ];
 **2. Clone and build**
 
 ```bash
-git clone https://github.com/OrynVail/OrynOS.git 
+git clone https://github.com/OrynVail/OrynOS.git
 cd ~/OrynOS
 
 # Edit hardware config for your machine

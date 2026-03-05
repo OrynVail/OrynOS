@@ -12,6 +12,7 @@
 
     ../../../utilities/spicetify.nix
     ../../../utilities/flatpak.nix
+    ../../../utilities/vicinae.nix
 
     ../../../programs/starship.nix
     ../../../programs/brave.nix
@@ -33,6 +34,7 @@
     ../../../programs/vscode.nix
     ../../../programs/ytmusic.nix
     ../../../programs/kitty.nix
+    ../../../programs/gemini.nix
   ];
 
   # --- Home Manager Core ---
@@ -44,7 +46,7 @@
 
   # --- Packages ---
   home.packages = with pkgs; [
-    inputs.nvix.packages.${pkgs.system}.full
+    inputs.nvix.packages.${pkgs.system}.default
     zip
     unzip
 
@@ -57,8 +59,6 @@
     persepolis
     qalculate-gtk
     yt-dlp
-
-    mullvad-browser
 
     vesktop # Better Discord client for Linux
 
