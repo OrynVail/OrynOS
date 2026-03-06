@@ -127,7 +127,7 @@
 
   users.users."${username}" = {
     isNormalUser = true;
-    extraGroups = ["wheel" "networkmanager" "video" "adbusers"];
+    extraGroups = ["wheel" "networkmanager" "video" "adbusers" "i2c"];
     shell = pkgs.zsh;
   };
 

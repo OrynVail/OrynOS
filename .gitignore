@@ -67,6 +67,12 @@ yarn-error.log*
 target/
 Cargo.lock
 
+*.env
+.env*
+credentials
+auth.json
+*_credentials*
+
 .gemini/
 GEMINI.md
 AGENTS.md

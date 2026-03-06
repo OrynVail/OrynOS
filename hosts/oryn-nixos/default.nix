@@ -55,6 +55,8 @@
     tree
     mc
     killall
+    brightnessctl
+    ddcutil
   ];
 
   # --- Bluetooth ---
@@ -68,6 +70,8 @@
       };
     };
   };
+
+  hardware.i2c.enable = true;
 
   systemd.user.services.hyprpolkitagent = {
     description = "Hyprpolkitagent - Polkit authentication agent";
