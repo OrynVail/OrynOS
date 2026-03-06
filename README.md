@@ -44,10 +44,9 @@ Everything is declarative, modular, and meant to be understood.
 | **OS** | NixOS Unstable |
 | **Compositor** | Hyprland |
 | **Login** | greetd (TUI) |
-| **Shell / Bar** | Ambxst (AGS) |
 | **Theming** | Stylix (Base16) |
-| **Terminal** | Alacritty + Kitty |
-| **Browser** | Brave + Mullvad |
+| **Terminal** | Kitty |
+| **Browser** | Brave |
 
 ---
 
