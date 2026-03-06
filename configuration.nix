@@ -10,7 +10,7 @@
     inputs.home-manager.nixosModules.home-manager
     ./hosts/${hostname}/hardware-configuration.nix
     ./hosts/${hostname}/default.nix
-    ./hosts/${hostname}/nvidia.nix
+    ./modules/nvidia.nix
 
     # Hardware Support
     inputs.nixos-hardware.nixosModules.common-cpu-intel

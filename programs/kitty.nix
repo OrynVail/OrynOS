@@ -16,7 +16,7 @@
           enable_audio_bell = false;
           mouse_hide_wait = 60;
           update_check_interval = 0;
-          window_padding_width = 9;
+          window_padding_width = 23;
 
           ## Tabs
           tab_title_template = "{index}";
