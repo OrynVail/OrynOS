@@ -1,5 +1,6 @@
 {
   pkgs,
+  lib,
   config,
   ...
 }: {
@@ -38,10 +39,14 @@
       source = [
       ];
 
+      imports = [
+      ];
+
       general = {
         gaps_in = 4;
         gaps_out = 8;
         border_size = 2;
+        "col.active_border" = lib.mkForce "rgba(c79595ff) rgba(c795aeff) 45deg";
         layout = "dwindle";
         resize_on_border = true;
       };
@@ -162,6 +167,7 @@
 
       bind = [
         # --- Apps ---
+        #"SUPER, A, exec, rofi"
         "SUPER, T, exec, kitty"
         "SUPER, E, exec, nautilus"
         "SUPER, C, exec, code"
@@ -273,6 +279,11 @@
               "8, monitor:desc:GIGA-BYTE TECHNOLOGY CO. LTD. G24F 2 22410B002844"
               "9, monitor:desc:GIGA-BYTE TECHNOLOGY CO. LTD. G24F 2 22410B002844"
               "10, monitor:desc:GIGA-BYTE TECHNOLOGY CO. LTD. G24F 2 22410B002844"
+      ];
+
+      layerrule = [
+        "blur on, match:namespace rofi"
+        "ignore_alpha 0.7, match:namespace rofi"
       ];
     };
   };

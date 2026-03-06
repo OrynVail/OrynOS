@@ -6,7 +6,7 @@
   services = {
     power-profiles-daemon.enable = true;
 
-    # ACPI Daemon 
+    # ACPI Daemon
     acpid.enable = true;
 
     # Thermal management
@@ -20,12 +20,4 @@
       criticalPowerAction = "PowerOff";
     };
   };
-
-  # Configure systemd sleep settings for security
-  systemd.sleep.extraConfig = ''
-    AllowSuspend=yes
-    AllowHibernation=no
-    AllowSuspendThenHibernate=no
-    AllowHybridSleep=no
-  '';
 }
