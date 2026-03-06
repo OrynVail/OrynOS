@@ -15,25 +15,10 @@
   # Back-end services Nautilus expects
   services.gvfs.enable = true;
   services.udisks2.enable = true;
-  services.gnome.gnome-keyring.enable = true;
 
   # Enable security services
   programs.dconf.enable = true;
 
-  security = {
-    rtkit.enable = true;
-    polkit.enable = true;
-    apparmor = {
-      enable = true;
-      killUnconfinedConfinables = true;
-      packages = [ pkgs.apparmor-profiles ];
-    };
-
-    # Prevent replacing the running kernel without a reboot
-    protectKernelImage = true;
-    acme.acceptTerms = true;
-  };
-
-  # PAM hook so the key-ring unlocks with TTY password
+  # PAM hook
   security.pam.services.login.enableGnomeKeyring = true;
 }

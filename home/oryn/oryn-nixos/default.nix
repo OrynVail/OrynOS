@@ -19,7 +19,6 @@
     ../../../programs/thunderbird.nix
     ../../../programs/zsh.nix
     ../../../programs/fzf.nix
-    ../../../programs/alacritty.nix
     ../../../programs/obsidian.nix
     ../../../programs/k9s.nix
     ../../../programs/krew.nix
