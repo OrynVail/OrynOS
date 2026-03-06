@@ -122,10 +122,6 @@ Rebuild once. Everything follows.
 
 Shells are installed via Nix profiles by design.
 
-```
-nix profile install github:Axenide/Ambxst
-```
-
 Swap freely. Update the Hyprland `exec-once` entry accordingly.
 
 ### 📦 Programs
