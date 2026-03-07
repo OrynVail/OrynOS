@@ -57,6 +57,7 @@
     killall
     brightnessctl
     ddcutil
+    gpu-screen-recorder
   ];
 
   # --- Bluetooth ---
@@ -90,6 +91,8 @@
   services.blueman.enable = true;
 
   programs.zsh.enable = true;
+
+  programs.gpu-screen-recorder.enable = true;
 
   programs.nh = {
     enable = true;

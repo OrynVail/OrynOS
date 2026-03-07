@@ -8,13 +8,13 @@
         "customLaunchPrefixEnabled": false,
         "density": "default",
         "enableClipPreview": true,
-        "enableClipboardHistory": false,
-        "enableSessionSearch": false,
+        "enableClipboardHistory": true,
+        "enableSessionSearch": true,
         "enableSettingsSearch": false,
         "enableWindowsSearch": false,
-        "iconMode": "tabler",
+        "iconMode": "native",
         "ignoreMouseInput": false,
-        "overviewLayer": false,
+        "overviewLayer": true,
         "pinnedApps": [
         ],
         "position": "center",
@@ -116,7 +116,7 @@
             ],
             "left": [
                 {
-                    "compactMode": false,
+                    "compactMode": true,
                     "diskPath": "/",
                     "iconColor": "none",
                     "id": "SystemMonitor",
@@ -135,7 +135,7 @@
                     "showSwapUsage": false,
                     "textColor": "none",
                     "useMonospaceFont": true,
-                    "usePadding": false
+                    "usePadding": true
                 }
             ],
             "right": [
@@ -282,14 +282,6 @@
                     "id": "WallpaperSelector"
                 },
                 {
-                    "id": "NoctaliaPerformance"
-                }
-            ],
-            "right": [
-                {
-                    "id": "Notifications"
-                },
-                {
                     "id": "PowerProfile"
                 },
                 {
@@ -300,32 +292,25 @@
                 },
                 {
                     "defaultSettings": {
-                        "completedCount": 0,
-                        "count": 0,
-                        "current_page_id": 0,
-                        "exportEmptySections": false,
-                        "exportFormat": "markdown",
-                        "exportPath": "~/Documents",
-                        "isExpanded": false,
-                        "pages": [
-                            {
-                                "id": 0,
-                                "name": "General"
-                            }
-                        ],
-                        "priorityColors": {
-                            "high": "#f44336",
-                            "low": "#9e9e9e",
-                            "medium": "#2196f3"
-                        },
-                        "showBackground": true,
-                        "showCompleted": true,
-                        "todos": [
-                        ],
-                        "useCustomColors": false
+                        "audioCodec": "opus",
+                        "audioSource": "default_output",
+                        "colorRange": "limited",
+                        "copyToClipboard": false,
+                        "directory": "",
+                        "filenamePattern": "recording_yyyyMMdd_HHmmss",
+                        "frameRate": "60",
+                        "hideInactive": false,
+                        "iconColor": "none",
+                        "quality": "very_high",
+                        "resolution": "original",
+                        "showCursor": true,
+                        "videoCodec": "h264",
+                        "videoSource": "portal"
                     },
-                    "id": "plugin:todo"
+                    "id": "plugin:screen-recorder"
                 }
+            ],
+            "right": [
             ]
         }
     },
@@ -377,11 +362,12 @@
         "avatarImage": "/home/oryn/Downloads/O.jpg",
         "boxRadiusRatio": 1,
         "clockFormat": "hh\\nmm",
-        "clockStyle": "custom",
-        "compactLockScreen": true,
+        "clockStyle": "digital",
+        "compactLockScreen": false,
         "dimmerOpacity": 0,
+        "enableBlurBehind": true,
         "enableLockScreenCountdown": true,
-        "enableLockScreenMediaControls": false,
+        "enableLockScreenMediaControls": true,
         "enableShadows": true,
         "forceBlackScreenCorners": false,
         "iRadiusRatio": 2,
@@ -412,7 +398,7 @@
         "language": "",
         "lockOnSuspend": true,
         "lockScreenAnimations": false,
-        "lockScreenBlur": 0.25,
+        "lockScreenBlur": 0.4,
         "lockScreenCountdownDuration": 10000,
         "lockScreenMonitors": [
         ],
@@ -642,7 +628,7 @@
         "fontDefaultScale": 1,
         "fontFixed": "monospace",
         "fontFixedScale": 1,
-        "panelBackgroundOpacity": 0.9,
+        "panelBackgroundOpacity": 0.93,
         "panelsAttachedToBar": true,
         "settingsPanelMode": "attached",
         "settingsPanelSideBarCardStyle": false,
@@ -663,7 +649,7 @@
         "overviewBlur": 0.4,
         "overviewEnabled": false,
         "overviewTint": 0.6,
-        "panelPosition": "follow_bar",
+        "panelPosition": "center",
         "randomIntervalSec": 300,
         "setWallpaperOnAllMonitors": true,
         "showHiddenFiles": false,

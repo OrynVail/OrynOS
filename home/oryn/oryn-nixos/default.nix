@@ -45,7 +45,7 @@
 
   # --- Packages ---
   home.packages = with pkgs; [
-    inputs.nvix.packages.${pkgs.system}.default
+    inputs.nvix.packages.${pkgs.stdenv.hostPlatform.system}.default
     zip
     unzip
 
@@ -66,6 +66,8 @@
 
     libsForQt5.qt5.qtwayland
     qt6.qtwayland
+
+    hyprshot
   ];
 
   # Git Identity

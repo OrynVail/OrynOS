@@ -7,6 +7,14 @@
         }
     ],
     "states": {
+        "screen-recorder": {
+            "enabled": true,
+            "sourceUrl": "https://github.com/noctalia-dev/noctalia-plugins"
+        },
+        "screenshot": {
+            "enabled": true,
+            "sourceUrl": "https://github.com/noctalia-dev/noctalia-plugins"
+        },
         "todo": {
             "enabled": true,
             "sourceUrl": "https://github.com/noctalia-dev/noctalia-plugins"

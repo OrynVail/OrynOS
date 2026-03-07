@@ -166,8 +166,15 @@
       ];
 
       bind = [
+        # --- Noctalia ---
+        "SUPER, A, exec, noctalia-shell ipc call launcher toggle"
+        "SUPER, V, exec, noctalia-shell ipc call launcher clipboard"
+        "SUPER, comma, exec, noctalia-shell ipc call launcher emoji"
+        "SUPER, L, exec, noctalia-shell ipc call lockScreen lock"
+        "SUPER_SHIFT, W, exec, noctalia-shell ipc call wallpaper toggle"
+        "SUPER_SHIFT, S, exec, noctalia-shell ipc call plugin:screenshot takeScreenshot region"
+
         # --- Apps ---
-        #"SUPER, A, exec, rofi"
         "SUPER, T, exec, kitty"
         "SUPER, E, exec, nautilus"
         "SUPER, C, exec, code"
@@ -279,11 +286,6 @@
               "8, monitor:desc:GIGA-BYTE TECHNOLOGY CO. LTD. G24F 2 22410B002844"
               "9, monitor:desc:GIGA-BYTE TECHNOLOGY CO. LTD. G24F 2 22410B002844"
               "10, monitor:desc:GIGA-BYTE TECHNOLOGY CO. LTD. G24F 2 22410B002844"
-      ];
-
-      layerrule = [
-        "blur on, match:namespace rofi"
-        "ignore_alpha 0.7, match:namespace rofi"
       ];
     };
   };

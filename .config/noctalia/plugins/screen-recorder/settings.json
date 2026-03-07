@@ -1,0 +1,16 @@
+{
+  "hideInactive": false,
+  "iconColor": "primary",
+  "directory": "",
+  "filenamePattern": "recording_yyyyMMdd_HHmmss",
+  "frameRate": "60",
+  "audioCodec": "opus",
+  "videoCodec": "h264",
+  "quality": "very_high",
+  "colorRange": "limited",
+  "showCursor": true,
+  "copyToClipboard": false,
+  "audioSource": "default_output",
+  "videoSource": "portal",
+  "resolution": "1920x1080"
+}
