@@ -10,7 +10,7 @@
     ../../modules/security.nix
     ../../modules/power.nix
 
-    ../../utilities/gnome.nix
+    ../../modules/gnome.nix
 
     ../../programs/documents.nix
   ];

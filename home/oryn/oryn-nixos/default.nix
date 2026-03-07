@@ -10,9 +10,9 @@
     ./hyprland.nix
     ./custom.nix
 
-    ../../../utilities/spicetify.nix
+    ../../../programs/spicetify.nix
     ../../../utilities/flatpak.nix
-    ../../../utilities/vicinae.nix
+    ../../../programs/vicinae.nix
 
     ../../../programs/starship.nix
     ../../../programs/brave.nix
