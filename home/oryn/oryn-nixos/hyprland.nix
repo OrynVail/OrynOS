@@ -4,6 +4,11 @@
   config,
   ...
 }: {
+
+  home.packages = with pkgs; [
+    grimblast
+    hyprpicker
+  ];
   wayland.windowManager.hyprland = {
     enable = true;
 
@@ -172,7 +177,10 @@
         "SUPER, comma, exec, noctalia-shell ipc call launcher emoji"
         "SUPER, L, exec, noctalia-shell ipc call lockScreen lock"
         "SUPER_SHIFT, W, exec, noctalia-shell ipc call wallpaper toggle"
-        "SUPER_SHIFT, S, exec, noctalia-shell ipc call plugin:screenshot takeScreenshot region"
+
+
+        "SUPER_SHIFT, S, exec, grimblast save area - | satty --filename -"
+        "SUPER_CONTROL, S, exec, grimblast save screen - | satty --filename -"
 
         # --- Apps ---
         "SUPER, T, exec, kitty"

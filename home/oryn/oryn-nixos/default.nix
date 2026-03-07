@@ -34,6 +34,7 @@
     ../../../programs/ytmusic.nix
     ../../../programs/kitty.nix
     ../../../programs/gemini.nix
+    ../../../programs/satty.nix
   ];
 
   # --- Home Manager Core ---
@@ -66,8 +67,6 @@
 
     libsForQt5.qt5.qtwayland
     qt6.qtwayland
-
-    hyprshot
   ];
 
   # Git Identity

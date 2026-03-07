@@ -58,6 +58,8 @@
     brightnessctl
     ddcutil
     gpu-screen-recorder
+    grim
+    slurp
   ];
 
   # --- Bluetooth ---
