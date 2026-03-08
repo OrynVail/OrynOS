@@ -10,15 +10,8 @@
     inputs.home-manager.nixosModules.home-manager
     ./hosts/${hostname}/hardware-configuration.nix
     ./hosts/${hostname}/default.nix
-    ./modules/nvidia.nix
-
-    # Hardware Support
-    inputs.nixos-hardware.nixosModules.common-cpu-intel
-    inputs.nixos-hardware.nixosModules.common-pc-laptop
-    inputs.nixos-hardware.nixosModules.common-pc-ssd
   ];
 
-  # --- HM ---
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
@@ -38,7 +31,6 @@
   # Keeps the index updated automatically
   programs.command-not-found.enable = false; # Disable default to use nix-index
 
-  # --- Visual Stack ---
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
@@ -55,7 +47,6 @@
   };
 
   # Audio
-  security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
     alsa.enable = true;

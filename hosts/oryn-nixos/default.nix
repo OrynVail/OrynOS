@@ -2,7 +2,6 @@
   pkgs,
   username,
   inputs,
-  config,
   ...
 }: {
   imports = [
@@ -13,6 +12,8 @@
     ../../modules/nh.nix
     ../../modules/stylix.nix
     ../../modules/fonts.nix
+    ../../modules/nvidia.nix
+    ../../modules/hardware.nix
 
     ../../programs/documents.nix
   ];
@@ -33,7 +34,6 @@
   };
 
   services.printing.enable = false;
-  security.sudo.wheelNeedsPassword = false;
 
   # --- Packages & Tools ---
   environment.systemPackages = with pkgs; [
@@ -63,20 +63,6 @@
     slurp
   ];
 
-  # --- Bluetooth ---
-
-  hardware.bluetooth = {
-    enable = true;
-    powerOnBoot = true; # crucial: ensures it doesn't default to 'off' on login
-    settings = {
-      General = {
-        Experimental = true; # Enables battery % reporting for headsets/controllers
-      };
-    };
-  };
-
-  hardware.i2c.enable = true;
-
   systemd.user.services.hyprpolkitagent = {
     description = "Hyprpolkitagent - Polkit authentication agent";
     wantedBy = ["graphical-session.target"];
@@ -90,8 +76,6 @@
       TimeoutStopSec = 10;
     };
   };
-
-  services.blueman.enable = true;
 
   programs.zsh.enable = true;
 
