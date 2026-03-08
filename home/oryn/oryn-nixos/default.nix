@@ -11,7 +11,7 @@
     ./custom.nix
 
     ../../../programs/spicetify.nix
-    ../../../utilities/flatpak.nix
+    ../../../modules/flatpak.nix
     ../../../programs/vicinae.nix
 
     ../../../programs/starship.nix

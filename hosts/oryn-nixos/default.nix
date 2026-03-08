@@ -9,8 +9,10 @@
     ../../modules/boot.nix
     ../../modules/security.nix
     ../../modules/power.nix
-
     ../../modules/gnome.nix
+    ../../modules/nh.nix
+    ../../modules/stylix.nix
+    ../../modules/fonts.nix
 
     ../../programs/documents.nix
   ];
@@ -31,7 +33,6 @@
   };
 
   services.printing.enable = false;
-  services.flatpak.enable = true;
   security.sudo.wheelNeedsPassword = false;
 
   # --- Packages & Tools ---
@@ -95,15 +96,6 @@
   programs.zsh.enable = true;
 
   programs.gpu-screen-recorder.enable = true;
-
-  programs.nh = {
-    enable = true;
-    clean = {
-      enable = true;
-      extraArgs = "--keep-since 14d --keep 5";
-    };
-    flake = "/home/${username}/Projects/OrynOS";
-  };
 
   nix.settings = {
     trusted-users = [ "root" "@wheel" ];

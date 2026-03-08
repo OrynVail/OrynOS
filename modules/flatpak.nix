@@ -9,12 +9,8 @@
 
   # Enable flatpak service
   services.flatpak = {
-    # List of packages to install
+    enable = true;
     packages = [
-      #   {
-      #  appId = "com.brave.Browser";
-      #  origin = "flathub";
-      #}
       # { appId = "com.obsproject.Studio"; origin = "flathub"; }
     ];
 

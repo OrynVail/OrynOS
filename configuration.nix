@@ -18,7 +18,7 @@
     inputs.nixos-hardware.nixosModules.common-pc-ssd
   ];
 
-  # --- 1. Home Manager Safety ---
+  # --- HM ---
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
@@ -33,70 +33,12 @@
     };
   };
 
-  # --- 2. Stylix Theming Engine ---
-
-  stylix = {
-    enable = true;
-    # Default to a nice dark theme (Catppuccin Mocha)
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/ashes.yaml";
-
-    polarity = "dark";
-
-    icons = {
-      enable = true;
-      package = pkgs.papirus-icon-theme;
-      dark = "Papirus";
-      light = "Papirus";
-    };
-
-    # Cursor
-    cursor = {
-      package = pkgs.bibata-cursors;
-      name = "Bibata-Modern-Classic";
-      size = 20;
-    };
-
-    fonts = {
-      monospace = {
-        package = pkgs.ibm-plex;
-        name = "IBM Plex Mono";
-      };
-
-      sansSerif = {
-        package = pkgs.inter;
-        name = "Inter";
-      };
-
-      serif = {
-        # Note: 'pkgs.literate' -> 'pkgs.literata' in official nixpkgs
-        package = pkgs.literata;
-        name = "Literata";
-      };
-
-      emoji = {
-        package = pkgs.noto-fonts-color-emoji;
-        name = "Noto Color Emoji";
-      };
-
-      # Set default sizes
-      sizes = {
-        terminal = 10;
-        applications = 10;
-        desktop = 10;
-      };
-    };
-
-    # We can control what stylix targets here
-    targets.grub.enable = true;
-    targets.console.enable = true;
-  };
-
-  # --- 3. CLI Superpowers (Comma) ---
+  # --- CLI (Comma) ---
   programs.nix-index-database.comma.enable = true;
   # Keeps the index updated automatically
   programs.command-not-found.enable = false; # Disable default to use nix-index
 
-  # --- 4. Visual Stack ---
+  # --- Visual Stack ---
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
@@ -130,18 +72,6 @@
     extraGroups = ["wheel" "networkmanager" "video" "adbusers" "i2c"];
     shell = pkgs.zsh;
   };
-
-  # Extra fonts
-  fonts.packages = with pkgs; [
-    nerd-fonts.blex-mono
-    nerd-fonts.jetbrains-mono
-    nerd-fonts.fira-code
-    nerd-fonts.meslo-lg
-    nerd-fonts.symbols-only
-    google-fonts
-    noto-fonts
-  ];
-
 
   system.stateVersion = "25.05";
 }
