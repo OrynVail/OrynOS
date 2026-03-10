@@ -14,16 +14,10 @@
     ../../modules/fonts.nix
     ../../modules/nvidia.nix
     ../../modules/hardware.nix
+    ../../modules/network.nix
 
     ../../programs/documents.nix
   ];
-
-  # --- Networking ---
-  networking = {
-    networkmanager.enable = true;
-    enableIPv6 = false;
-    nameservers = ["8.8.8.8" "1.1.1.1"];
-  };
 
   # --- Services ---
   services.displayManager.defaultSession = "hyprland";
