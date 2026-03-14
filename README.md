@@ -39,8 +39,6 @@ Everything is declarative, modular, and meant to be understood.
 
 ## Stack
 
-| Component | Choice |
-| :--- | :--- |
 | **OS** | NixOS Unstable |
 | **Compositor** | Hyprland |
 | **Login** | greetd (TUI) |
