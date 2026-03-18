@@ -7,12 +7,11 @@
 }: {
   imports = [
     ./mime.nix
-    ./hyprland.nix
     ./custom.nix
 
     ../../../programs/spicetify.nix
-    ../../../modules/flatpak.nix
-    ../../../programs/vicinae.nix
+    ../../../modules/nix/flatpak.nix
+    ../../../modules/desktop/hyprland.nix
 
     ../../../programs/starship.nix
     ../../../programs/brave.nix

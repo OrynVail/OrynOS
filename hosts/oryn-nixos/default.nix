@@ -5,16 +5,16 @@
   ...
 }: {
   imports = [
-    ../../modules/boot.nix
-    ../../modules/security.nix
-    ../../modules/power.nix
-    ../../modules/gnome.nix
-    ../../modules/nh.nix
-    ../../modules/stylix.nix
-    ../../modules/fonts.nix
-    ../../modules/nvidia.nix
-    ../../modules/hardware.nix
-    ../../modules/network.nix
+    ../../modules/core/boot.nix
+    ../../modules/core/security.nix
+    ../../modules/core/power.nix
+    ../../modules/desktop/gnome.nix
+    ../../modules/nix/nh.nix
+    ../../modules/desktop/stylix.nix
+    ../../modules/desktop/fonts.nix
+    ../../modules/hardware/nvidia.nix
+    ../../modules/hardware/hardware.nix
+    ../../modules/core/network.nix
 
     ../../programs/documents.nix
   ];

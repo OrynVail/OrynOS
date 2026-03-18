@@ -2,7 +2,6 @@
   description = "Oryn's NixOS Configuration";
 
   inputs = {
-    # 1. Official Unstable Channel (Best for Hyprland/Gaming)
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     home-manager = {
@@ -10,10 +9,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # 2. Stylix (Theming Engine)
     stylix.url = "github:danth/stylix";
 
-    # 3. Nix-Index (Command-not-found powers)
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -24,7 +21,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Community Modules
     nur = {
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -34,8 +30,6 @@
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    vicinae.url = "github:vicinaehq/vicinae";
 
     nvix.url = "github:niksingh710/nvix";
 
@@ -53,7 +47,6 @@
     nix-flatpak,
     spicetify-nix,
     nixos-hardware,
-    vicinae,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -81,7 +74,7 @@
       modules = [
         ./configuration.nix
 
-        # Modules injected directly here
+        # Modules 
         nix-flatpak.nixosModules.nix-flatpak
         stylix.nixosModules.stylix
         nix-index-database.nixosModules.nix-index
@@ -96,7 +89,6 @@
       ];
     };
 
-    # 2. Standalone Home Manager Configuration
     homeConfigurations."${username}@${hostname}" = home-manager.lib.homeManagerConfiguration {
       pkgs = import nixpkgs {
         inherit system;
@@ -107,7 +99,6 @@
       extraSpecialArgs = sharedSpecialArgs;
       modules = [
         stylix.homeManagerModules.stylix
-        vicinae.homeManagerModules.default
         ./home/${username}/${hostname}/default.nix
       ];
     };

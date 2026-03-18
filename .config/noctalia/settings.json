@@ -6,31 +6,31 @@
         "clipboardWrapText": true,
         "customLaunchPrefix": "",
         "customLaunchPrefixEnabled": false,
-        "density": "default",
+        "density": "compact",
         "enableClipPreview": true,
         "enableClipboardHistory": true,
         "enableSessionSearch": true,
-        "enableSettingsSearch": false,
+        "enableSettingsSearch": true,
         "enableWindowsSearch": false,
-        "iconMode": "native",
+        "iconMode": "tabler",
         "ignoreMouseInput": false,
         "overviewLayer": true,
         "pinnedApps": [
         ],
-        "position": "center",
+        "position": "follow_bar",
         "screenshotAnnotationTool": "",
-        "showCategories": false,
+        "showCategories": true,
         "showIconBackground": false,
-        "sortByMostUsed": false,
+        "sortByMostUsed": true,
         "terminalCommand": "alacritty -e",
         "useApp2Unit": false,
         "viewMode": "list"
     },
     "audio": {
-        "cavaFrameRate": 30,
         "mprisBlacklist": [
         ],
         "preferredPlayer": "pear-desktop",
+        "spectrumFrameRate": 30,
         "visualizerType": "linear",
         "volumeFeedback": false,
         "volumeFeedbackSoundFile": "",
@@ -52,7 +52,7 @@
         "frameRadius": 12,
         "frameThickness": 8,
         "hideOnOverview": false,
-        "marginHorizontal": 6,
+        "marginHorizontal": 8,
         "marginVertical": 4,
         "middleClickAction": "none",
         "middleClickCommand": "",
@@ -92,16 +92,17 @@
                     "enableScrollWheel": true,
                     "focusedColor": "primary",
                     "followFocusedScreen": false,
+                    "fontWeight": "bold",
                     "groupedBorderOpacity": 1,
                     "hideUnoccupied": false,
                     "iconScale": 0.8,
                     "id": "Workspace",
-                    "labelMode": "none",
+                    "labelMode": "index",
                     "occupiedColor": "secondary",
                     "pillSize": 0.75,
                     "showApplications": false,
                     "showBadge": true,
-                    "showLabelsOnlyWhenOccupied": false,
+                    "showLabelsOnlyWhenOccupied": true,
                     "unfocusedIconsOpacity": 1
                 },
                 {
@@ -194,7 +195,7 @@
                 },
                 {
                     "deviceNativePath": "__default__",
-                    "displayMode": "graphic",
+                    "displayMode": "graphic-clean",
                     "hideIfIdle": false,
                     "hideIfNotDetected": true,
                     "id": "Battery",
@@ -318,6 +319,11 @@
         "enabled": false,
         "gridSnap": false,
         "monitorWidgets": [
+            {
+                "name": "DP-3",
+                "widgets": [
+                ]
+            }
         ],
         "overviewEnabled": true
     },
@@ -397,8 +403,8 @@
         },
         "language": "",
         "lockOnSuspend": true,
-        "lockScreenAnimations": false,
-        "lockScreenBlur": 0.4,
+        "lockScreenAnimations": true,
+        "lockScreenBlur": 0.6,
         "lockScreenCountdownDuration": 10000,
         "lockScreenMonitors": [
         ],
@@ -477,11 +483,15 @@
         "manualSunset": "18:30",
         "nightTemp": "4678"
     },
+    "noctaliaPerformance": {
+        "disableDesktopWidgets": true,
+        "disableWallpaper": true
+    },
     "notifications": {
         "backgroundOpacity": 0.9,
         "clearDismissed": true,
         "criticalUrgencyDuration": 12,
-        "density": "default",
+        "density": "compact",
         "enableBatteryToast": true,
         "enableKeyboardLayoutToast": true,
         "enableMarkdown": false,
@@ -593,7 +603,7 @@
         "showHeader": false,
         "showKeybinds": false
     },
-    "settingsVersion": 56,
+    "settingsVersion": 57,
     "systemMonitor": {
         "batteryCriticalThreshold": 5,
         "batteryWarningThreshold": 20,
@@ -630,6 +640,7 @@
         "fontFixedScale": 1,
         "panelBackgroundOpacity": 0.93,
         "panelsAttachedToBar": true,
+        "scrollbarAlwaysVisible": true,
         "settingsPanelMode": "attached",
         "settingsPanelSideBarCardStyle": false,
         "tooltipsEnabled": false
@@ -649,7 +660,7 @@
         "overviewBlur": 0.4,
         "overviewEnabled": false,
         "overviewTint": 0.6,
-        "panelPosition": "center",
+        "panelPosition": "follow_bar",
         "randomIntervalSec": 300,
         "setWallpaperOnAllMonitors": true,
         "showHiddenFiles": false,
@@ -661,7 +672,7 @@
         "transitionType": "fade",
         "useSolidColor": false,
         "useWallhaven": false,
-        "viewMode": "single",
+        "viewMode": "recursive",
         "wallhavenApiKey": "",
         "wallhavenCategories": "111",
         "wallhavenOrder": "desc",
