@@ -36,19 +36,13 @@
       ];
 
       exec-once = [
-        "noctalia-shell"
+        "ambxst"
         "blueman-applet"
         "nm-applet"
       ];
 
-      source = [
-      ];
-
-      imports = [
-      ];
-
       general = {
-        gaps_in = 4;
+        gaps_in = 3;
         gaps_out = 8;
         border_size = 2;
         "col.active_border" = lib.mkForce "rgba(c79595ff) rgba(c795aeff) 45deg";
@@ -171,16 +165,8 @@
       ];
 
       bind = [
-        # --- Noctalia ---
-        "SUPER, A, exec, noctalia-shell ipc call launcher toggle"
-        "SUPER, V, exec, noctalia-shell ipc call launcher clipboard"
-        "SUPER, comma, exec, noctalia-shell ipc call launcher emoji"
-        "SUPER, L, exec, noctalia-shell ipc call lockScreen lock"
-        "SUPER_SHIFT, W, exec, noctalia-shell ipc call wallpaper toggle"
-
-
-        "SUPER_SHIFT, S, exec, grimblast save area - | satty --filename -"
-        "SUPER_CONTROL, S, exec, grimblast save screen - | satty --filename -"
+        #"SUPER_SHIFT, S, exec, grimblast save area - | satty --filename -"
+        #"SUPER_CONTROL, S, exec, grimblast save screen - | satty --filename -"
 
         # --- Apps ---
         "SUPER, T, exec, kitty"
@@ -257,11 +243,6 @@
         "SUPER_ALT, 8, movetoworkspacesilent, 8"
         "SUPER_ALT, 9, movetoworkspacesilent, 9"
         "SUPER_ALT, 0, movetoworkspacesilent, 10"
-
-        # --- Special Workspace (Scratchpad) ---
-        "SUPER_SHIFT, S, movetoworkspace, special"
-        "SUPER_ALT, S, movetoworkspacesilent, special"
-        "SUPER, S, togglespecialworkspace"
       ];
 
       # --- Holding Keys (Repeating) ---

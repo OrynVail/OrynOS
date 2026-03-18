@@ -9,15 +9,16 @@
     initrd = {
       systemd.enable = true;
     };
-    
+
     supportedFilesystems = ["ntfs" "exfat" "vfat"];
-    
+
     enableContainers = true;
 
     kernelPackages = pkgs.linuxPackages_latest;
 
     consoleLogLevel = 3;
     kernelParams = [
+      "video=DP-3:1920x1080@144"
       "preempt=full"
       "systemd.show_status=auto"
       "rd.udev.log_level=3"

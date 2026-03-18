@@ -26,7 +26,6 @@
     };
   };
 
-  # --- CLI (Comma) ---
   programs.nix-index-database.comma.enable = true;
   # Keeps the index updated automatically
   programs.command-not-found.enable = false; # Disable default to use nix-index
