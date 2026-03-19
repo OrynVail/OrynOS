@@ -64,7 +64,7 @@
 
     # Arguments passed to every module
     sharedSpecialArgs = {
-      inherit inputs username hostname system;
+      inherit self inputs username hostname system;
     };
   in {
     # 1. System Configuration

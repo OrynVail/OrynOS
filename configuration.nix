@@ -4,12 +4,13 @@
   username,
   hostname,
   system,
+  self,
   ...
 }: {
   imports = [
     inputs.home-manager.nixosModules.home-manager
-    ./hosts/${hostname}/hardware-configuration.nix
-    ./hosts/${hostname}/default.nix
+    "${self}/hosts/${hostname}/default.nix"
+    "${self}/hosts/${hostname}/hardware-configuration.nix"
   ];
 
   home-manager = {
@@ -17,11 +18,11 @@
     useUserPackages = true;
     backupFileExtension = "backup"; # <--- Prevents install errors
     extraSpecialArgs = {
-      inherit inputs username hostname system;
+      inherit self inputs username hostname system;
     };
     users."${username}" = {
       imports = [
-        ./home/${username}/${hostname}/default.nix
+        "${self}/home/${username}/${hostname}/default.nix"
       ];
     };
   };

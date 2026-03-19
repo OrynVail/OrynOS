@@ -3,37 +3,40 @@
   username,
   config,
   inputs,
+  self,
   ...
 }: {
   imports = [
-    ./mime.nix
     ./custom.nix
 
-    ../../../programs/spicetify.nix
-    ../../../modules/nix/flatpak.nix
-    ../../../modules/desktop/hyprland.nix
+    # modules
+    "${self}/modules/desktop/hyprland.nix"
+    "${self}/modules/nix/flatpak.nix"
+    "${self}/modules/desktop/mime.nix"
 
-    ../../../programs/starship.nix
-    ../../../programs/brave.nix
-    ../../../programs/thunderbird.nix
-    ../../../programs/zsh.nix
-    ../../../programs/fzf.nix
-    ../../../programs/obsidian.nix
-    ../../../programs/k9s.nix
-    ../../../programs/krew.nix
-    ../../../programs/btop.nix
-    ../../../programs/gpg.nix
-    ../../../programs/bat.nix
-    ../../../programs/lazygit.nix
-    ../../../programs/mpv.nix
-    ../../../programs/fastfetch.nix
-    ../../../programs/obs-studio.nix
-    ../../../programs/zathura.nix
-    ../../../programs/vscode.nix
-    ../../../programs/ytmusic.nix
-    ../../../programs/kitty.nix
-    ../../../programs/gemini.nix
-    ../../../programs/satty.nix
+    # programs
+    "${self}/programs/bat.nix"
+    "${self}/programs/brave.nix"
+    "${self}/programs/btop.nix"
+    "${self}/programs/fastfetch.nix"
+    "${self}/programs/fzf.nix"
+    "${self}/programs/gemini.nix"
+    "${self}/programs/gpg.nix"
+    "${self}/programs/k9s.nix"
+    "${self}/programs/kitty.nix"
+    "${self}/programs/krew.nix"
+    "${self}/programs/lazygit.nix"
+    "${self}/programs/mpv.nix"
+    "${self}/programs/obs-studio.nix"
+    "${self}/programs/obsidian.nix"
+    "${self}/programs/satty.nix"
+    "${self}/programs/spicetify.nix"
+    "${self}/programs/starship.nix"
+    "${self}/programs/thunderbird.nix"
+    "${self}/programs/vscode.nix"
+    "${self}/programs/ytmusic.nix"
+    "${self}/programs/zathura.nix"
+    "${self}/programs/zsh.nix"
   ];
 
   # --- Home Manager Core ---
@@ -59,7 +62,7 @@
     qalculate-gtk
     yt-dlp
 
-    vesktop # Better Discord client for Linux
+    vesktop
 
     papirus-icon-theme
     papirus-folders

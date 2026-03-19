@@ -2,21 +2,30 @@
   pkgs,
   username,
   inputs,
+  self,
   ...
 }: {
   imports = [
-    ../../modules/core/boot.nix
-    ../../modules/core/security.nix
-    ../../modules/core/power.nix
-    ../../modules/desktop/gnome.nix
-    ../../modules/nix/nh.nix
-    ../../modules/desktop/stylix.nix
-    ../../modules/desktop/fonts.nix
-    ../../modules/hardware/nvidia.nix
-    ../../modules/hardware/hardware.nix
-    ../../modules/core/network.nix
+    # core
+    "${self}/modules/core/boot.nix"
+    "${self}/modules/core/network.nix"
+    "${self}/modules/core/power.nix"
+    "${self}/modules/core/security.nix"
 
-    ../../programs/documents.nix
+    # desktop
+    "${self}/modules/desktop/fonts.nix"
+    "${self}/modules/desktop/gnome.nix"
+    "${self}/modules/desktop/stylix.nix"
+
+    # hardware
+    "${self}/modules/hardware/hardware.nix"
+    "${self}/modules/hardware/nvidia.nix"
+
+    # nix
+    "${self}/modules/nix/nh.nix"
+
+    # programs
+    "${self}/programs/documents.nix"
   ];
 
   # --- Services ---
