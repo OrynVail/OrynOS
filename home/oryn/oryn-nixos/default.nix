@@ -30,7 +30,7 @@
     "${self}/programs/obs-studio.nix"
     "${self}/programs/obsidian.nix"
     "${self}/programs/satty.nix"
-    "${self}/programs/spicetify.nix"
+    #"${self}/programs/spicetify.nix"
     "${self}/programs/starship.nix"
     "${self}/programs/thunderbird.nix"
     "${self}/programs/vscode.nix"
