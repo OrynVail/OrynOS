@@ -27,6 +27,7 @@
       cls = "clear";
       test = "sudo nixos-rebuild build --flake .#oryn-nixos"; #catch errors
       nhswitch = "nh os switch --hostname oryn-nixos";
+      nhboot = "nh os boot --hostname oryn-nixos";
       rebuild = "sudo nixos-rebuild switch --flake .#oryn-nixos";
       rebuildboot = "sudo nixos-rebuild boot --flake .#oryn-nixos";
       gc = "sudo nix-collect-garbage -d";

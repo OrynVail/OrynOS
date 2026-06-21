@@ -67,7 +67,7 @@
     papirus-icon-theme
     papirus-folders
 
-    libsForQt5.qt5.qtwayland
+    qt5.qtwayland
     qt6.qtwayland
   ];
 
