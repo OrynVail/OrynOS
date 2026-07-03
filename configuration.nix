@@ -27,6 +27,10 @@
     };
   };
 
+  nixpkgs.config.permittedInsecurePackages = [
+    "pnpm-10.29.2"
+  ];
+
   programs.nix-index-database.comma.enable = true;
   # Keeps the index updated automatically
   programs.command-not-found.enable = false; # Disable default to use nix-index
@@ -57,12 +61,6 @@
   # System Basics
   time.timeZone = "Asia/Kolkata";
   i18n.defaultLocale = "en_US.UTF-8";
-
-  users.users."${username}" = {
-    isNormalUser = true;
-    extraGroups = ["wheel" "networkmanager" "video" "adbusers" "i2c"];
-    shell = pkgs.zsh;
-  };
 
   system.stateVersion = "25.05";
 }
