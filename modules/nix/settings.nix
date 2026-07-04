@@ -1,6 +1,4 @@
 {
-  pkgs,
-  self,
   ...
 }:{
   nix.settings = {

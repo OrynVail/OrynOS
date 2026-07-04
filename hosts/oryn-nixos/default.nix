@@ -11,6 +11,7 @@
     "${self}/modules/core/network.nix"
     "${self}/modules/core/power.nix"
     "${self}/modules/core/security.nix"
+    "${self}/modules/core/sddm.nix"
     "${self}/modules/core/users.nix"
 
     # desktop
@@ -66,6 +67,8 @@
     gpu-screen-recorder
     grim
     slurp
+
+    qt6.qtwayland
   ];
 
   systemd.user.services.hyprpolkitagent = {

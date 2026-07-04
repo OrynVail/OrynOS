@@ -74,7 +74,7 @@
       modules = [
         ./configuration.nix
 
-        # Modules 
+        # Modules
         nix-flatpak.nixosModules.nix-flatpak
         stylix.nixosModules.stylix
         nix-index-database.nixosModules.nix-index
