@@ -52,7 +52,7 @@
     system = "x86_64-linux";
     username = "oryn";
 
-    # Package Config
+    # Package
     pkgsConfig = {
       allowUnfree = true;
     };
@@ -61,12 +61,12 @@
       nur.overlays.default
     ];
 
-    # Arguments passed to every module, computed per-host
+    # Arguments passed to every module
     sharedSpecialArgsFor = hostname: {
       inherit self inputs username hostname system;
     };
 
-    # System builder helper
+    # System builder
     mkSystem = hostname: nixpkgs.lib.nixosSystem {
       inherit system;
       specialArgs = sharedSpecialArgsFor hostname;
@@ -89,7 +89,7 @@
       ];
     };
 
-    # Home builder helper
+    # Home builder
     mkHome = hostname: home-manager.lib.homeManagerConfiguration {
       pkgs = import nixpkgs {
         inherit system;
@@ -104,16 +104,14 @@
       ];
     };
   in {
-    # 1. System Configurations
     nixosConfigurations = {
       ph315 = mkSystem "ph315";
-      # gaming-rig = mkSystem "gaming-rig"; # Template for future rig
+
     };
 
-    # 2. Home Configurations
     homeConfigurations = {
       "oryn@ph315" = mkHome "ph315";
-      # "oryn@gaming-rig" = mkHome "gaming-rig"; # Template for future rig
+
     };
   };
 }
