@@ -25,11 +25,9 @@ hl.env("WLR_RENDERER", "vulkan")
 
 hl.on("hyprland.start", function ()
     hl.exec_cmd("ambxst")
-    hl.exec_cmd("blueman-applet")
-    hl.exec_cmd("nm-applet")
-    hl.exec_cmd("polkit-agent-helper-1")
+    hl.exec_cmd ("nm-applet")
+    hl.exec_cmd ("blueman-applet")
 end)
-
 
 -- Config
 
@@ -90,6 +88,7 @@ hl.config({
 
     misc = {
         disable_hyprland_logo = true,
+        disable_splash_rendering = true,
         mouse_move_focuses_monitor = true,
         swallow_regex = "^(Alacritty|kitty)$",
         enable_swallow = true,

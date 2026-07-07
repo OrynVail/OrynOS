@@ -25,4 +25,24 @@
       ${builtins.readFile ./lua/hyprland.lua}
     '';
   };
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-hyprland
+      xdg-desktop-portal-gtk
+    ];
+
+    config.common = {
+      default = ["hyprland" "gtk"];
+    };
+  };
+
+  dconf.enable = true;
+
+  dconf.settings = {
+    "org/gnome/desktop/wm/preferences" = {
+      button-layout = ":";
+    };
+  };
 }

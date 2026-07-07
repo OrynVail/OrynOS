@@ -5,15 +5,11 @@
   system,
   ...
 }:{
-  imports = [
-    inputs.nixos-hardware.nixosModules.common-cpu-intel
-    inputs.nixos-hardware.nixosModules.common-pc-laptop
-    inputs.nixos-hardware.nixosModules.common-pc-ssd
-  ];
+
 
   hardware = {
-    logitech.wireless.enable = false;
-    logitech.wireless.enableGraphical = false;
+    logitech.wireless.enable = true;
+    logitech.wireless.enableGraphical = true;
     enableRedistributableFirmware = true;
     keyboard.qmk.enable = true;
     i2c.enable = true;

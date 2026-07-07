@@ -2,6 +2,7 @@
 with lib;
 let
   defaultApps = {
+    web = [ "brave-browser.desktop" ];
     image = [ "org.gnome.Loupe.desktop" ];
     audio = [ "mpv.desktop" ];
     video = [ "mpv.desktop" ];
@@ -9,6 +10,14 @@ let
   };
 
   mimeMap = {
+    web = [
+      "text/html"
+      "x-scheme-handler/http"
+      "x-scheme-handler/https"
+      "x-scheme-handler/about"
+      "x-scheme-handler/unknown"
+      "application/xhtml+xml"
+    ];
     image = [
       "image/bmp"
       "image/gif"

@@ -20,25 +20,29 @@ let
   ];
 in
 {
-  services.displayManager.sddm = {
-    enable = true;
-
-    wayland = {
+  services.displayManager = {
+    defaultSession = "hyprland-uwsm";
+    sddm = {
       enable = true;
-      compositor = "kwin";
-    };
 
-    package = pkgs.kdePackages.sddm;
-    theme = "clockwork";
+      wayland = {
+        enable = true;
+        compositor = "kwin";
+      };
 
-    extraPackages = sddmDependencies;
+      package = pkgs.kdePackages.sddm;
+      theme = "clockwork";
+      extraPackages = sddmDependencies;
 
-    settings = {
-      Theme = {
-        CursorTheme = "Bibata-Modern-Classic";
+      settings = {
+        Theme = {
+          CursorTheme = "Bibata-Modern-Classic";
+        };
       };
     };
   };
+
+  security.pam.services.sddm.enableGnomeKeyring = true;
 
   environment.systemPackages = [
     clockworkTheme

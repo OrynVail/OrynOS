@@ -51,7 +51,6 @@
   } @ inputs: let
     system = "x86_64-linux";
     username = "oryn";
-    hostname = "oryn-nixos";
 
     # Package Config
     pkgsConfig = {
@@ -62,17 +61,18 @@
       nur.overlays.default
     ];
 
-    # Arguments passed to every module
-    sharedSpecialArgs = {
+    # Arguments passed to every module, computed per-host
+    sharedSpecialArgsFor = hostname: {
       inherit self inputs username hostname system;
     };
-  in {
-    # 1. System Configuration
-    nixosConfigurations."${hostname}" = nixpkgs.lib.nixosSystem {
+
+    # System builder helper
+    mkSystem = hostname: nixpkgs.lib.nixosSystem {
       inherit system;
-      specialArgs = sharedSpecialArgs;
+      specialArgs = sharedSpecialArgsFor hostname;
       modules = [
-        ./configuration.nix
+        ./modules/common/configuration.nix
+        ./hosts/${hostname}
 
         # Modules
         nix-flatpak.nixosModules.nix-flatpak
@@ -89,18 +89,31 @@
       ];
     };
 
-    homeConfigurations."${username}@${hostname}" = home-manager.lib.homeManagerConfiguration {
+    # Home builder helper
+    mkHome = hostname: home-manager.lib.homeManagerConfiguration {
       pkgs = import nixpkgs {
         inherit system;
         config = pkgsConfig;
         overlays = pkgsOverlays;
       };
 
-      extraSpecialArgs = sharedSpecialArgs;
+      extraSpecialArgs = sharedSpecialArgsFor hostname;
       modules = [
         stylix.homeManagerModules.stylix
         ./home/${username}/${hostname}/default.nix
       ];
+    };
+  in {
+    # 1. System Configurations
+    nixosConfigurations = {
+      ph315 = mkSystem "ph315";
+      # gaming-rig = mkSystem "gaming-rig"; # Template for future rig
+    };
+
+    # 2. Home Configurations
+    homeConfigurations = {
+      "oryn@ph315" = mkHome "ph315";
+      # "oryn@gaming-rig" = mkHome "gaming-rig"; # Template for future rig
     };
   };
 }

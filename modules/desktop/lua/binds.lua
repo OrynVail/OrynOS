@@ -23,6 +23,7 @@ hl.bind(mainMod .. " + T", hl.dsp.exec_cmd("kitty"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("nautilus"))
 hl.bind(mainMod .. " + C", hl.dsp.exec_cmd("code"))
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("brave"))
+hl.bind(mainMod .. " + Y", hl.dsp.exec_cmd("pear-desktop"))
 
 
 -- Window Management
