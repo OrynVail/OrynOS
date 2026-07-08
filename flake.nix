@@ -71,8 +71,8 @@
       inherit system;
       specialArgs = sharedSpecialArgsFor hostname;
       modules = [
-        ./modules/common/configuration.nix
-        ./hosts/${hostname}
+        "${self}/modules/common/configuration.nix"
+        "${self}/hosts/${hostname}"
 
         # Modules
         nix-flatpak.nixosModules.nix-flatpak
@@ -100,7 +100,7 @@
       extraSpecialArgs = sharedSpecialArgsFor hostname;
       modules = [
         stylix.homeManagerModules.stylix
-        ./home/${username}/${hostname}/default.nix
+        "${self}/home/${username}/${hostname}/default.nix"
       ];
     };
   in {

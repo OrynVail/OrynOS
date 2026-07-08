@@ -5,16 +5,18 @@
   ...
 }: {
   imports = [
-    ./hardware-configuration.nix
+    "${self}/hosts/ph315/hardware-configuration.nix"
 
-    # NixOS Hardware
+    # NixOS Hardware laptop optimizations
     inputs.nixos-hardware.nixosModules.common-cpu-intel
     inputs.nixos-hardware.nixosModules.common-pc-laptop
     inputs.nixos-hardware.nixosModules.common-pc-ssd
 
-    ../../modules/common
+    # common
+    "${self}/modules/common"
 
-    ../../modules/mixins/nvidia.nix
+    # Host-specific
+    "${self}/modules/mixins/nvidia-laptop.nix"
   ];
 
   environment.systemPackages = with pkgs; [
