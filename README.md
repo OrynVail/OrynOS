@@ -43,7 +43,7 @@ Everything is declarative, modular, and meant to be understood.
 |---|---|
 | **OS** | NixOS Unstable |
 | **Compositor** | Hyprland |
-| **Login** | greetd (TUI) |
+| **Login** | SDDM |
 | **Theming** | Stylix (Base16) |
 | **Terminal** | Kitty |
 | **Browser** | Brave |
@@ -85,13 +85,11 @@ git clone https://github.com/OrynVail/OrynOS.git
 cd ~/OrynOS
 
 # Edit hardware config for your machine
-nano hosts/oryn-nixos/hardware-configuration.nix
+nano hosts/${hostname}/hardware-configuration.nix
 
 # Rebuild
-sudo nixos-rebuild switch --flake .#oryn-nixos
+sudo nixos-rebuild switch --flake .#hostname
 ```
-
-Log in via greetd.
 
 ---
 
