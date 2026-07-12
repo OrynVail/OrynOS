@@ -7,10 +7,6 @@ OrynOS
   <img src="./preview/1.png" alt="OrynOS" width="90%"/>
 </div>
 
-<h2 align="center">
-  <em>Pure NixOS. Native Hyprland. Declarative to the core.</em>
-</h2>
-
 ![NixOS](https://img.shields.io/badge/NixOS-unstable-C79595?style=flat-square&logo=nixos&logoColor=white)
 ![Hyprland](https://img.shields.io/badge/Hyprland-native-95AEC7?style=flat-square&logo=wayland&logoColor=white)
 ![Stylix](https://img.shields.io/badge/Stylix-base16-C795AE?style=flat-square)
