@@ -26,6 +26,9 @@
     "${self}/modules/nix/nh.nix"
     "${self}/modules/nix/settings.nix"
 
+    # programs
+    "${self}/modules/programs/torrent.nix"
+
     ./system-packages.nix
   ];
 }

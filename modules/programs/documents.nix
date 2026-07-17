@@ -4,7 +4,7 @@
 }: {
   home.packages = with pkgs; [
     # OFFICE tools
-    onlyoffice-desktopeditors
+    libreoffice-fresh
 
     # Document conversion
     pandoc

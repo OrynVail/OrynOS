@@ -41,4 +41,8 @@
   };
 
   services.blueman.enable = true;
+
+  # Trezor hardware wallet support
+  services.trezord.enable = true;
+  services.udev.packages = with pkgs; [ trezor-udev-rules ];
 }

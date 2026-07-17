@@ -22,5 +22,8 @@
     slurp
 
     qt6.qtwayland
+
+    trezor-suite
+    python313Packages.trezor
   ];
 }

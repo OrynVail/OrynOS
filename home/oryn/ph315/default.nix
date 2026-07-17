@@ -41,6 +41,7 @@
 
   home.username = username;
   home.homeDirectory = "/home/${username}";
+  home.pointerCursor.enable = true;
   programs.home-manager.enable = true;
 
   home.stateVersion = "25.05";
