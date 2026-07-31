@@ -7,7 +7,6 @@
 
   programs.gpu-screen-recorder.enable = true;
 
-  # Polkit
   systemd.user.services.hyprpolkitagent = {
     description = "Hyprpolkitagent - Polkit authentication agent";
     wantedBy = ["graphical-session.target"];

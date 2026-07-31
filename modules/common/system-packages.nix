@@ -1,17 +1,14 @@
 { pkgs, ... }: {
 
   environment.systemPackages = with pkgs; [
-    # Core Tools
     wget
     curl
     git
 
-    # Dev
     gcc
     nodejs
     python3
 
-    # Utils
     wmctrl
     eza
     tree

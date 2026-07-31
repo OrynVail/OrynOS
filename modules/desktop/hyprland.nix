@@ -9,7 +9,6 @@
   home.packages = with pkgs; [
   ];
 
-  # Drop all the supplementary Lua modules directly into the config directory
   xdg.configFile = {
     "hypr/monitors.lua".source = ./lua/monitors.lua;
     "hypr/config.lua".source = ./lua/config.lua;

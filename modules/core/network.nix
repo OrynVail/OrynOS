@@ -19,6 +19,8 @@
   };
 
   services = {
+    cloudflare-warp.enable = true;
+
     openssh = {
       enable = true;
       settings.UseDns = false; 

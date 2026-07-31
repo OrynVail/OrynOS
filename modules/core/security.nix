@@ -63,6 +63,13 @@
     };
 
     acme.acceptTerms = true;
+
+    pam.services = {
+      login.enableGnomeKeyring = true;
+      sddm.enableGnomeKeyring = true;
+      sddm-autologin.enableGnomeKeyring = true;
+      hyprland.enableGnomeKeyring = true;
+    };
   };
 
   services.gnome.gnome-keyring.enable = true;

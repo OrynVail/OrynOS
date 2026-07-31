@@ -7,7 +7,7 @@
   imports = [
     "${self}/hosts/ph315/hardware-configuration.nix"
 
-    # NixOS Hardware laptop optimizations
+    # NixOS Hardware laptop
     inputs.nixos-hardware.nixosModules.common-cpu-intel
     inputs.nixos-hardware.nixosModules.common-pc-laptop
     inputs.nixos-hardware.nixosModules.common-pc-ssd
