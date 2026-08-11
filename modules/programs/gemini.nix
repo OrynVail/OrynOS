@@ -9,6 +9,7 @@
 
   home.file = {
     ".gemini/antigravity-cli/settings.json" = {
+      force = true;
       text = builtins.toJSON {
         general = {
           vimMode = true;

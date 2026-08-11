@@ -13,6 +13,7 @@
     "${self}/modules/programs/bat.nix"
     "${self}/modules/programs/brave.nix"
     "${self}/modules/programs/btop.nix"
+    "${self}/modules/programs/direnv.nix"
     "${self}/modules/programs/documents.nix"
     "${self}/modules/programs/fastfetch.nix"
     "${self}/modules/programs/fzf.nix"
