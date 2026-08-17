@@ -1,25 +1,14 @@
-<div align="center">
-<h1>
-OrynOS
-</h1>
+# OrynOS
 
 <div align="center">
   <img src="./preview/1.png" alt="OrynOS" width="90%"/>
 </div>
 
-![NixOS](https://img.shields.io/badge/NixOS-unstable-C79595?style=flat-square&logo=nixos&logoColor=white)
-![Hyprland](https://img.shields.io/badge/Hyprland-native-95AEC7?style=flat-square&logo=wayland&logoColor=white)
-![Stylix](https://img.shields.io/badge/Stylix-base16-C795AE?style=flat-square)
-![License](https://img.shields.io/badge/License-MIT-9a9a9a?style=flat-square)
-
-</div>
-
 ## Overview
 
-**OrynOS** is a personal NixOS configuration built around a native Wayland stack.
+A personal NixOS configuration on a native Wayland stack. The whole machine, in a file.
 
-Everything is declarative, modular, and meant to be understood.
-
+Declarative and modular, and written to be read.
 
 ---
 
@@ -49,7 +38,7 @@ Everything is declarative, modular, and meant to be understood.
 ## Screenshots
 
 <details>
-<summary>📸 View</summary>
+<summary>View</summary>
 <br>
 
 <div align="center">
@@ -78,20 +67,23 @@ nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
 ```bash
 git clone https://github.com/OrynVail/OrynOS.git
-cd ~/OrynOS
+cd OrynOS
 
-# Edit hardware config for your machine
-nano hosts/${hostname}/hardware-configuration.nix
+# Point this at your own hardware.
+nano hosts/ph315/hardware-configuration.nix
 
-# Rebuild
-sudo nixos-rebuild switch --flake .#hostname
+sudo nixos-rebuild switch --flake .#ph315
 ```
+
+There is one host and it is called `ph315`. Another machine wants its own directory under
+`hosts/` and its own entry in `flake.nix`, not this one edited in place. Home Manager is
+attached separately as `oryn@ph315`.
 
 ---
 
 ## Customisation
 
-### 🎨 Theming
+### Theming
 
 All theming flows from Stylix.
 
@@ -111,13 +103,13 @@ stylix = {
 
 Rebuild once. Everything follows.
 
-### 🐚 Shells
+### Shells
 
 Shells are installed via Nix profiles by design.
 
 Swap freely. Update the Hyprland `exec-once` entry accordingly.
 
-### 📦 Programs
+### Programs
 
 Programs live as isolated modules.
 
@@ -133,14 +125,12 @@ Import. Rebuild.
 
 ## Maintenance
 
-Standard maintenance workflow:
-
 ```bash
 ./scripts/oryn_cleanup.sh
 
 nix flake update
 
-sudo nixos-rebuild switch --flake .#oryn-nixos
+sudo nixos-rebuild switch --flake .#ph315
 ```
 
 Running unstable means breakage is part of the contract.
@@ -155,11 +145,3 @@ Running unstable means breakage is part of the contract.
 ## License
 
 MIT. See [LICENSE](LICENSE).
-
----
-
-<div align="center">
-
-<sub>❄️ Declarative by design. Unimpressed by convention.</sub>
-
-</div>

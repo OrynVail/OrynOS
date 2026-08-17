@@ -6,6 +6,7 @@
 }: {
   imports = [
     "${self}/hosts/ph315/hardware-configuration.nix"
+    "${self}/hosts/ph315/windows-drives.nix"
 
     # NixOS Hardware laptop
     inputs.nixos-hardware.nixosModules.common-cpu-intel
