@@ -1,25 +1,26 @@
 local mainMod = "SUPER"
 
--- Apps & Ambxst Launcher
+-- Apps & flokshell
 
-hl.bind(mainMod .. " + Super_L", hl.dsp.exec_cmd("ambxst run launcher"), { release = true })
+hl.bind(mainMod .. " + Super_L", hl.dsp.exec_cmd("flok run launcher"), { release = true })
 
-hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("ambxst run dashboard"))
-hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("ambxst run clipboard"))
-hl.bind(mainMod .. " + period", hl.dsp.exec_cmd("ambxst run emoji"))
-hl.bind(mainMod .. " + N", hl.dsp.exec_cmd("ambxst run notes"))
-hl.bind(mainMod .. " + comma", hl.dsp.exec_cmd("ambxst run wallpapers"))
-hl.bind(mainMod .. " + tab", hl.dsp.exec_cmd("ambxst run overview"))
-hl.bind(mainMod .. " + escape", hl.dsp.exec_cmd("ambxst run powermenu"))
-hl.bind(mainMod .. " + SHIFT + C", hl.dsp.exec_cmd("ambxst run config"))
+hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("flok run dashboard"))
+hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("flok run clipboard"))
+hl.bind(mainMod .. " + period", hl.dsp.exec_cmd("flok run emoji"))
+hl.bind(mainMod .. " + N", hl.dsp.exec_cmd("flok run notes"))
+hl.bind(mainMod .. " + comma", hl.dsp.exec_cmd("flok run wallpapers"))
+hl.bind(mainMod .. " + tab", hl.dsp.exec_cmd("flok run overview"))
+hl.bind(mainMod .. " + escape", hl.dsp.exec_cmd("flok run powermenu"))
+hl.bind(mainMod .. " + SHIFT + C", hl.dsp.exec_cmd("flok run config"))
 hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("loginctl lock-session"))
-hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("ambxst run tools"))
-hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("ambxst run screenshot"))
-hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd("ambxst run screenrecord"))
-hl.bind(mainMod .. " + SHIFT + A", hl.dsp.exec_cmd("ambxst run lens"))
-hl.bind(mainMod .. " + ALT + B", hl.dsp.exec_cmd("ambxst reload"))
+hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("flok run tools"))
+hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("flok run screenshot"))
+hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd("flok run screenrecord"))
+hl.bind(mainMod .. " + SHIFT + A", hl.dsp.exec_cmd("flok run lens"))
+hl.bind(mainMod .. " + ALT + B", hl.dsp.exec_cmd("flok reload"))
+hl.bind(mainMod .. " + ALT + Q", hl.dsp.exec_cmd("flok quit"))
 
-hl.bind(mainMod .. " + T", hl.dsp.exec_cmd("ambxst run tmux"))
+hl.bind(mainMod .. " + T", hl.dsp.exec_cmd("flok run tmux"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("nautilus"))
 hl.bind(mainMod .. " + C", hl.dsp.exec_cmd("code"))
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("brave"))

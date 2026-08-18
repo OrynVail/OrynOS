@@ -24,7 +24,7 @@ hl.env("WLR_RENDERER", "vulkan")
 -- Autostart
 
 hl.on("hyprland.start", function ()
-    hl.exec_cmd ("ambxst")
+    hl.exec_cmd ("flok")
     hl.exec_cmd ("nm-applet")
     hl.exec_cmd ("blueman-applet")
     hl.exec_cmd ("solaar --window=hide")
