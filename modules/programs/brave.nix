@@ -36,9 +36,13 @@
     ];
 
     # --- COMMAND LINE FLAGS (Performance + Privacy) ---
+    # A repeated --enable/--disable-features discards every earlier one, so these
+    # stay single lists and carry the wrapper's values too.
     commandLineArgs = [
+      "--enable-features=UseOzonePlatform,VaapiVideoDecoder,VaapiVideoEncoder,CanvasOopRasterization,WebUIDarkMode,AcceleratedVideoDecodeLinuxGL,AcceleratedVideoEncoder,WaylandWindowDecorations"
+      "--disable-features=UseChromeOSDirectVideoDecoder,MediaRouter,OptimizationHints,WaylandWpColorManagerV1,OutdatedBuildDetector"
+
       # Wayland Native
-      "--enable-features=UseOzonePlatform"
       "--ozone-platform=wayland"
 
       # Hardware Acceleration (NVIDIA optimized)
@@ -47,24 +51,12 @@
       "--enable-zero-copy"
       "--ignore-gpu-blocklist"
 
-      # Performance
-      "--enable-features=VaapiVideoDecoder"
-      "--enable-features=VaapiVideoEncoder"
-      "--enable-features=CanvasOopRasterization"
-      "--disable-features=UseChromeOSDirectVideoDecoder"
-
       # Privacy & Security
-      "--disable-features=MediaRouter" # Disable Chromecast
-      "--disable-features=OptimizationHints" # No Google suggestions
       "--disable-background-networking" # No telemetry
       "--disable-sync" # Manual sync control
 
-      # Wayland-specific fixes
-      "--disable-features=WaylandWpColorManagerV1" # Color management fix
-
       # UI/UX
       "--force-dark-mode" # Match Stylix theme
-      "--enable-features=WebUIDarkMode"
     ];
   };
 

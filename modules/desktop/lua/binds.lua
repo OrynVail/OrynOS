@@ -21,6 +21,7 @@ hl.bind(mainMod .. " + ALT + B", hl.dsp.exec_cmd("flok reload"))
 hl.bind(mainMod .. " + ALT + Q", hl.dsp.exec_cmd("flok quit"))
 
 hl.bind(mainMod .. " + T", hl.dsp.exec_cmd("flok run tmux"))
+hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd("kitty"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("nautilus"))
 hl.bind(mainMod .. " + C", hl.dsp.exec_cmd("code"))
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("brave"))
@@ -72,8 +73,6 @@ hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 -- Special Workspace Rules & Navigation
 
-hl.bind(mainMod .. " + minus", hl.dsp.focus({ workspace = "11" }))
-
 hl.bind(mainMod .. " + CTRL + right", hl.dsp.focus({ workspace = "r+1" }))
 hl.bind(mainMod .. " + CTRL + left", hl.dsp.focus({ workspace = "r-1" }))
 hl.bind(mainMod .. " + CTRL + down", hl.dsp.focus({ workspace = "empty" }))
@@ -85,9 +84,8 @@ hl.bind(mainMod .. " + CTRL + ALT + right", hl.dsp.window.move({ workspace = "r+
 hl.bind(mainMod .. " + CTRL + ALT + left", hl.dsp.window.move({ workspace = "r-1" }))
 
 
-for i = 1, 10 do
-    local key = i % 10
-    hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
-    hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
-    hl.bind(mainMod .. " + ALT + " .. key, hl.dsp.window.move({ workspace = i, follow = false }))
+for i = 1, 9 do
+    hl.bind(mainMod .. " + " .. i, hl.dsp.focus({ workspace = i }))
+    hl.bind(mainMod .. " + SHIFT + " .. i, hl.dsp.window.move({ workspace = i }))
+    hl.bind(mainMod .. " + ALT + " .. i, hl.dsp.window.move({ workspace = i, follow = false }))
 end

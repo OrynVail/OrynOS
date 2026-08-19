@@ -8,7 +8,7 @@
 
     networkmanager = {
       enable = true;
-      dns = "none";
+      dns = "systemd-resolved";
       wifi.powersave = true;
       plugins = with pkgs; [
         networkmanager-openvpn
@@ -19,6 +19,8 @@
   };
 
   services = {
+    resolved.enable = true;
+
     cloudflare-warp.enable = true;
 
     openssh = {

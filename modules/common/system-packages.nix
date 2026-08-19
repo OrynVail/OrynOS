@@ -9,6 +9,8 @@
     nodejs
     python3
 
+    proton-vpn
+
     wmctrl
     eza
     tree

@@ -2,6 +2,7 @@
 
 let
   peer-port = 51412;
+  rt = config.services.rtorrent;
 in
 {
   services.rtorrent = {
@@ -27,6 +28,15 @@ in
       dht.port.set = 6881
       protocol.pex.set = yes
 
+      schedule = dht_bootstrap_1,30,0,"dht.add_node=router.bittorrent.com:6881"
+      schedule = dht_bootstrap_2,31,0,"dht.add_node=dht.transmissionbt.com:6881"
+      schedule = dht_bootstrap_3,32,0,"dht.add_node=router.utorrent.com:6881"
+      schedule = dht_bootstrap_4,33,0,"dht.add_node=dht.libtorrent.org:25401"
+
+      # Watch folders, .torrent files only — magnets will not load from a file
+      schedule = watch_start, 10, 10, ((load.start, (cat, (cfg.watch), "start/*.torrent")))
+      schedule = watch_load, 11, 10, ((load.normal, (cat, (cfg.watch), "load/*.torrent")))
+
       # Enable UDP tracker support
       trackers.use_udp.set = yes
 
@@ -43,15 +53,35 @@ in
     '';
   };
 
+  services.flood = {
+    enable = true;
+    host = "127.0.0.1";
+    port = 3000;
+    extraArgs = [
+      "--auth=none"
+      "--rtsocket=${rt.rpcSocket}"
+    ];
+  };
+
+  systemd.services.flood.serviceConfig.SupplementaryGroups = [ rt.group ];
+
   systemd.services.rtorrent.serviceConfig.LimitNOFILE = 16384;
 
-  users.users.${username}.extraGroups = [ config.services.rtorrent.group ];
+  systemd.tmpfiles.rules = [
+    "d '${rt.downloadDir}' 0770 ${rt.user} ${rt.group} -"
+    "d '${rt.dataDir}/watch/start' 0770 ${rt.user} ${rt.group} -"
+    "d '${rt.dataDir}/watch/load' 0770 ${rt.user} ${rt.group} -"
+  ];
+
+  users.users.${username}.extraGroups = [ rt.group ];
 
   networking.firewall.allowedTCPPorts = [ 6881 ];
   networking.firewall.allowedUDPPorts = [ peer-port 6881 ];
 
+  environment.sessionVariables.PYRO_SCGI_URL = "scgi+unix://${rt.rpcSocket}";
+
   environment.systemPackages = with pkgs; [
     rtorrent
-    tremc
+    pyrosimple
   ];
 }
