@@ -23,9 +23,17 @@
 
     cloudflare-warp.enable = true;
 
+    # Key-only, and not exposed to attached networks. Reachable over loopback
+    # or a VPN interface; add the port back if that ever changes.
     openssh = {
       enable = true;
-      settings.UseDns = false; 
+      openFirewall = false;
+      settings = {
+        UseDns = false;
+        PasswordAuthentication = false;
+        KbdInteractiveAuthentication = false;
+        PermitRootLogin = "no";
+      };
     };
   };
 

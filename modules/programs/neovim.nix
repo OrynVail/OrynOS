@@ -4,6 +4,11 @@
     inputs.nvix.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
+  home.sessionVariables = {
+    EDITOR = "nvim";
+    VISUAL = "nvim";
+  };
+
   xdg.desktopEntries.nvim = {
     name = "Neovim";
     genericName = "Text Editor";

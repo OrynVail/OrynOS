@@ -26,6 +26,14 @@ local function docked()
     return false
 end
 
+local function reclaim()
+    local ws = hl.get_active_workspace()
+    local id = ws and ws.id
+    if id and id > workspaces then
+        hl.dispatch(hl.dsp.focus({ workspace = 1 }))
+    end
+end
+
 local function apply()
     local on_giga = docked()
 
@@ -51,6 +59,8 @@ local function apply()
     if on_giga then
         hl.monitor({ output = internal, disabled = true })
     end
+
+    reclaim()
 end
 
 local generation = 0
@@ -66,7 +76,10 @@ local function schedule()
     end, { timeout = 250, type = "oneshot" })
 end
 
-hl.on("hyprland.start", apply)
+hl.on("hyprland.start", function()
+    apply()
+    hl.timer(reclaim, { timeout = 500, type = "oneshot" })
+end)
 hl.on("monitor.added", schedule)
 hl.on("monitor.removed", apply)
 

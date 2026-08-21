@@ -6,13 +6,12 @@
   environment.systemPackages = with pkgs; [
     file-roller
     loupe
-    nautilus
     gvfs
     polkit_gnome
     seahorse
   ];
 
-  # Back-end services Nautilus expects
+  # Trash, mounting and network shares for the TUI file managers
   services.gvfs.enable = true;
   services.udisks2.enable = true;
 

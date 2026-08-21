@@ -12,6 +12,7 @@
     proton-vpn
 
     wmctrl
+    wl-clipboard
     eza
     tree
     mc

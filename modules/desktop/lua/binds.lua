@@ -22,7 +22,7 @@ hl.bind(mainMod .. " + ALT + Q", hl.dsp.exec_cmd("flok quit"))
 
 hl.bind(mainMod .. " + T", hl.dsp.exec_cmd("flok run tmux"))
 hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd("kitty"))
-hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("nautilus"))
+hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("kitty -e yazi"))
 hl.bind(mainMod .. " + C", hl.dsp.exec_cmd("code"))
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("brave"))
 hl.bind(mainMod .. " + Y", hl.dsp.exec_cmd("pear-desktop"))
