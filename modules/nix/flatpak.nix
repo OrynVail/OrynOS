@@ -11,7 +11,7 @@
   services.flatpak = {
     enable = true;
     packages = [
-      # { appId = "com.obsproject.Studio"; origin = "flathub"; }
+      { appId = "com.obsproject.Studio"; origin = "flathub"; }
     ];
 
     # Remove flatpaks that were manually installed but not listed here
@@ -22,6 +22,10 @@
   };
 
   services.flatpak.remotes = [
+    {
+      name = "flathub";
+      location = "https://dl.flathub.org/repo/flathub.flatpakrepo";
+    }
     {
       name = "flathub-beta";
       location = "https://flathub.org/beta-repo/flathub-beta.flatpakrepo";

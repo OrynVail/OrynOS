@@ -1,4 +1,7 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+let
+  continuumSave = "${pkgs.tmuxPlugins.continuum}/share/tmux-plugins/continuum/scripts/continuum_save.sh";
+in {
   programs.tmux = {
     enable = true;
     prefix = "C-Space";
@@ -13,7 +16,13 @@
     sensibleOnTop = false;
 
     plugins = with pkgs.tmuxPlugins; [
-      resurrect
+      {
+        plugin = resurrect;
+        extraConfig = ''
+          set -g @resurrect-capture-pane-contents 'on'
+          set -g @resurrect-strategy-nvim 'session'
+        '';
+      }
       {
         plugin = continuum;
         extraConfig = ''
@@ -51,7 +60,7 @@
       set -g status-justify left
       set -g status-left "#[bold] #S "
       set -g status-left-length 40
-      set -g status-right " %H:%M "
+      set -g status-right "#(${continuumSave}) %H:%M "
       set -g status-right-length 20
       setw -g window-status-format " #I #W "
       setw -g window-status-current-format " #I #W#{?window_zoomed_flag, Z,} "

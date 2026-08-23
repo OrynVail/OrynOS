@@ -118,7 +118,6 @@ in {
   # Additional useful packages for debugging and monitoring
   environment.systemPackages = with pkgs; [
     # GPU utilities
-    cudaPackages.cudatoolkit # CUDA toolkit for GPU computing
     vulkan-tools # Vulkan information and testing
     mesa-demos # OpenGL information
     libva-utils # VA-API debugging tools

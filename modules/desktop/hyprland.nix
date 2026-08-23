@@ -2,13 +2,6 @@
   pkgs,
   ...
 }: {
-
-  imports = [
-  ];
-
-  home.packages = with pkgs; [
-  ];
-
   xdg.configFile = {
     "hypr/monitors.lua".source = ./lua/monitors.lua;
     "hypr/config.lua".source = ./lua/config.lua;

@@ -9,7 +9,6 @@
 
   hardware = {
     logitech.wireless.enable = true;
-    logitech.wireless.enableGraphical = true;
     enableRedistributableFirmware = true;
     keyboard.qmk.enable = true;
     i2c.enable = true;
@@ -39,6 +38,8 @@
       };
     };
   };
+
+  programs.solaar.enable = true;
 
   services.blueman.enable = true;
 

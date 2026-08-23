@@ -25,13 +25,13 @@
       dots = "cd ~/Projects/OrynOS";
       verify = "sudo nix-store --verify --check-contents --repair";
       cls = "clear";
-      test = "sudo nixos-rebuild build --flake .#${hostname}"; #catch errors
+      tryb = "sudo nixos-rebuild build --flake .#${hostname}"; #catch errors
       nhswitch = "nh os switch --hostname ${hostname}";
       nhboot = "nh os boot --hostname ${hostname}";
       rebuild = "sudo nixos-rebuild switch --flake .#${hostname}";
       rebuildboot = "sudo nixos-rebuild boot --flake .#${hostname}";
       gc = "sudo nix-collect-garbage -d";
-      clean = "sudo ~/Projects/OrynOS/scripts/oryn_cleanup.sh";
+      clean = "sudo ~/Projects/OrynOS/scripts/clean.sh";
       update = "sudo nix flake update && sudo nixos-rebuild switch --flake .#${hostname}";
 
       # git

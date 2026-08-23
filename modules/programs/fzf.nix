@@ -3,7 +3,7 @@
   programs.fzf = {
     enable = true;
 
-    defaultCommand = "find .";
+    defaultCommand = "fd --type f --hidden --exclude .git";
     defaultOptions = [
       "--bind '?:toggle-preview'"
       "--bind 'ctrl-a:select-all'"

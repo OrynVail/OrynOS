@@ -9,15 +9,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    stylix.url = "github:danth/stylix";
-
-    nix-index-database = {
-      url = "github:nix-community/nix-index-database";
+    stylix = {
+      url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    rycee-nurpkgs = {
-      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -31,7 +29,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nvix.url = "github:niksingh710/nvix";
+    nvix = {
+      url = "github:niksingh710/nvix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixvim.inputs.nixpkgs.follows = "nixpkgs";
+      inputs.treefmt-nix.inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
@@ -40,13 +43,10 @@
   outputs = {
     self,
     nixpkgs,
-    home-manager,
     stylix,
     nix-index-database,
     nur,
     nix-flatpak,
-    spicetify-nix,
-    nixos-hardware,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -89,29 +89,12 @@
       ];
     };
 
-    # Home builder
-    mkHome = hostname: home-manager.lib.homeManagerConfiguration {
-      pkgs = import nixpkgs {
-        inherit system;
-        config = pkgsConfig;
-        overlays = pkgsOverlays;
-      };
-
-      extraSpecialArgs = sharedSpecialArgsFor hostname;
-      modules = [
-        stylix.homeManagerModules.stylix
-        "${self}/home/${username}/${hostname}/default.nix"
-      ];
-    };
   in {
     nixosConfigurations = {
       ph315 = mkSystem "ph315";
 
     };
 
-    homeConfigurations = {
-      "oryn@ph315" = mkHome "ph315";
-
-    };
+    formatter.${system} = nixpkgs.legacyPackages.${system}.nixfmt;
   };
 }

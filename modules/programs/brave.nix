@@ -64,10 +64,9 @@
   #  SYSTEM INTEGRATION
   # =================================================================
 
-  # Session variables
   home.sessionVariables = {
-    DEFAULT_BROWSER = "${pkgs.brave}/bin/brave";
-    BROWSER = "${pkgs.brave}/bin/brave";
+    DEFAULT_BROWSER = "${config.programs.brave.finalPackage}/bin/brave";
+    BROWSER = "${config.programs.brave.finalPackage}/bin/brave";
   };
 
   # =================================================================

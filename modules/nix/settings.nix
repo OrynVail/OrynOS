@@ -8,7 +8,6 @@
       accept-flake-config = true;
       builders-use-substitutes = true;
       keep-outputs = true;
-      auto-optimise-store = true;
       substituters = [
         "https://cache.nixos.org/"
         "https://nix-community.cachix.org/"
@@ -21,6 +20,8 @@
       ];
       warn-dirty = false;
     };
+
+    optimise.automatic = true;
   };
 
   nixpkgs.config.permittedInsecurePackages = [

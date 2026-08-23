@@ -5,11 +5,13 @@
     zip
     unzip
     sassc
+    dust
+    dysk
+    fd
 
     # Applications
     gimp
     vesktop
-    obs-studio
     persepolis
     qalculate-gtk
 

@@ -17,7 +17,4 @@
 
   # Enable security services
   programs.dconf.enable = true;
-
-  # PAM hook
-  security.pam.services.login.enableGnomeKeyring = true;
 }

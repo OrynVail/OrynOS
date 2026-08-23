@@ -10,7 +10,7 @@
     pandoc
 
     # OCR tools
-    tesseract
+    (tesseract.override { enableLanguages = [ "eng" ]; })
     gImageReader
 
     # Text expansion

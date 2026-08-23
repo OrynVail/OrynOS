@@ -15,7 +15,7 @@
 
     # desktop
     "${self}/modules/desktop/fonts.nix"
-    "${self}/modules/desktop/gnome.nix"
+    "${self}/modules/desktop/services.nix"
     "${self}/modules/desktop/hyprland-system.nix"
     "${self}/modules/desktop/stylix.nix"
 

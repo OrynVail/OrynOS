@@ -42,8 +42,6 @@ in
     };
   };
 
-  security.pam.services.sddm.enableGnomeKeyring = true;
-
   environment.systemPackages = [
     clockworkTheme
     pkgs.bibata-cursors
