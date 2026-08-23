@@ -2,7 +2,8 @@
   pkgs,
   lib,
   ...
-}: {
+}:
+{
   programs.gpg = {
     enable = true;
     settings = {
@@ -26,20 +27,19 @@
       no-symkey-cache = true;
       use-agent = true;
       # throw-keyids = true;
-      
+
       # keyserver for key retrieval
       keyserver = "hkps://keys.openpgp.org";
       keyserver-options = "honor-keyserver-url";
     };
   };
-    
-    services.gpg-agent = {
+
+  services.gpg-agent = {
     enable = true;
     defaultCacheTtl = 86400; # Corresponds to default-cache-ttl in gpg-agent.conf
     defaultCacheTtlSsh = 86400; # Corresponds to default-cache-ttl-ssh in gpg-agent.conf
     enableExtraSocket = true; # Corresponds to --enable-extra-socket for the agent daemon
-    enableSshSupport = true;  # Corresponds to --enable-ssh-support for the agent daemon
-    pinentry.package = pkgs.pinentry-curses; 
+    enableSshSupport = true; # Corresponds to --enable-ssh-support for the agent daemon
+    pinentry.package = pkgs.pinentry-curses;
   };
 }
-  

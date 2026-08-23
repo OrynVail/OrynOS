@@ -5,7 +5,8 @@
   system,
   self,
   ...
-}: {
+}:
+{
   imports = [
     inputs.home-manager.nixosModules.home-manager
   ];
@@ -15,7 +16,13 @@
     useUserPackages = true;
     backupFileExtension = "backup";
     extraSpecialArgs = {
-      inherit self inputs username hostname system;
+      inherit
+        self
+        inputs
+        username
+        hostname
+        system
+        ;
     };
     users."${username}" = {
       imports = [

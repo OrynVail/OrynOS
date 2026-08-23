@@ -1,7 +1,8 @@
 {
   pkgs,
   ...
-}: {
+}:
+{
   xdg.configFile = {
     "hypr/monitors.lua".source = ./lua/monitors.lua;
     "hypr/config.lua".source = ./lua/config.lua;
@@ -26,7 +27,10 @@
     ];
 
     config.common = {
-      default = ["hyprland" "gtk"];
+      default = [
+        "hyprland"
+        "gtk"
+      ];
     };
   };
 

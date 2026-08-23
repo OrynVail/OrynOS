@@ -1,7 +1,8 @@
 { pkgs, ... }:
 let
   continuumSave = "${pkgs.tmuxPlugins.continuum}/share/tmux-plugins/continuum/scripts/continuum_save.sh";
-in {
+in
+{
   programs.tmux = {
     enable = true;
     prefix = "C-Space";

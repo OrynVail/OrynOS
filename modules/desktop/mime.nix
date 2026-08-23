@@ -121,11 +121,13 @@ let
     directory = [ "inode/directory" ];
   };
 
-  associations = with lists;
-    listToAttrs (flatten (mapAttrsToList
-      (key: map (type: attrsets.nameValuePair type defaultApps."${key}"))
-      mimeMap));
-in {
+  associations =
+    with lists;
+    listToAttrs (
+      flatten (mapAttrsToList (key: map (type: attrsets.nameValuePair type defaultApps."${key}")) mimeMap)
+    );
+in
+{
   xdg = {
     configFile."mimeapps.list".force = true;
     mimeApps = {

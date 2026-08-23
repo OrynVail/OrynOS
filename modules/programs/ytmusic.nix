@@ -2,7 +2,8 @@
   pkgs,
   lib,
   ...
-}: let
+}:
+let
   ytMusicConfig = {
     window-size = {
       width = 1920;
@@ -33,13 +34,13 @@
       startingPage = "";
       overrideUserAgent = false;
       usePodcastParticipantAsArtist = false;
-      themes = [];
+      themes = [ ];
     };
     plugins = {
       notifications.enabled = false;
       video-toggle.mode = "custom";
       precise-volume = {
-        globalShortcuts = {};
+        globalShortcuts = { };
         enabled = true;
       };
       discord.listenAlong = true;
@@ -137,7 +138,8 @@
       };
     };
   };
-in {
+in
+{
   # =================================================================
   #  YOUTUBE MUSIC (PEAR-DESKTOP)
   # =================================================================
@@ -170,8 +172,8 @@ in {
       exec = "pear-desktop %u";
       icon = "pear-desktop";
       terminal = false;
-      categories = ["AudioVideo"];
-      mimeType = ["x-scheme-handler/youtubemusic"];
+      categories = [ "AudioVideo" ];
+      mimeType = [ "x-scheme-handler/youtubemusic" ];
     };
   };
 }

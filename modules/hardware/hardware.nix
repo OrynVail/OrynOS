@@ -4,8 +4,8 @@
   hostname,
   system,
   ...
-}:{
-
+}:
+{
 
   hardware = {
     logitech.wireless.enable = true;

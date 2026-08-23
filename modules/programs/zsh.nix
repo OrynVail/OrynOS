@@ -4,7 +4,8 @@
   config,
   hostname,
   ...
-}: {
+}:
+{
   # Zsh shell configuration
   programs.zsh = {
     enable = true;
@@ -25,7 +26,7 @@
       dots = "cd ~/Projects/OrynOS";
       verify = "sudo nix-store --verify --check-contents --repair";
       cls = "clear";
-      tryb = "sudo nixos-rebuild build --flake .#${hostname}"; #catch errors
+      tryb = "sudo nixos-rebuild build --flake .#${hostname}"; # catch errors
       nhswitch = "nh os switch --hostname ${hostname}";
       nhboot = "nh os boot --hostname ${hostname}";
       rebuild = "sudo nixos-rebuild switch --flake .#${hostname}";

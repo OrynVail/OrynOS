@@ -2,13 +2,18 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   boot = {
     initrd = {
       systemd.enable = true;
     };
 
-    supportedFilesystems = ["ntfs" "exfat" "vfat"];
+    supportedFilesystems = [
+      "ntfs"
+      "exfat"
+      "vfat"
+    ];
 
     enableContainers = true;
 

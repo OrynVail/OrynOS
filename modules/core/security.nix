@@ -1,6 +1,6 @@
 { pkgs, ... }: {
   boot = {
-    kernelModules = ["tcp_bbr"];
+    kernelModules = [ "tcp_bbr" ];
 
     kernel.sysctl = {
       ## TCP hardening

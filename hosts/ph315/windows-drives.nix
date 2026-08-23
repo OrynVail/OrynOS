@@ -1,4 +1,5 @@
-{...}: let
+{ ... }:
+let
   # NVMe enumeration order is not stable across boots; mount by UUID only.
   opts = [
     "uid=1000"
@@ -8,12 +9,13 @@
     "x-gvfs-show"
     "x-systemd.automount"
   ];
-in {
+in
+{
   # Windows C: — ro while Fast Startup leaves the volume hibernated.
   fileSystems."/mnt/predator" = {
     device = "/dev/disk/by-uuid/5CEC640CEC63DF30";
     fsType = "ntfs3";
-    options = opts ++ ["ro"];
+    options = opts ++ [ "ro" ];
     noCheck = true;
   };
 

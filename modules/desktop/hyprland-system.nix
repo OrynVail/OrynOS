@@ -1,4 +1,10 @@
-{ pkgs, username, lib, ... }: {
+{
+  pkgs,
+  username,
+  lib,
+  ...
+}:
+{
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
@@ -9,9 +15,9 @@
 
   systemd.user.services.hyprpolkitagent = {
     description = "Hyprpolkitagent - Polkit authentication agent";
-    wantedBy = ["graphical-session.target"];
-    wants = ["graphical-session.target"];
-    after = ["graphical-session.target"];
+    wantedBy = [ "graphical-session.target" ];
+    wants = [ "graphical-session.target" ];
+    after = [ "graphical-session.target" ];
     serviceConfig = {
       Type = "simple";
       ExecStart = "${pkgs.hyprpolkitagent}/libexec/hyprpolkitagent";
@@ -20,6 +26,5 @@
       TimeoutStopSec = 10;
     };
   };
-
 
 }

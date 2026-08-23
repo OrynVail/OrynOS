@@ -1,7 +1,8 @@
 {
   self,
   ...
-}: {
+}:
+{
   imports = [
     # core
     "${self}/modules/core/audio.nix"

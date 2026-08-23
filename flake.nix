@@ -40,61 +40,72 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    stylix,
-    nix-index-database,
-    nur,
-    nix-flatpak,
-    ...
-  } @ inputs: let
-    system = "x86_64-linux";
-    username = "oryn";
+  outputs =
+    {
+      self,
+      nixpkgs,
+      stylix,
+      nix-index-database,
+      nur,
+      nix-flatpak,
+      ...
+    }@inputs:
+    let
+      system = "x86_64-linux";
+      username = "oryn";
 
-    # Package
-    pkgsConfig = {
-      allowUnfree = true;
-    };
+      # Package
+      pkgsConfig = {
+        allowUnfree = true;
+      };
 
-    pkgsOverlays = [
-      nur.overlays.default
-    ];
-
-    # Arguments passed to every module
-    sharedSpecialArgsFor = hostname: {
-      inherit self inputs username hostname system;
-    };
-
-    # System builder
-    mkSystem = hostname: nixpkgs.lib.nixosSystem {
-      inherit system;
-      specialArgs = sharedSpecialArgsFor hostname;
-      modules = [
-        "${self}/modules/common/configuration.nix"
-        "${self}/hosts/${hostname}"
-
-        # Modules
-        nix-flatpak.nixosModules.nix-flatpak
-        stylix.nixosModules.stylix
-        nix-index-database.nixosModules.nix-index
-
-        # Global Nixpkgs Config
-        {
-          nixpkgs.config = pkgsConfig;
-          nixpkgs.overlays = pkgsOverlays;
-
-          i18n.inputMethod.enabled = nixpkgs.lib.mkForce null;
-        }
+      pkgsOverlays = [
+        nur.overlays.default
       ];
+
+      # Arguments passed to every module
+      sharedSpecialArgsFor = hostname: {
+        inherit
+          self
+          inputs
+          username
+          hostname
+          system
+          ;
+      };
+
+      # System builder
+      mkSystem =
+        hostname:
+        nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = sharedSpecialArgsFor hostname;
+          modules = [
+            "${self}/modules/common/configuration.nix"
+            "${self}/hosts/${hostname}"
+
+            # Modules
+            nix-flatpak.nixosModules.nix-flatpak
+            stylix.nixosModules.stylix
+            nix-index-database.nixosModules.nix-index
+
+            # Global Nixpkgs Config
+            {
+              nixpkgs.config = pkgsConfig;
+              nixpkgs.overlays = pkgsOverlays;
+
+              i18n.inputMethod.enabled = nixpkgs.lib.mkForce null;
+            }
+          ];
+        };
+
+    in
+    {
+      nixosConfigurations = {
+        ph315 = mkSystem "ph315";
+
+      };
+
+      formatter.${system} = nixpkgs.legacyPackages.${system}.nixfmt;
     };
-
-  in {
-    nixosConfigurations = {
-      ph315 = mkSystem "ph315";
-
-    };
-
-    formatter.${system} = nixpkgs.legacyPackages.${system}.nixfmt;
-  };
 }

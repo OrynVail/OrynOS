@@ -3,11 +3,13 @@
   lib,
   pkgs,
   ...
-}: let
+}:
+let
   nvidiaDriverChannel = config.boot.kernelPackages.nvidiaPackages.stable;
-in {
+in
+{
   # Enable NVIDIA driver
-  services.xserver.videoDrivers = ["nvidia"];
+  services.xserver.videoDrivers = [ "nvidia" ];
 
   # Kernel parameters for better Wayland and GNOME integration
   boot.kernelParams = [

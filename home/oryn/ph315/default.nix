@@ -2,7 +2,8 @@
   username,
   self,
   ...
-}: {
+}:
+{
   imports = [
     # modules
     "${self}/modules/desktop/hyprland.nix"

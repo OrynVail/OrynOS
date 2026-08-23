@@ -2,7 +2,8 @@
   pkgs,
   username,
   ...
-}:{
+}:
+{
   programs.nh = {
     enable = true;
     clean = {

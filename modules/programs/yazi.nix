@@ -6,7 +6,11 @@
 
     settings = {
       mgr = {
-        ratio = [ 1 3 4 ];
+        ratio = [
+          1
+          3
+          4
+        ];
         sort_by = "natural";
         sort_dir_first = true;
         sort_sensitive = false;
@@ -14,7 +18,11 @@
         show_symlink = true;
         linemode = "size";
         scrolloff = 5;
-        mouse_events = [ "click" "scroll" "drag" ];
+        mouse_events = [
+          "click"
+          "scroll"
+          "drag"
+        ];
       };
 
       preview = {
@@ -26,19 +34,47 @@
       };
 
       opener.edit = [
-        { run = "kitty --detach nvim %s"; desc = "nvim (new window)"; orphan = true; for = "unix"; }
-        { run = "nvim %s"; desc = "nvim (here)"; block = true; for = "unix"; }
+        {
+          run = "kitty --detach nvim %s";
+          desc = "nvim (new window)";
+          orphan = true;
+          for = "unix";
+        }
+        {
+          run = "nvim %s";
+          desc = "nvim (here)";
+          block = true;
+          for = "unix";
+        }
       ];
 
       plugin.prepend_fetchers = [
-        { url = "*"; run = "git"; group = "git"; }
-        { url = "*/"; run = "git"; group = "git"; }
+        {
+          url = "*";
+          run = "git";
+          group = "git";
+        }
+        {
+          url = "*/";
+          run = "git";
+          group = "git";
+        }
       ];
     };
 
     plugins = with pkgs.yaziPlugins; {
-      inherit chmod compress full-border git jump-to-char lazygit
-        relative-motions restore smart-enter starship;
+      inherit
+        chmod
+        compress
+        full-border
+        git
+        jump-to-char
+        lazygit
+        relative-motions
+        restore
+        smart-enter
+        starship
+        ;
     };
 
     initLua = ''
@@ -49,22 +85,105 @@
     '';
 
     keymap.mgr.prepend_keymap = [
-      { on = "l"; run = "plugin smart-enter"; desc = "Enter directory or open file"; }
-      { on = "f"; run = "plugin jump-to-char"; desc = "Jump to char"; }
-      { on = [ "c" "m" ]; run = "plugin chmod"; desc = "Chmod selection"; }
-      { on = [ "c" "c" ]; run = "plugin compress"; desc = "Compress selection"; }
-      { on = "<C-g>"; run = "plugin lazygit"; desc = "lazygit"; }
-      { on = [ "g" "u" ]; run = "plugin restore"; desc = "Restore from trash"; }
+      {
+        on = "l";
+        run = "plugin smart-enter";
+        desc = "Enter directory or open file";
+      }
+      {
+        on = "f";
+        run = "plugin jump-to-char";
+        desc = "Jump to char";
+      }
+      {
+        on = [
+          "c"
+          "m"
+        ];
+        run = "plugin chmod";
+        desc = "Chmod selection";
+      }
+      {
+        on = [
+          "c"
+          "c"
+        ];
+        run = "plugin compress";
+        desc = "Compress selection";
+      }
+      {
+        on = "<C-g>";
+        run = "plugin lazygit";
+        desc = "lazygit";
+      }
+      {
+        on = [
+          "g"
+          "u"
+        ];
+        run = "plugin restore";
+        desc = "Restore from trash";
+      }
 
-      { on = "<Delete>"; run = "remove"; desc = "Move to trash"; }
-      { on = "y"; run = [ "yank" "escape --visual --select" ]; desc = "Copy"; }
-      { on = "<C-n>"; run = ''shell -- kitty --detach --directory "$PWD"''; desc = "Terminal here"; }
+      {
+        on = "<Delete>";
+        run = "remove";
+        desc = "Move to trash";
+      }
+      {
+        on = "y";
+        run = [
+          "yank"
+          "escape --visual --select"
+        ];
+        desc = "Copy";
+      }
+      {
+        on = "<C-n>";
+        run = ''shell -- kitty --detach --directory "$PWD"'';
+        desc = "Terminal here";
+      }
 
-      { on = [ "g" "p" ]; run = "cd ~/Projects"; desc = "Projects"; }
-      { on = [ "g" "o" ]; run = "cd ~/Projects/OrynOS"; desc = "OrynOS"; }
-      { on = [ "g" "d" ]; run = "cd ~/Downloads"; desc = "Downloads"; }
-      { on = [ "g" "D" ]; run = "cd ~/Documents"; desc = "Documents"; }
-      { on = [ "g" "v" ]; run = "cd ~/Videos"; desc = "Videos"; }
+      {
+        on = [
+          "g"
+          "p"
+        ];
+        run = "cd ~/Projects";
+        desc = "Projects";
+      }
+      {
+        on = [
+          "g"
+          "o"
+        ];
+        run = "cd ~/Projects/OrynOS";
+        desc = "OrynOS";
+      }
+      {
+        on = [
+          "g"
+          "d"
+        ];
+        run = "cd ~/Downloads";
+        desc = "Downloads";
+      }
+      {
+        on = [
+          "g"
+          "D"
+        ];
+        run = "cd ~/Documents";
+        desc = "Documents";
+      }
+      {
+        on = [
+          "g"
+          "v"
+        ];
+        run = "cd ~/Videos";
+        desc = "Videos";
+      }
     ];
 
     extraPackages = with pkgs; [
@@ -87,7 +206,12 @@
     exec = "kitty -e yazi %f";
     terminal = false;
     icon = "system-file-manager";
-    categories = [ "Utility" "Core" "FileTools" "FileManager" ];
+    categories = [
+      "Utility"
+      "Core"
+      "FileTools"
+      "FileManager"
+    ];
     mimeType = [ "inode/directory" ];
   };
 }

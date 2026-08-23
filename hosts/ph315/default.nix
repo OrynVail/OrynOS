@@ -3,7 +3,8 @@
   inputs,
   self,
   ...
-}: {
+}:
+{
   imports = [
     "${self}/hosts/ph315/hardware-configuration.nix"
     "${self}/hosts/ph315/windows-drives.nix"

@@ -2,16 +2,19 @@
 
 {
   home.packages = with pkgs; [
-    obsidian 
+    obsidian
   ];
 
   # Patch the .desktop file for Obsidian
   xdg.desktopEntries.obsidian = {
     name = "Obsidian";
-    exec = "obsidian"; 
-    icon = "obsidian"; 
+    exec = "obsidian";
+    icon = "obsidian";
     terminal = false;
     type = "Application";
-    categories = [ "Office" "Utility" ];
+    categories = [
+      "Office"
+      "Utility"
+    ];
   };
 }

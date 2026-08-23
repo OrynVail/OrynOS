@@ -4,14 +4,18 @@
   lib,
   pkgs,
   ...
-}: {
-  imports = [inputs.nix-flatpak.homeManagerModules.nix-flatpak];
+}:
+{
+  imports = [ inputs.nix-flatpak.homeManagerModules.nix-flatpak ];
 
   # Enable flatpak service
   services.flatpak = {
     enable = true;
     packages = [
-      { appId = "com.obsproject.Studio"; origin = "flathub"; }
+      {
+        appId = "com.obsproject.Studio";
+        origin = "flathub";
+      }
     ];
 
     # Remove flatpaks that were manually installed but not listed here
@@ -32,7 +36,7 @@
     }
   ];
 
-  home.packages = [pkgs.flatpak];
+  home.packages = [ pkgs.flatpak ];
 
   # Uncomment to add flatpak directories to XDG data dirs
   # This helps with desktop integration

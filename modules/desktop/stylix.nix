@@ -1,10 +1,11 @@
 {
   pkgs,
   ...
-}:{
+}:
+{
   stylix = {
     enable = true;
-      base16Scheme = "${pkgs.base16-schemes}/share/themes/ashes.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/ashes.yaml";
 
     polarity = "dark";
 
@@ -42,8 +43,8 @@
         name = "Noto Color Emoji";
       };
 
-        # Set default sizes
-        sizes = {
+      # Set default sizes
+      sizes = {
         terminal = 10;
         applications = 10;
         desktop = 10;

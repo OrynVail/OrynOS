@@ -2,7 +2,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   programs.vscode = {
     enable = true;
     mutableExtensionsDir = true;
@@ -91,7 +92,7 @@
         "C_Cpp.intelliSenseCacheSize" = 2048;
         "C_Cpp.intelliSenseMemoryLimit" = 2048;
         "C_Cpp.default.browse.path" = [
-          ''''${workspaceFolder}/**''
+          "\${workspaceFolder}/**"
         ];
         "C_Cpp.default.cStandard" = "gnu11";
         "C_Cpp.inlayHints.parameterNames.hideLeadingUnderscores" = false;

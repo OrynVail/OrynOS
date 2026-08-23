@@ -1,7 +1,11 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   networking = {
     enableIPv6 = false;
-    nameservers = ["1.1.1.1" "1.0.0.1" "8.8.8.8"];
+    nameservers = [
+      "1.1.1.1"
+      "1.0.0.1"
+      "8.8.8.8"
+    ];
 
     nftables.enable = true;
     firewall.enable = true;

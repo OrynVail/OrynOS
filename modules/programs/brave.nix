@@ -2,7 +2,8 @@
   pkgs,
   config,
   ...
-}: {
+}:
+{
   # =================================================================
   #  BRAVE - CHROMIUM-BASED SOVEREIGNTY
   # =================================================================
@@ -14,25 +15,25 @@
     # --- EXTENSIONS (Chrome Web Store IDs) ---
     extensions = [
       # Security & Privacy
-      {id = "epcnnfbjfcgphgdmggkamkmgojdagdnn";} # uBlock Origin
-      {id = "nngceckbapebfimnlniiiahkandclblb";} # Bitwarden
-      {id = "pkehgijcmpdhfbdbbnkijodmdjhbjlgp";} # Privacy Badger
+      { id = "epcnnfbjfcgphgdmggkamkmgojdagdnn"; } # uBlock Origin
+      { id = "nngceckbapebfimnlniiiahkandclblb"; } # Bitwarden
+      { id = "pkehgijcmpdhfbdbbnkijodmdjhbjlgp"; } # Privacy Badger
 
       # Productivity
-      {id = "cgfpgnepljlgenjclbekbjdlgcodfmjp";} # Simple Tab Groups
-      {id = "dbepggeogbaibhgnhhndojpepiihcmeb";} # Vimium
+      { id = "cgfpgnepljlgenjclbekbjdlgcodfmjp"; } # Simple Tab Groups
+      { id = "dbepggeogbaibhgnhhndojpepiihcmeb"; } # Vimium
 
       # Content Enhancement
-      {id = "eimadpbcbfnmbkopoojfekhnkhdbieeh";} # Dark Reader
-      {id = "oldceeleldhonbafppcapldpdifcinji";} # LanguageTool
-      {id = "iplffkdpngmdjhlpjmppncnlhomiipha";} # Unpaywall
+      { id = "eimadpbcbfnmbkopoojfekhnkhdbieeh"; } # Dark Reader
+      { id = "oldceeleldhonbafppcapldpdifcinji"; } # LanguageTool
+      { id = "iplffkdpngmdjhlpjmppncnlhomiipha"; } # Unpaywall
 
       # Utilities
-      {id = "bhmmomiinigofkjcapegjjndpbikblnp";} # I Still Don't Care About Cookies
-      {id = "cimiefiiaegbelhefglklhhakcgmhkai";} # Link Cleaner (alternative: ClearURLs)
+      { id = "bhmmomiinigofkjcapegjjndpbikblnp"; } # I Still Don't Care About Cookies
+      { id = "cimiefiiaegbelhefglklhhakcgmhkai"; } # Link Cleaner (alternative: ClearURLs)
 
       # YouTube Enhancements
-      {id = "gebbhagfogifgggkldgodflihgfeippi";} # Return YouTube Dislike
+      { id = "gebbhagfogifgggkldgodflihgfeippi"; } # Return YouTube Dislike
     ];
 
     # --- COMMAND LINE FLAGS (Performance + Privacy) ---

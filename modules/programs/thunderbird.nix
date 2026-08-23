@@ -2,7 +2,8 @@
   pkgs,
   userConfig,
   ...
-}: {
+}:
+{
   # Ensure thunderbird package installed
   home.packages = with pkgs; [
     thunderbird

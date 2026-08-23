@@ -1,4 +1,9 @@
-{ config, pkgs, username, ... }:
+{
+  config,
+  pkgs,
+  username,
+  ...
+}:
 
 let
   peer-port = 51412;
@@ -76,7 +81,10 @@ in
   users.users.${username}.extraGroups = [ rt.group ];
 
   networking.firewall.allowedTCPPorts = [ 6881 ];
-  networking.firewall.allowedUDPPorts = [ peer-port 6881 ];
+  networking.firewall.allowedUDPPorts = [
+    peer-port
+    6881
+  ];
 
   environment.sessionVariables.PYRO_SCGI_URL = "scgi+unix://${rt.rpcSocket}";
 

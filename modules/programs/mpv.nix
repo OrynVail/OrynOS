@@ -59,7 +59,7 @@
       osd-bar = "yes";
     };
 
-    scripts = [ 
+    scripts = [
       pkgs.mpvScripts.mpris
       pkgs.mpvScripts.uosc
     ];

@@ -1,10 +1,17 @@
 {
   ...
-}:{
+}:
+{
   nix = {
     settings = {
-      trusted-users = [ "root" "@wheel" ];
-      experimental-features = ["nix-command" "flakes"];
+      trusted-users = [
+        "root"
+        "@wheel"
+      ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
       accept-flake-config = true;
       builders-use-substitutes = true;
       keep-outputs = true;

@@ -1,10 +1,11 @@
 {
   pkgs,
   ...
-}: {
+}:
+{
 
   home.packages = with pkgs; [
-      antigravity-cli
+    antigravity-cli
   ];
 
   home.file = {
@@ -60,7 +61,7 @@
           useBackgroundColor = true;
           incrementalRendering = true;
           showSpinner = true;
-          customWittyPhrases = [];
+          customWittyPhrases = [ ];
           accessibility = {
             enableLoadingPhrases = true;
             screenReader = false;
@@ -92,7 +93,10 @@
           };
         };
         context = {
-          fileName = ["AGENTS.md" "GEMINI.md"];
+          fileName = [
+            "AGENTS.md"
+            "GEMINI.md"
+          ];
         };
         experimental = {
           toolOutputMasking = {

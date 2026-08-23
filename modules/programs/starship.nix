@@ -4,18 +4,18 @@ let
   # Base16 Ashes Color Palette
   # Mapped to match your previous prompt's gradient logic
   ashes = {
-    red = "#C79595";      # base08
-    peach = "#C7AE95";    # base09 (Orange)
-    yellow = "#C7C795";   # base0A
-    green = "#AEC795";    # base0B
+    red = "#C79595"; # base08
+    peach = "#C7AE95"; # base09 (Orange)
+    yellow = "#C7C795"; # base0A
+    green = "#AEC795"; # base0B
     sapphire = "#95AEC7"; # base0D (Blue)
     lavender = "#AE95C7"; # base0E (Purple)
-    text = "#C7CCD1";     # base05 (Foreground)
-    crust = "#1C2023";    # base00 (Background)
+    text = "#C7CCD1"; # base05 (Foreground)
+    crust = "#1C2023"; # base00 (Background)
   };
 
   # Helper function to create powerline transitions
-  transition = from: to: ''[](bg:${to} fg:${from})'';
+  transition = from: to: "[](bg:${to} fg:${from})";
 
   # Define powerline symbols with proper Unicode escaping for Nix
   symbols = {
@@ -24,7 +24,8 @@ let
     closer = "";
   };
 
-in {
+in
+{
   home.packages = with pkgs; [
     starship
   ];
