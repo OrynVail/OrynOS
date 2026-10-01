@@ -14,7 +14,7 @@
         sort_by = "natural";
         sort_dir_first = true;
         sort_sensitive = false;
-        show_hidden = false;
+        show_hidden = true;
         show_symlink = true;
         linemode = "size";
         scrolloff = 5;
@@ -105,7 +105,7 @@
       }
       {
         on = [
-          "c"
+          "z"
           "c"
         ];
         run = "plugin compress";

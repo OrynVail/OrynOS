@@ -21,8 +21,6 @@
     "${self}/modules/mixins/nvidia-laptop.nix"
   ];
 
-  boot.kernelParams = [ "video=DP-3:1920x1080@144" ];
-
   environment.systemPackages = with pkgs; [
     sbctl
     brightnessctl

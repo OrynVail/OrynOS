@@ -14,6 +14,8 @@
     vesktop
     persepolis
     qalculate-gtk
+    maxima
+    wxmaxima
 
     # Kubernetes
     kubectl

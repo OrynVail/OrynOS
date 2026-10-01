@@ -1,4 +1,4 @@
-local giga_desc = "GIGA-BYTE TECHNOLOGY CO. LTD. G24F 2 22410B002844"
+local giga_desc = "GIGA-BYTE TECHNOLOGY CO. LTD. G24F 2"
 local giga = "desc:" .. giga_desc
 local internal = "eDP-1"
 local workspaces = 9
@@ -12,7 +12,7 @@ hl.monitor({
 
 hl.monitor({
     output = giga,
-    mode = "1920x1080@144.00",
+    mode = "1920x1080@165.00",
     position = "0x0",
     scale = 1,
 })
