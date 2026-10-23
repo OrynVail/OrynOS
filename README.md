@@ -28,7 +28,7 @@ Declarative and modular, and written to be read.
 |---|---|
 | **OS** | NixOS Unstable |
 | **Compositor** | Hyprland |
-| **Login** | SDDM |
+| **Login** | greetd + ReGreet |
 | **Theming** | Stylix (Base16) |
 | **Terminal** | Kitty |
 | **Browser** | Brave |

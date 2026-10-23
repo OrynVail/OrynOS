@@ -66,8 +66,7 @@
 
     pam.services = {
       login.enableGnomeKeyring = true;
-      sddm.enableGnomeKeyring = true;
-      sddm-autologin.enableGnomeKeyring = true;
+      greetd.enableGnomeKeyring = true;
       hyprland.enableGnomeKeyring = true;
     };
   };

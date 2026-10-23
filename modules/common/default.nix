@@ -10,7 +10,7 @@
     "${self}/modules/core/network.nix"
     "${self}/modules/core/power.nix"
     "${self}/modules/core/security.nix"
-    "${self}/modules/core/sddm.nix"
+    "${self}/modules/core/greetd.nix"
     "${self}/modules/core/system.nix"
     "${self}/modules/core/users.nix"
 
@@ -22,6 +22,7 @@
 
     # hardware
     "${self}/modules/hardware/hardware.nix"
+    "${self}/modules/hardware/print.nix"
 
     # nix
     "${self}/modules/nix/nh.nix"

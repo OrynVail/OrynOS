@@ -11,6 +11,7 @@
 
     # Applications
     gimp
+    keepassxc
     vesktop
     persepolis
     qalculate-gtk

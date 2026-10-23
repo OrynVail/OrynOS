@@ -9,7 +9,6 @@
     xkb.layout = "us";
     xkb.variant = "";
   };
-  services.printing.enable = false;
 
   programs.zsh.enable = true;
 
