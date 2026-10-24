@@ -17,8 +17,7 @@
     openFirewall = true;
   };
 
-  # CUPS only auto-adds driverless printers, so without this the L130 is
-  # detected and has no queue. Serial pins it to this unit.
+  # CUPS only auto-adds driverless printers; without this the L130 has no queue
   hardware.printers = {
     ensureDefaultPrinter = "EpsonL130";
     ensurePrinters = [

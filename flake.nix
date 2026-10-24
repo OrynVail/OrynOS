@@ -36,6 +36,11 @@
       inputs.treefmt-nix.inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    flokshell = {
+      url = "github:OrynVail/flokshell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
@@ -48,6 +53,7 @@
       nix-index-database,
       nur,
       nix-flatpak,
+      flokshell,
       ...
     }@inputs:
     let
@@ -88,6 +94,7 @@
             nix-flatpak.nixosModules.nix-flatpak
             stylix.nixosModules.stylix
             nix-index-database.nixosModules.nix-index
+            flokshell.nixosModules.default
 
             # Global Nixpkgs Config
             {

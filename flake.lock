@@ -1,5 +1,26 @@
 {
   "nodes": {
+    "axctl": {
+      "inputs": {
+        "nixpkgs": [
+          "flokshell",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1788986922,
+        "narHash": "sha256-QwrH89TPuG1+zueHENWO0RBonVGWdBcdjx08pJ2bJu0=",
+        "owner": "Axenide",
+        "repo": "axctl",
+        "rev": "86ce5abcecd68e9e828b69885ac3551686066c4a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Axenide",
+        "repo": "axctl",
+        "type": "github"
+      }
+    },
     "base16": {
       "inputs": {
         "fromYaml": "fromYaml"
@@ -166,6 +187,27 @@
         "type": "github"
       }
     },
+    "flokshell": {
+      "inputs": {
+        "axctl": "axctl",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1792770113,
+        "narHash": "sha256-Lq8dIEfS4Av638PQ+P7W6IkEXPE5eIm2WjGsPwuutU4=",
+        "owner": "OrynVail",
+        "repo": "flokshell",
+        "rev": "f03d70e5809496c6c76528f4ba7c96f702aeed24",
+        "type": "github"
+      },
+      "original": {
+        "owner": "OrynVail",
+        "repo": "flokshell",
+        "type": "github"
+      }
+    },
     "fromYaml": {
       "flake": false,
       "locked": {
@@ -224,11 +266,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1792703141,
-        "narHash": "sha256-3X34FaSeMJXMx8CK/BN6sZ9knwNauuiJXQhLM+bQQuI=",
+        "lastModified": 1792818371,
+        "narHash": "sha256-yhEZAzZRNvzYpoAlyFY3wM75V9BmkIXJIueof8S5gOg=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "6750249c69969d09d952efaf3fab88a2bdac7ec6",
+        "rev": "2cd3234928f60bbff695a7ee56115ef7799c47cd",
         "type": "github"
       },
       "original": {
@@ -387,11 +429,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1792747952,
-        "narHash": "sha256-d4l1vSWy12thq1z9JDzMejCS2RPtAFJQpWCLEiMMXzA=",
+        "lastModified": 1792829167,
+        "narHash": "sha256-JzEX7nQP3AboULHfdqZf2N5tiAlgq92QvnPWxdFdiUo=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "3bc7c77bbf54937a7ddc7ef40e4bdae45b072bc8",
+        "rev": "a8de8d9b7d0ac710096f616fdb031041762fd6b0",
         "type": "github"
       },
       "original": {
@@ -453,6 +495,7 @@
     },
     "root": {
       "inputs": {
+        "flokshell": "flokshell",
         "home-manager": "home-manager",
         "nix-flatpak": "nix-flatpak",
         "nix-index-database": "nix-index-database",

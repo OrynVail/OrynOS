@@ -17,7 +17,7 @@ Declarative and modular, and written to be read.
 - Native **Hyprland** configuration
 - System-wide theming via **Stylix**
 - Modular system and Home Manager layout
-- Shells installed via **Nix profiles** (intentionally non-declarative)
+- [flokshell](https://github.com/OrynVail/flokshell) pulled in as a **flake input**
 - NVIDIA hardware acceleration preconfigured
 
 ---
@@ -105,9 +105,15 @@ Rebuild once. Everything follows.
 
 ### Shells
 
-Shells are installed via Nix profiles by design.
+[flokshell](https://github.com/OrynVail/flokshell) comes in as a flake input and brings its own
+module — the package, its `flokd` daemon and the fonts. Nothing to install by hand.
 
-Swap freely. Update the Hyprland `exec-once` entry accordingly.
+```nix
+flokshell.nixosModules.default
+```
+
+A shell run from the store cannot hot-reload, so edits are made against a working tree and run
+with `./cli.sh`; the store build is what the session starts. Bump the input to ship them.
 
 ### Programs
 
