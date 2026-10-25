@@ -54,4 +54,7 @@
     # targets.grub.enable = true;
     # targets.console.enable = true;
   };
+
+  # Unused, and the target still sets the renamed programs.rofi.font.
+  home-manager.sharedModules = [ { stylix.targets.rofi.enable = false; } ];
 }

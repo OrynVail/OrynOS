@@ -5,7 +5,7 @@
 {
   home.packages = with pkgs; [
     # OFFICE tools
-    libreoffice-fresh
+    libreoffice
 
     # Document conversion
     pandoc

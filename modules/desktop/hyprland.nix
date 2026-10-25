@@ -1,8 +1,14 @@
 {
+  config,
   pkgs,
   ...
 }:
 {
+  # greetd sources ~/.profile, never ~/.zshenv.
+  home.file.".profile".text = ''
+    . "${config.home.profileDirectory}/etc/profile.d/hm-session-vars.sh"
+  '';
+
   xdg.configFile = {
     "hypr/monitors.lua".source = ./lua/monitors.lua;
     "hypr/config.lua".source = ./lua/config.lua;
@@ -14,6 +20,7 @@
   wayland.windowManager.hyprland = {
     enable = true;
     configType = "lua";
+    systemd.variables = [ "--all" ];
     extraConfig = ''
       ${builtins.readFile ./lua/hyprland.lua}
     '';

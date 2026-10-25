@@ -5,10 +5,6 @@
 }:
 {
   boot = {
-    initrd = {
-      systemd.enable = true;
-    };
-
     supportedFilesystems = [
       "ntfs"
       "exfat"
