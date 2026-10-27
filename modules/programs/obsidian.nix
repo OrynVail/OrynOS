@@ -2,7 +2,7 @@
 
 {
   home.packages = with pkgs; [
-    obsidian
+    (obsidian.override { electron = electron_44; })
   ];
 
   # Patch the .desktop file for Obsidian
