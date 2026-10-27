@@ -8,7 +8,6 @@
     file-roller
     loupe
     gvfs
-    polkit_gnome
     seahorse
   ];
 

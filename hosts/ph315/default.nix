@@ -23,7 +23,5 @@
 
   environment.systemPackages = with pkgs; [
     sbctl
-    brightnessctl
-    ddcutil
   ];
 }
