@@ -8,11 +8,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1788986922,
-        "narHash": "sha256-QwrH89TPuG1+zueHENWO0RBonVGWdBcdjx08pJ2bJu0=",
+        "lastModified": 1792600770,
+        "narHash": "sha256-2aY5Qibj9Yv0aIz9fIjTKgptdWtwrZvQdjp63eB4hsg=",
         "owner": "Axenide",
         "repo": "axctl",
-        "rev": "86ce5abcecd68e9e828b69885ac3551686066c4a",
+        "rev": "9f3ac86c52f51b589dfaf1173c34938248a487fa",
         "type": "github"
       },
       "original": {
@@ -195,11 +195,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1793093019,
-        "narHash": "sha256-fDCiUVPmlwMXGJDDCwFc+JSHii7pAKNT3y52mbVTzxQ=",
+        "lastModified": 1793276190,
+        "narHash": "sha256-fUKSUiyDAhOQCLTcnKJS23J3fBIEVsQ4CFocNZgLv9I=",
         "owner": "OrynVail",
         "repo": "flokshell",
-        "rev": "13d6b9b1f2de1ecff61bf3bd8430142dc585628a",
+        "rev": "09ceb9dadaa1b65fc8ceef2fcb627b41eeb2039d",
         "type": "github"
       },
       "original": {
