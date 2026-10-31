@@ -253,7 +253,7 @@
     };
 
     initLua = ''
-      require("full-border"):setup({ type = ui.Border.ROUNDED })
+      require("full-border"):setup({ set = "rounded" })
       require("git"):setup()
       require("starship"):setup()
       require("relative-motions"):setup({ show_numbers = "relative_absolute", show_motion = true })
@@ -383,7 +383,7 @@
   xdg.desktopEntries.yazi = {
     name = "Yazi";
     genericName = "File Manager";
-    exec = "kitty -e yazi %f";
+    exec = "kitty --class yazi -e yazi %f";
     terminal = false;
     icon = "system-file-manager";
     categories = [

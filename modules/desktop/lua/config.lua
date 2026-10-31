@@ -48,7 +48,7 @@ hl.config({
     },
 
     general = {
-        gaps_in = 3,
+        gaps_in = 2,
         gaps_out = 8,
         border_size = 2,
         col = {
@@ -68,7 +68,7 @@ hl.config({
         blur = {
             enabled = true,
             size = 6,
-            passes = 2,
+            passes = 3,
             new_optimizations = true,
             ignore_opacity = true,
             xray = false,

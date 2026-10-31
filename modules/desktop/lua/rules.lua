@@ -4,7 +4,7 @@ hl.window_rule({
 })
 
 hl.window_rule({
-    match = { class = "^(kitty|[Aa]lacritty)$" },
+    match = { class = "^(kitty|yazi|[Aa]lacritty)$" },
     opacity = "0.90 0.90 1.0"
 })
 

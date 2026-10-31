@@ -34,6 +34,7 @@
     "${self}/modules/programs/starship.nix"
     "${self}/modules/programs/thunderbird.nix"
     "${self}/modules/programs/tmux.nix"
+    "${self}/modules/programs/udiskie.nix"
     "${self}/modules/programs/zoxide.nix"
     "${self}/modules/programs/yazi.nix"
     "${self}/modules/common/user-packages.nix"
