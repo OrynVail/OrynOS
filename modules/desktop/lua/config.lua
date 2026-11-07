@@ -80,6 +80,7 @@ hl.config({
 
     render = {
 		direct_scanout = 0, -- 0 = off, 1 = on, 2 = auto (on with content type ‘game’)
+		cm_auto_hdr = 0,
 	},
 
     ecosystem = {
@@ -93,7 +94,7 @@ hl.config({
         mouse_move_focuses_monitor = true,
         swallow_regex = "^(Alacritty|kitty)$",
         enable_swallow = true,
-        vrr = 1, -- (0 = off, 1 = on, 2 = fullscreen only, 3 = fullscreen games / media)
+        vrr = 0, -- (0 = off, 1 = on, 2 = fullscreen only, 3 = fullscreen games / media)
 	},
 
     dwindle = {
